@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/const.dart';
+import 'package:stour/util/places.dart';
 
 class TrendingPlace extends StatefulWidget {
-  final String img;
-  final String title;
-  final String address;
-  final String rating;
-  final String time;
+  final Place place;
 
   const TrendingPlace({
     super.key,
-    required this.img,
-    required this.title,
-    required this.address,
-    required this.rating,
-    required this.time,
+    required this.place,
   });
 
   @override
@@ -46,7 +39,7 @@ class _TrendingPlaceState extends State<TrendingPlace> {
                         topRight: Radius.circular(10),
                       ),
                       child: Image.asset(
-                        widget.img,
+                        widget.place.img,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -67,7 +60,7 @@ class _TrendingPlaceState extends State<TrendingPlace> {
                               size: 10.0,
                             ),
                             Text(
-                              " ${widget.rating} ",
+                              " ${widget.place.rating} ",
                               style: const TextStyle(
                                 fontSize: 10.0,
                               ),
@@ -86,7 +79,7 @@ class _TrendingPlaceState extends State<TrendingPlace> {
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Text(
-                          widget.time,
+                          widget.place.time,
                           style: const TextStyle(
                             fontSize: 10.0,
                             color: Colors.green,
@@ -104,7 +97,7 @@ class _TrendingPlaceState extends State<TrendingPlace> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Text(
-                    widget.title,
+                    widget.place.title,
                     style: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w800,
@@ -119,7 +112,7 @@ class _TrendingPlaceState extends State<TrendingPlace> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Text(
-                    widget.address,
+                    widget.place.address,
                     style: const TextStyle(
                       fontSize: 12.0,
                       fontWeight: FontWeight.w300,

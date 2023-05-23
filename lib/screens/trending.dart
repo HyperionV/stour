@@ -29,14 +29,7 @@ class Trending extends StatelessWidget {
               // itemCount: places == null ? 0 : places.length,
               itemCount: places.length,
               itemBuilder: (BuildContext context, int index) {
-                Map place = places[index];
-                return TrendingPlace(
-                  img: place["img"],
-                  title: place["title"],
-                  address: place["address"],
-                  rating: place["rating"],
-                  time: place["time"],
-                );
+                return TrendingPlace(place: places[index]);
               },
             ),
             const SizedBox(height: 10.0),

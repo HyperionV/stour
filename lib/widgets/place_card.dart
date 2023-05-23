@@ -5,18 +5,12 @@ import 'package:stour/screens/details.dart';
 
 class PlaceCard extends StatefulWidget {
   //final String img;
-  final String title;
-  final String address;
-  final String rating;
-  final String time;
+  final Place place;
 
   const PlaceCard({
     super.key,
     //@required this.img,
-    required this.title,
-    required this.address,
-    required this.rating,
-    required this.time,
+    required this.place,
   });
 
   @override
@@ -26,13 +20,8 @@ class PlaceCard extends StatefulWidget {
 class _PlaceCardState extends State<PlaceCard> {
   @override
   Widget build(BuildContext context) {
-    Place toBePassed = Place(
-      title: widget.title,
-      address: widget.address,
-      rating: widget.rating,
-      time: widget.time,
-      img: '',
-    );
+    // print('Print in PlaceCard ${widget.place.img}');
+
     return Padding(
       padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: SizedBox(
@@ -44,7 +33,7 @@ class _PlaceCardState extends State<PlaceCard> {
               context,
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return DetailScreen(placeToDisplay: toBePassed);
+                  return DetailScreen(placeToDisplay: widget.place);
                 },
               ),
             );
@@ -61,15 +50,15 @@ class _PlaceCardState extends State<PlaceCard> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height / 3.7,
                       width: MediaQuery.of(context).size.width,
-                      child: const ClipRRect(
-                        borderRadius: BorderRadius.only(
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10.0),
                           topRight: Radius.circular(10.0),
                         ),
-                        // child: Image.asset(
-                        //   "${widget.img}",
-                        //   fit: BoxFit.cover,
-                        // ),
+                        child: Image.asset(
+                          widget.place.img,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     Positioned(
@@ -88,9 +77,9 @@ class _PlaceCardState extends State<PlaceCard> {
                                 size: 10,
                               ),
                               Text(
-                                " ${widget.rating} ",
+                                " ${widget.place.rating} ",
                                 style: const TextStyle(
-                                  fontSize: 10.0,
+                                  fontSize: 12.0,
                                 ),
                               ),
                             ],
@@ -106,14 +95,20 @@ class _PlaceCardState extends State<PlaceCard> {
                             borderRadius: BorderRadius.circular(3.0)),
                         child: Padding(
                           padding: const EdgeInsets.all(4.0),
-                          child: Text(
-                            " ${widget.time}",
-                            style: const TextStyle(
-                              fontSize: 10.0,
-                              color: Colors.green,
-                              fontWeight: FontWeight.bold,
+                          child: Row(children: [
+                            const Icon(
+                              Icons.access_time,
+                              size: 12,
                             ),
-                          ),
+                            Text(
+                              " ${widget.place.time}",
+                              style: const TextStyle(
+                                fontSize: 12.0,
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ]),
                         ),
                       ),
                     ),
@@ -125,7 +120,7 @@ class _PlaceCardState extends State<PlaceCard> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Text(
-                      widget.title,
+                      widget.place.title,
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w800,
@@ -140,7 +135,7 @@ class _PlaceCardState extends State<PlaceCard> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Text(
-                      widget.address,
+                      widget.place.address,
                       style: const TextStyle(
                         fontSize: 12.0,
                         fontWeight: FontWeight.w300,

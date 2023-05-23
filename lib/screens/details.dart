@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stour/screens/home.dart';
+// import 'package:stour/screens/home.dart';
 import 'package:stour/util/places.dart';
 import 'package:flutter/services.dart';
 
@@ -10,6 +10,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
+    // print('Print in Detail Screen ${placeToDisplay.img}');
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -23,30 +24,15 @@ class DetailScreen extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 25),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return const Home();
-                        },
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                  ),
                 ),
                 Text(
                   'Details',
                   style: GoogleFonts.poppins(
                       color: const Color.fromARGB(255, 44, 105, 224),
                       fontWeight: FontWeight.w600,
-                      fontSize: 16),
+                      fontSize: 20),
                 ),
                 IconButton(
                   onPressed: () {
@@ -81,14 +67,6 @@ class DetailScreen extends StatelessWidget {
                         });
                   },
                   icon: const Icon(Icons.favorite_border, size: 30),
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        side: const BorderSide(color: Colors.black),
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),
@@ -96,9 +74,8 @@ class DetailScreen extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.asset(
-                'assets\\suoi_tien.jpg',
-                height: 300,
-                width: double.infinity,
+                placeToDisplay.img,
+                width: double.maxFinite,
               ),
             ),
             const SizedBox(height: 15),
@@ -140,7 +117,7 @@ class DetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),

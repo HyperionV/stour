@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     Icons.person,
   ];
 
-  List pages = [
+  List<Widget> pages = [
     const Home(),
     const Timeline(),
     const Notifications(),
@@ -65,14 +65,14 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    super.initState();
     _pageController = PageController();
+    super.initState();
   }
 
   @override
   void dispose() {
-    super.dispose();
     _pageController.dispose();
+    super.dispose();
   }
 
   void onPageChanged(int page) {
@@ -81,7 +81,7 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
-  buildTabIcon(int index) {
+  Widget buildTabIcon(int index) {
     return Container(
       margin:
           EdgeInsets.fromLTRB(index == 3 ? 30 : 0, 0, index == 1 ? 30 : 0, 0),

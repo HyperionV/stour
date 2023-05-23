@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  buildPlaceRow(String place, BuildContext context) {
+  Widget buildPlaceRow(String place, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -67,12 +67,12 @@ class Home extends StatelessWidget {
     );
   }
 
-  buildSearchBar(BuildContext context) {
+  Widget buildSearchBar(BuildContext context) {
     return Container(
         margin: const EdgeInsets.fromLTRB(10, 5, 10, 0), child: SearchCard());
   }
 
-  buildPlaceList(BuildContext context) {
+  Widget buildPlaceList(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 2.4,
       width: MediaQuery.of(context).size.width,
@@ -83,16 +83,10 @@ class Home extends StatelessWidget {
         // itemCount: places == null ? 0 : places.length,
         itemCount: places.length,
         itemBuilder: (BuildContext context, int index) {
-          Map place = places[index];
+          Place place = places[index];
           return Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: PlaceCard(
-              //img: place["img"],
-              title: place["title"],
-              address: place["address"],
-              rating: place["rating"],
-              time: place["time"],
-            ),
+            child: PlaceCard(place: place),
           );
         },
       ),

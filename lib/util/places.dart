@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Place {
   final String title;
   final String address;
@@ -13,70 +15,126 @@ class Place {
   });
 }
 
-List places = [
-  {
-    //"img": "assets/",
-    "title": "Đại học Quốc gia TP.HCM",
-    "address": "Khu phố 6, phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh",
-    "rating": "4.5",
-    "time": "7-17",
-  },
-  {
-    //"img": "assets/",
-    "title": "Bảo tàng Mỹ thuật Hồ Chí Minh",
-    "address":
-        "97a Phó Đức Chính, Phường Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh",
-    "rating": "4.5",
-    "time": "7-17",
-  },
-  {
-    //"img": "assets/",
-    "title": "Dinh Độc Lập",
-    "address": "135 Nam Kỳ Khởi Nghĩa, Quận 1, TP. Hồ Chí Minh",
-    "rating": "4.5",
-    "time": "7-17",
-  },
-  {
-    //"img": "assets/",
-    "title": "Đền Trần Hưng Đạo",
-    "address": "36 Võ Thị Sáu, phường 4, Quận 1,TP. Hồ Chí Minh",
-    "rating": "4.5",
-    "time": "7-17",
-  },
-  {
-    //"img": "assets/",
-    "title": "Chợ nổi Cái Răng",
-    "address": "số 46 đường Hai Bà Trưng, Quận Ninh Kiều,TP. Cần Thơ",
-    "rating": "4.5",
-    "time": "7-17",
-  },
-  {
-    //"img": "assets/",
-    "title": "Chùa Ông",
-    "address":
-        "Số 32 đường Hai Bà Trưng, phường Tân An, Quận Ninh Kiều, TP. Cần Thơ",
-    "rating": "4.5",
-    "time": "7-17",
-  },
-  {
-    //"img": "assets/",
-    "title": "Vườn Cò Bằng Lăng",
-    "address": "Thới Bình 1, Phường Thuận An, Quận Thốt Nốt, TP. Cần Thơ",
-    "rating": "4.5",
-    "time": "7-17",
-  },
-  {
-    //"img": "assets/",
-    "title": "hi",
-    "address": "hello",
-    "rating": "4.5",
-    "time": "7-17",
-  },
-  {
-    //"img": "assets/",
-    "title": "hi",
-    "address": "hello",
-    "rating": "4.5",
-    "time": "7-17",
-  }
+List<Place> places = [
+  Place(
+    title: 'Đại học Quốc gia TP.HCM',
+    address: 'Khu phố 6, phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh',
+    rating: (Random().nextDouble() * 5).toStringAsFixed(1),
+    time: '7-17',
+    img: 'assets\\R.png',
+  ),
+  Place(
+    title: 'Bảo tàng Mỹ thuật Hồ Chí Minh',
+    address:
+        '97a Phó Đức Chính, Phường Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh',
+    rating: (Random().nextDouble() * 5).toStringAsFixed(1),
+    time: '7-17',
+    img: 'assets\\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg',
+  ),
+  Place(
+    title: 'Dinh Độc Lập',
+    address: '135 Nam Kỳ Khởi Nghĩa, Quận 1, TP. Hồ Chí Minh',
+    rating: (Random().nextDouble() * 5).toStringAsFixed(1),
+    time: '7-17',
+    img:
+        'assets\\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg',
+  ),
+  Place(
+    title: 'Đền Trần Hưng Đạo',
+    address: '36 Võ Thị Sáu, phường 4, Quận 1,TP. Hồ Chí Minh',
+    rating: (Random().nextDouble() * 5).toStringAsFixed(1),
+    time: '7-17',
+    img: 'assets\\R.jpg',
+  ),
+  Place(
+    title: 'Chợ nổi Cái Răng',
+    address: 'số 46 đường Hai Bà Trưng, Quận Ninh Kiều,TP. Cần Thơ',
+    rating: (Random().nextDouble() * 5).toStringAsFixed(1),
+    time: '7-17',
+    img: 'assets\\20161031072908-cho-noi-cao-rang (10).jpg',
+  ),
+  Place(
+    title: 'Chùa Ông',
+    address:
+        'Số 32 đường Hai Bà Trưng, phường Tân An, Quận Ninh Kiều, TP. Cần Thơ',
+    rating: (Random().nextDouble() * 5).toStringAsFixed(1),
+    time: '7-17',
+    img: 'assets\\cantho6_umpf.jpg',
+  ),
+  Place(
+    title: 'Vườn Cò Bằng Lăng',
+    address: 'Thới Bình 1, Phường Thuận An, Quận Thốt Nốt, TP. Cần Thơ',
+    rating: (Random().nextDouble() * 5).toStringAsFixed(1),
+    time: '7-17',
+    img: 'assets\\10-8.jpg',
+  ),
+  Place(
+    title: 'Đại học Quốc gia TP.HCM',
+    address: 'Khu phố 6, phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh',
+    rating: (Random().nextDouble() * 5).toStringAsFixed(1),
+    time: '7-17',
+    img: 'assets\\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg',
+  ),
 ];
+
+// List places = [
+//   {
+//     "img": "assets\\R.png",
+//     "title": "Đại học Quốc gia TP.HCM",
+//     "address": "Khu phố 6, phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh",
+//     "rating": "4.5",
+//     "time": "7-17",
+//   },
+//   {
+//     "img": "assets\\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg",
+//     "title": "Bảo tàng Mỹ thuật Hồ Chí Minh",
+//     "address":
+//         "97a Phó Đức Chính, Phường Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh",
+//     "rating": "4.5",
+//     "time": "7-17",
+//   },
+//   {
+//     "img":
+//         "assets\\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg",
+//     "title": "Dinh Độc Lập",
+//     "address": "135 Nam Kỳ Khởi Nghĩa, Quận 1, TP. Hồ Chí Minh",
+//     "rating": "4.5",
+//     "time": "7-17",
+//   },
+//   {
+//     "img": "assets\\R.jpg",
+//     "title": "Đền Trần Hưng Đạo",
+//     "address": "36 Võ Thị Sáu, phường 4, Quận 1,TP. Hồ Chí Minh",
+//     "rating": "4.5",
+//     "time": "7-17",
+//   },
+//   {
+//     "img": "assets\\20161031072908-cho-noi-cao-rang (10).jpg",
+//     "title": "Chợ nổi Cái Răng",
+//     "address": "số 46 đường Hai Bà Trưng, Quận Ninh Kiều,TP. Cần Thơ",
+//     "rating": "4.5",
+//     "time": "7-17",
+//   },
+//   {
+//     "img": "assets\\cantho6_umpf.jpg",
+//     "title": "Chùa Ông",
+//     "address":
+//         "Số 32 đường Hai Bà Trưng, phường Tân An, Quận Ninh Kiều, TP. Cần Thơ",
+//     "rating": "4.5",
+//     "time": "7-17",
+//   },
+//   {
+//     "img": "assets\\10-8.jpg",
+//     "title": "Vườn Cò Bằng Lăng",
+//     "address": "Thới Bình 1, Phường Thuận An, Quận Thốt Nốt, TP. Cần Thơ",
+//     "rating": "4.5",
+//     "time": "7-17",
+//   },
+//   {
+//     "img": "assets\\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg",
+//     "title": "Kí túc xá Khu B",
+//     "address": "Dĩ An, Bình Dương",
+//     "rating": "4.5",
+//     "time": "7-17",
+//   }
+// ];
