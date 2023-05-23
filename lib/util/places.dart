@@ -1,3 +1,18 @@
+class Place {
+  final String title;
+  final String address;
+  final String rating;
+  final String time;
+  final String img;
+  const Place({
+    required this.title,
+    required this.address,
+    required this.rating,
+    required this.time,
+    required this.img,
+  });
+}
+
 List places = [
   {
     //"img": "assets/",

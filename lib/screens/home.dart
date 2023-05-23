@@ -84,7 +84,6 @@ class Home extends StatelessWidget {
         itemCount: places.length,
         itemBuilder: (BuildContext context, int index) {
           Map place = places[index];
-
           return Padding(
             padding: const EdgeInsets.only(right: 10.0),
             child: PlaceCard(
