@@ -1,0 +1,65 @@
+List places = [
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  },
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  },
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  },
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  },
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  },
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  },
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  },
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  },
+  {
+    //"img": "assets/",
+    "title": "hi",
+    "address": "hello",
+    "rating": "4.5",
+    "time": "7-17",
+  }
+];
