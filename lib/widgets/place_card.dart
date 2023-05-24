@@ -40,13 +40,13 @@ class _PlaceCardState extends State<PlaceCard> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 3.7,
                     width: MediaQuery.of(context).size.width,
-                    child: const ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10.0),
                         topRight: Radius.circular(10.0),
                       ),
                       child: Image.asset(
-                        "${widget.img}",
+                        widget.img,
                         fit: BoxFit.cover,
                       ),
                     ),
