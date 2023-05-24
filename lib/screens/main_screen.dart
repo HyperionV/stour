@@ -16,9 +16,9 @@ class _MainScreenState extends State<MainScreen> {
   int _page = 0;
 
   List icons = [
-    Icons.home,
-    Icons.label,
-    Icons.notifications,
+    //Icons.home,
+    //Icons.table_chart,
+    //Icons.notifications,
     Icons.person,
   ];
 
@@ -47,9 +47,9 @@ class _MainScreenState extends State<MainScreen> {
           children: <Widget>[
             // SizedBox(width: 7),
             buildTabIcon(0),
-            buildTabIcon(1),
-            buildTabIcon(2),
-            buildTabIcon(3),
+            // buildTabIcon(1),
+            // buildTabIcon(2),
+            // buildTabIcon(3),
             // SizedBox(width: 7),
           ],
         ),
