@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stour/util/const.dart';
 
 class PlaceCard extends StatefulWidget {
-  //final String img;
+  final String img;
   final String title;
   final String address;
   final String rating;
@@ -10,7 +10,7 @@ class PlaceCard extends StatefulWidget {
 
   const PlaceCard({
     super.key,
-    //@required this.img,
+    required this.img,
     required this.title,
     required this.address,
     required this.rating,
@@ -45,10 +45,10 @@ class _PlaceCardState extends State<PlaceCard> {
                         topLeft: Radius.circular(10.0),
                         topRight: Radius.circular(10.0),
                       ),
-                      // child: Image.asset(
-                      //   "${widget.img}",
-                      //   fit: BoxFit.cover,
-                      // ),
+                      child: Image.asset(
+                        "${widget.img}",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Positioned(

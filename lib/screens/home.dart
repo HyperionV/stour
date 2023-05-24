@@ -88,7 +88,7 @@ class Home extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(right: 10.0),
             child: PlaceCard(
-              //img: place["img"],
+              img: place["img"],
               title: place["title"],
               address: place["address"],
               rating: place["rating"],
