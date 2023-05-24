@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stour/widgets/place_detail.dart';
+import 'package:stour/util/places.dart';
 
 class GetPlaceById extends StatelessWidget {
   final String documentId;
@@ -18,17 +19,21 @@ class GetPlaceById extends StatelessWidget {
         if (snapshot.hasError) {
           return const Text("Something went wrong");
         }
-
         if (snapshot.hasData && !snapshot.data!.exists) {
           return const Text("Document does not exist");
         }
-
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
-          PlaceDetail pld = PlaceDetail(
-              data['image'], data['name'], data['history'], data['opentime']);
-          return PlaceDetail_UI(pld);
+          Place pld = Place(
+            id: data['id'],
+            name: data['name'],
+            address: data['address'],
+            time: data['time'],
+            img: data['img'],
+            rating: data['rating'],
+          );
+          return PlaceDetailUI(pld);
         }
 
         return const Text("loading");
@@ -66,13 +71,11 @@ class SearchByNameWidget extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             var document = snapshot.data!.docs[index];
             var name = document['name'];
-            var image = document['image'];
-            var history = document['history'];
-
+            var image = document['img'];
             return ListTile(
               title: Text(name),
               leading: Image.network(image),
-              subtitle: Text(history),
+              subtitle: const Text('history'),
             );
           },
         );

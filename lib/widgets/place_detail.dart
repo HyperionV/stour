@@ -1,33 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:stour/util/places.dart';
 
 class PlaceDetail {
+  final String id;
   final String name;
-  // final String address;
-  final String opentime;
-  // final String closetime;
-  // final String avgcost;
-  final String history;
-  // final String city;
-  // final String district;
-  final String image;
+  final String address;
+  final String rating;
+  final int opentime;
+  final int closetime;
+  final String img;
 
-  PlaceDetail(this.image, this.name, this.history, this.opentime);
+  PlaceDetail({
+    required this.id,
+    required this.name,
+    required this.address,
+    required this.rating,
+    required this.opentime,
+    required this.closetime,
+    required this.img,
+  }) {}
 }
 
-class PlaceDetail_UI extends StatelessWidget {
-  final PlaceDetail mplace;
+class PlaceDetailUI extends StatelessWidget {
+  final Place mplace;
 
-  PlaceDetail_UI(this.mplace);
+  const PlaceDetailUI(this.mplace, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: [
-          Image.network(mplace.image),
+          Image.network(mplace.img),
           Text(mplace.name),
-          Text(mplace.history),
-          Text('Quantity: ${mplace.opentime}'),
+          Text(mplace.address),
+          Text('Quantity: ${mplace.time}'),
         ],
       ),
     );
