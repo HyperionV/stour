@@ -4,9 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:stour/util/places.dart';
 import 'package:flutter/services.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key, required this.placeToDisplay});
   final Place placeToDisplay;
+
+  @override
+  State<DetailScreen> createState() {
+    return _DetailScreenState();
+  }
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  Color buttonColor = Colors.black;
+  Icon initialFavIcon = const Icon(Icons.favorite_border, size: 30);
   @override
   Widget build(context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
@@ -36,37 +46,44 @@ class DetailScreen extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (ctx) {
-                          return AlertDialog(
-                            title: const Text('Feature Testing'),
-                            content: const Text(
-                                'If you can read this, the test was successful :D'),
-                            actions: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pop(ctx);
-                                },
-                                child: const Text('Noice'),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pop(ctx);
-                                },
-                                child: const Text('Congrats'),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pop(ctx);
-                                },
-                                child: const Text('Omedetou'),
-                              ),
-                            ],
-                          );
-                        });
+                    return setState(
+                      () {
+                        buttonColor = Colors.red;
+                        initialFavIcon = const Icon(Icons.favorite, size: 30);
+                      },
+                    );
                   },
-                  icon: const Icon(Icons.favorite_border, size: 30),
+                  // showDialog(
+                  //     context: context,
+                  //     builder: (ctx) {
+                  //       return AlertDialog(
+                  //         title: const Text('Feature Testing'),
+                  //         content: const Text(
+                  //             'If you can read this, the test was successful :D'),
+                  //         actions: [
+                  //           ElevatedButton(
+                  //             onPressed: () {
+                  //               Navigator.pop(ctx);
+                  //             },
+                  //             child: const Text('Noice'),
+                  //           ),
+                  //           ElevatedButton(
+                  //             onPressed: () {
+                  //               Navigator.pop(ctx);
+                  //             },
+                  //             child: const Text('Congrats'),
+                  //           ),
+                  //           ElevatedButton(
+                  //             onPressed: () {
+                  //               Navigator.pop(ctx);
+                  //             },
+                  //             child: const Text('Omedetou'),
+                  //           ),
+                  //         ],
+                  //       );
+                  //     });
+                  icon: initialFavIcon,
+                  color: buttonColor,
                 ),
               ],
             ),
@@ -74,7 +91,7 @@ class DetailScreen extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.asset(
-                placeToDisplay.img,
+                widget.placeToDisplay.img,
                 width: double.maxFinite,
               ),
             ),
@@ -83,7 +100,7 @@ class DetailScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 10),
               alignment: Alignment.centerLeft,
               child: Text(
-                placeToDisplay.title,
+                widget.placeToDisplay.title,
                 style: GoogleFonts.poppins(
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
@@ -106,7 +123,7 @@ class DetailScreen extends StatelessWidget {
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Text(
-                        placeToDisplay.address,
+                        widget.placeToDisplay.address,
                         style: GoogleFonts.poppins(
                           fontSize: 18,
                           color: const Color.fromARGB(255, 44, 105, 224),
