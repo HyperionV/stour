@@ -98,7 +98,7 @@ class _TrendingPlaceState extends State<TrendingPlace> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Text(
-                    widget.place.title,
+                    widget.place.name,
                     style: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w800,

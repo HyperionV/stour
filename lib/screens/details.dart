@@ -100,7 +100,7 @@ class _DetailScreenState extends State<DetailScreen> {
               padding: const EdgeInsets.only(left: 10),
               alignment: Alignment.centerLeft,
               child: Text(
-                widget.placeToDisplay.title,
+                widget.placeToDisplay.name,
                 style: GoogleFonts.poppins(
                   fontSize: 22,
                   fontWeight: FontWeight.w500,

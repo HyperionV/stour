@@ -2,14 +2,14 @@ import 'dart:math';
 
 class Place {
   final String id;
-  final String title;
+  final String name;
   final String address;
   final String rating;
   final String time;
   final String img;
   const Place({
     required this.id,
-    required this.title,
+    required this.name,
     required this.address,
     required this.rating,
     required this.time,
@@ -17,10 +17,12 @@ class Place {
   });
 }
 
+List<Place> placesTmp = [];
+
 List<Place> places = [
   Place(
     id: '',
-    title: 'Đại học Quốc gia TP.HCM',
+    name: 'Đại học Quốc gia TP.HCM',
     address: 'Khu phố 6, phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh',
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
@@ -28,7 +30,7 @@ List<Place> places = [
   ),
   Place(
     id: '',
-    title: 'Bảo tàng Mỹ thuật Hồ Chí Minh',
+    name: 'Bảo tàng Mỹ thuật Hồ Chí Minh',
     address:
         '97a Phó Đức Chính, Phường Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh',
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
@@ -37,7 +39,7 @@ List<Place> places = [
   ),
   Place(
     id: '',
-    title: 'Dinh Độc Lập',
+    name: 'Dinh Độc Lập',
     address: '135 Nam Kỳ Khởi Nghĩa, Quận 1, TP. Hồ Chí Minh',
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
@@ -46,7 +48,7 @@ List<Place> places = [
   ),
   Place(
     id: '',
-    title: 'Đền Trần Hưng Đạo',
+    name: 'Đền Trần Hưng Đạo',
     address: '36 Võ Thị Sáu, phường 4, Quận 1,TP. Hồ Chí Minh',
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
@@ -54,7 +56,7 @@ List<Place> places = [
   ),
   Place(
     id: '',
-    title: 'Chợ nổi Cái Răng',
+    name: 'Chợ nổi Cái Răng',
     address: 'số 46 đường Hai Bà Trưng, Quận Ninh Kiều,TP. Cần Thơ',
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
@@ -62,7 +64,7 @@ List<Place> places = [
   ),
   Place(
     id: '',
-    title: 'Chùa Ông',
+    name: 'Chùa Ông',
     address:
         'Số 32 đường Hai Bà Trưng, phường Tân An, Quận Ninh Kiều, TP. Cần Thơ',
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
@@ -71,7 +73,7 @@ List<Place> places = [
   ),
   Place(
     id: '',
-    title: 'Vườn Cò Bằng Lăng',
+    name: 'Vườn Cò Bằng Lăng',
     address: 'Thới Bình 1, Phường Thuận An, Quận Thốt Nốt, TP. Cần Thơ',
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
@@ -79,7 +81,7 @@ List<Place> places = [
   ),
   Place(
     id: '',
-    title: 'Đại học Quốc gia TP.HCM',
+    name: 'Đại học Quốc gia TP.HCM',
     address: 'Khu phố 6, phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh',
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',

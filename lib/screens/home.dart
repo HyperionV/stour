@@ -58,6 +58,7 @@ class Home extends StatelessWidget {
               MaterialPageRoute(
                 builder: (BuildContext context) {
                   return const Trending();
+                  // return const GetPlaceById('GJi2DqbSkJosKhq6SZf8');
                 },
               ),
             );
