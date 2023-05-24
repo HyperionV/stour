@@ -8,10 +8,9 @@ class Timeline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-
-        // child: searchByNameWidget('Đại học'),
-        child: filterByTopFood(),
-        // child: getPlaceById('GJi2DqbSkJosKhq6SZf8'),
-        );
+      // child: searchByNameWidget('Đại học'),
+      child: filterByTopFood(),
+      // child: getPlaceById('GJi2DqbSkJosKhq6SZf8'),
+    );
   }
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stour/widgets/place_detail.dart';
 
-class getPlaceById extends StatelessWidget {
+class GetPlaceById extends StatelessWidget {
   final String documentId;
-  getPlaceById(this.documentId);
+  const GetPlaceById(this.documentId, {super.key});
   @override
   Widget build(BuildContext context) {
     CollectionReference place =
@@ -16,11 +16,11 @@ class getPlaceById extends StatelessWidget {
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text("Something went wrong");
+          return const Text("Something went wrong");
         }
 
         if (snapshot.hasData && !snapshot.data!.exists) {
-          return Text("Document does not exist");
+          return const Text("Document does not exist");
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
@@ -31,22 +31,22 @@ class getPlaceById extends StatelessWidget {
           return PlaceDetail_UI(pld);
         }
 
-        return Text("loading");
+        return const Text("loading");
       },
     );
   }
 }
 
-class searchByNameWidget extends StatelessWidget {
+class SearchByNameWidget extends StatelessWidget {
   final String searchQuery;
-  searchByNameWidget(this.searchQuery);
+  const SearchByNameWidget(this.searchQuery, {super.key});
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance
           .collection('stourplace1')
           .where('name', isGreaterThanOrEqualTo: searchQuery)
-          .where('name', isLessThan: searchQuery + 'z')
+          .where('name', isLessThan: '${searchQuery}z')
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
@@ -54,11 +54,11 @@ class searchByNameWidget extends StatelessWidget {
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
 
         if (snapshot.data == null || snapshot.data!.docs.isEmpty) {
-          return Text('No results found.');
+          return const Text('No results found.');
         }
 
         return ListView.builder(
