@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
     const Home(),
     const Timeline(),
     const Notifications(),
-    const Profile(),
+    Profile(),
   ];
 
   @override
@@ -92,7 +92,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         color: _page == index
             ? Theme.of(context).colorScheme.secondary
-            : Colors.blue,
+            : Colors.white,
         onPressed: () => _pageController.jumpToPage(index),
       ),
     );

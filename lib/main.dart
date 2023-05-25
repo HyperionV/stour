@@ -3,8 +3,10 @@ import 'package:stour/screens/main_screen.dart';
 import 'package:stour/util/const.dart';
 import 'screens/splash_screen.dart';
 
-void main() async {
-  runApp(const MyApp());
+void main() {
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -21,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       title: Constants.appName,
       home: SplashScreen(),
       routes: {
-        '/home': (context) => MainScreen(),
+        '/home': (context) => const MainScreen(),
       },
     );
   }
