@@ -23,7 +23,7 @@ class _PlaceCardState extends State<PlaceCard> {
       padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: SizedBox(
         height: MediaQuery.of(context).size.height / 2.9,
-        width: MediaQuery.of(context).size.width / 1.2,
+        width: MediaQuery.of(context).size.width / 1.5,
         child: GestureDetector(
           onTap: () {
             Navigator.push(
@@ -53,6 +53,7 @@ class _PlaceCardState extends State<PlaceCard> {
                           topRight: Radius.circular(10.0),
                         ),
                         child: Image.asset(
+                          scale: 0.6,
                           widget.place.img,
                           fit: BoxFit.cover,
                         ),
@@ -71,7 +72,7 @@ class _PlaceCardState extends State<PlaceCard> {
                               Icon(
                                 Icons.star,
                                 color: Constants.ratingBG,
-                                size: 10,
+                                size: 20,
                               ),
                               Text(
                                 " ${widget.place.rating} ",
@@ -95,7 +96,7 @@ class _PlaceCardState extends State<PlaceCard> {
                           child: Row(children: [
                             const Icon(
                               Icons.access_time,
-                              size: 12,
+                              size: 20,
                             ),
                             Text(
                               " ${widget.place.time}",

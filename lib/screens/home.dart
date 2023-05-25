@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:stour/screens/trending.dart';
+import 'package:stour/util/const.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/widgets/search_card.dart';
 import 'package:stour/widgets/place_card.dart';
 import 'package:stour/model/place.dart';
+import 'package:stour/screens/home_app_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -24,43 +26,61 @@ class _HomeState extends State<Home> {
         }
       },
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+        backgroundColor: Constants.lightPrimary,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(90),
+          child: HomeAppBar(),
+        ),
+        body: SafeArea(
           child: ListView(
             children: <Widget>[
-              buildSearchBar(context),
-              const SizedBox(height: 20.0),
-              const SizedBox(height: 20.0),
+              //buildSearchBar(context),
+              // const SizedBox(height: 10.0),
+              // const SizedBox(height: 10.0),
               buildPlaceRow('Cultural Places', places, context),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 3.0),
               buildPlaceList(context, places),
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 5.0),
               buildPlaceRow('Unique Cuisines', food, context),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 3.0),
               buildPlaceList(context, food),
             ],
           ),
         ),
+        //bottomNavigationBar: HomeBottomBar(),
       ),
     );
+    //   ),
+    // );
+    //     ),
+    //   ),
+    // );
   }
 
   Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Text(
-          place,
-          style: const TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.w800,
+        Container(
+          padding: EdgeInsets.symmetric(
+              horizontal: 20.0), // Adjust the horizontal padding as needed
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Text(
+              place,
+              style: const TextStyle(
+                color: Color.fromARGB(255, 0, 75, 50),
+                fontSize: 20.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
         ),
         TextButton(
           child: Text(
             "See all (${source.length})",
             style: TextStyle(
-              color: Theme.of(context).colorScheme.secondary,
+              color: Constants.darkPrimary,
             ),
           ),
           onPressed: () {
@@ -76,11 +96,6 @@ class _HomeState extends State<Home> {
         ),
       ],
     );
-  }
-
-  Widget buildSearchBar(BuildContext context) {
-    return Container(
-        margin: const EdgeInsets.fromLTRB(10, 5, 10, 0), child: SearchCard());
   }
 
   @override
@@ -102,7 +117,7 @@ class _HomeState extends State<Home> {
         itemBuilder: (BuildContext context, int index) {
           Place place = source[index];
           return Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: const EdgeInsets.only(right: 10.0, left: 10.0),
             child: PlaceCard(place: place),
           );
         },
