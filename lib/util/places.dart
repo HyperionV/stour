@@ -7,6 +7,10 @@ class Place {
   final String rating;
   final String time;
   final String img;
+  // final bool isFood;
+  // final String history;
+  // final String culture;
+
   const Place({
     required this.id,
     required this.name,
@@ -17,9 +21,9 @@ class Place {
   });
 }
 
-List<Place> placesTmp = [];
+List<Place> places = [];
 
-List<Place> places = [
+List<Place> placesTmp = [
   Place(
     id: '',
     name: 'Đại học Quốc gia TP.HCM',

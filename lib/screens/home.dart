@@ -3,9 +3,17 @@ import 'package:stour/screens/trending.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/widgets/search_card.dart';
 import 'package:stour/widgets/place_card.dart';
+import 'package:stour/model/place.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+  @override
+  State<Home> createState() {
+    return _HomeState();
+  }
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -58,7 +66,6 @@ class Home extends StatelessWidget {
               MaterialPageRoute(
                 builder: (BuildContext context) {
                   return const Trending();
-                  // return const GetPlaceById('GJi2DqbSkJosKhq6SZf8');
                 },
               ),
             );
@@ -71,6 +78,12 @@ class Home extends StatelessWidget {
   Widget buildSearchBar(BuildContext context) {
     return Container(
         margin: const EdgeInsets.fromLTRB(10, 5, 10, 0), child: SearchCard());
+  }
+
+  @override
+  void initState() {
+    getPlaceById('GJi2DqbSkJosKhq6SZf8');
+    super.initState();
   }
 
   Widget buildPlaceList(BuildContext context) {

@@ -1,0 +1,39 @@
+{
+    "project_info": {
+        "project_number": "798161994352",
+        "project_id": "demo01-4e76d",
+        "storage_bucket": "demo01-4e76d.appspot.com"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:798161994352:android:3dd6b6403743a4535b2ab5",
+                "android_client_info": {
+                    "package_name": "com.example.stour"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "798161994352-aq10t2ms11cace1p106d195j4ddv3k7p.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyDU-kJf6Hmb9uQpocBxARdMdm4WplTXmfA"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "798161994352-aq10t2ms11cace1p106d195j4ddv3k7p.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}

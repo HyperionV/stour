@@ -5,12 +5,10 @@ import 'package:stour/util/places.dart';
 import 'package:stour/screens/details.dart';
 
 class PlaceCard extends StatefulWidget {
-  //final String img;
   final Place place;
 
   const PlaceCard({
     super.key,
-    //@required this.img,
     required this.place,
   });
 
@@ -21,8 +19,6 @@ class PlaceCard extends StatefulWidget {
 class _PlaceCardState extends State<PlaceCard> {
   @override
   Widget build(BuildContext context) {
-    // print('Print in PlaceCard ${widget.place.img}');
-
     return Padding(
       padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: SizedBox(
