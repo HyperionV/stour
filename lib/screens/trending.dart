@@ -4,7 +4,8 @@ import 'package:stour/widgets/search_card.dart';
 import 'package:stour/widgets/trending_place.dart';
 
 class Trending extends StatelessWidget {
-  const Trending({super.key});
+  final List<Place> source;
+  const Trending({super.key, required this.source});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +28,9 @@ class Trending extends StatelessWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               // itemCount: places == null ? 0 : places.length,
-              itemCount: places.length,
+              itemCount: source.length,
               itemBuilder: (BuildContext context, int index) {
-                return TrendingPlace(place: places[index]);
+                return TrendingPlace(place: source[index]);
               },
             ),
             const SizedBox(height: 10.0),

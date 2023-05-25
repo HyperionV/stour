@@ -7,7 +7,6 @@ class Place {
   final String rating;
   final String time;
   final String img;
-  // final bool isFood;
   // final String history;
   // final String culture;
 
@@ -21,9 +20,9 @@ class Place {
   });
 }
 
-List<Place> places = [];
+List<Place> placesTmp = [];
 
-List<Place> placesTmp = [
+List<Place> places = [
   Place(
     id: '',
     name: 'Đại học Quốc gia TP.HCM',
@@ -154,3 +153,5 @@ List<Place> placesTmp = [
 //     "time": "7-17",
 //   }
 // ];
+
+List<Place> food = List<Place>.of(places);

@@ -41,7 +41,7 @@ import 'package:collection/collection.dart';
 //   }
 // }
 
-void getPlaceById(String documentId) {
+bool getPlaceById(String documentId) {
   CollectionReference place =
       FirebaseFirestore.instance.collection('stourplace1');
   place.doc(documentId).get().then((DocumentSnapshot snapshot) {
@@ -61,6 +61,7 @@ void getPlaceById(String documentId) {
       }
     }
   });
+  return true;
 }
 
 class SearchByNameWidget extends StatelessWidget {

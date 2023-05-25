@@ -31,10 +31,13 @@ class _HomeState extends State<Home> {
               buildSearchBar(context),
               const SizedBox(height: 20.0),
               const SizedBox(height: 20.0),
-              buildPlaceRow('Cultural Places', context),
+              buildPlaceRow('Cultural Places', places, context),
               const SizedBox(height: 10.0),
-              buildPlaceList(context),
+              buildPlaceList(context, places),
+              const SizedBox(height: 20.0),
+              buildPlaceRow('Unique Cuisines', food, context),
               const SizedBox(height: 10.0),
+              buildPlaceList(context, food),
             ],
           ),
         ),
@@ -42,7 +45,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget buildPlaceRow(String place, BuildContext context) {
+  Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -55,7 +58,7 @@ class _HomeState extends State<Home> {
         ),
         TextButton(
           child: Text(
-            "See all (9)",
+            "See all (${source.length})",
             style: TextStyle(
               color: Theme.of(context).colorScheme.secondary,
             ),
@@ -65,7 +68,7 @@ class _HomeState extends State<Home> {
               context,
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return const Trending();
+                  return Trending(source: places);
                 },
               ),
             );
@@ -86,7 +89,7 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
-  Widget buildPlaceList(BuildContext context) {
+  Widget buildPlaceList(BuildContext context, List<Place> source) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 2.4,
       width: MediaQuery.of(context).size.width,
@@ -95,9 +98,9 @@ class _HomeState extends State<Home> {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         // itemCount: places == null ? 0 : places.length,
-        itemCount: places.length,
+        itemCount: source.length,
         itemBuilder: (BuildContext context, int index) {
-          Place place = places[index];
+          Place place = source[index];
           return Padding(
             padding: const EdgeInsets.only(right: 10.0),
             child: PlaceCard(place: place),
