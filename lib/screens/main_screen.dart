@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:stour/screens/home.dart';
 import 'package:stour/widgets/timeline.dart';
 import 'package:stour/screens/profile.dart';
-import 'notifications.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -26,7 +25,6 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> pages = [
     const Home(),
     const Timeline(),
-    const Notifications(),
     const Profile(),
   ];
 
@@ -37,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
         physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: onPageChanged,
-        children: List.generate(4, (index) => pages[index]),
+        children: List.generate(3, (index) => pages[index]),
       ),
       bottomNavigationBar: BottomAppBar(
         color: Theme.of(context).primaryColor,
@@ -50,7 +48,6 @@ class _MainScreenState extends State<MainScreen> {
             buildTabIcon(0),
             buildTabIcon(1),
             buildTabIcon(2),
-            buildTabIcon(3),
             // SizedBox(width: 7),
           ],
         ),
@@ -85,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget buildTabIcon(int index) {
     return Container(
       margin:
-          EdgeInsets.fromLTRB(index == 3 ? 30 : 0, 0, index == 1 ? 30 : 0, 0),
+          EdgeInsets.fromLTRB(index == 2 ? 30 : 0, 0, index == 1 ? 30 : 0, 0),
       child: IconButton(
         icon: Icon(
           icons[index],

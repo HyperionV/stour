@@ -7,7 +7,9 @@ class Place {
   final String rating;
   final String time;
   final String img;
-  // final String history;
+  final int price;
+  final String history;
+  final double duration;
 
   const Place({
     required this.id,
@@ -16,6 +18,9 @@ class Place {
     required this.rating,
     required this.time,
     required this.img,
+    required this.price,
+    required this.history,
+    required this.duration,
   });
 }
 
@@ -29,6 +34,9 @@ List<Place> places = [
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
     img: 'assets\\R.png',
+    price: 10,
+    history: '',
+    duration: 2,
   ),
   Place(
     id: '',
@@ -38,6 +46,9 @@ List<Place> places = [
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
     img: 'assets\\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg',
+    price: 10,
+    history: '',
+    duration: 2,
   ),
   Place(
     id: '',
@@ -47,6 +58,9 @@ List<Place> places = [
     time: '7-17',
     img:
         'assets\\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg',
+    price: 10,
+    history: '',
+    duration: 2,
   ),
   Place(
     id: '',
@@ -55,6 +69,9 @@ List<Place> places = [
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
     img: 'assets\\R.jpg',
+    price: 10,
+    history: '',
+    duration: 2,
   ),
   Place(
     id: '',
@@ -63,6 +80,9 @@ List<Place> places = [
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
     img: 'assets\\20161031072908-cho-noi-cao-rang (10).jpg',
+    price: 10,
+    history: '',
+    duration: 2,
   ),
   Place(
     id: '',
@@ -72,6 +92,9 @@ List<Place> places = [
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
     img: 'assets\\cantho6_umpf.jpg',
+    price: 10,
+    history: '',
+    duration: 2,
   ),
   Place(
     id: '',
@@ -80,6 +103,9 @@ List<Place> places = [
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
     img: 'assets\\10-8.jpg',
+    price: 5,
+    history: '',
+    duration: 2,
   ),
   Place(
     id: '',
@@ -88,6 +114,9 @@ List<Place> places = [
     rating: (Random().nextDouble() * 5).toStringAsFixed(1),
     time: '7-17',
     img: 'assets\\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg',
+    price: 10,
+    history: '',
+    duration: 2,
   ),
 ];
 

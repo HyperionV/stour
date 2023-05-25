@@ -40,6 +40,10 @@ dependencies:
   collection: ^1.17.1
   intl: ^0.17.0
   flutter_screenutil: 5.8.2
+  permission_handler: ^10.2.0
+  path_provider: ^2.0.15
+  google_maps_flutter: ^2.2.8
+  google_maps_flutter_web: ^0.4.0+9
 
 dev_dependencies:
   flutter_test:

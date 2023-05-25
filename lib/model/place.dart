@@ -54,6 +54,9 @@ bool getPlaceById(String documentId) {
         time: data['time'],
         rating: data['rating'],
         img: data['image'],
+        price: 10,
+        history: '',
+        duration: 1,
       );
       if (places.firstWhereOrNull((element) => element.id == tmpPlace.id) ==
           null) {
