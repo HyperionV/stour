@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Row ProfileActivity() {
+Row profileActivity() {
   return Row(
     children: [
       Expanded(
@@ -45,8 +45,8 @@ Row ProfileActivity() {
           ),
         ),
       ),
-      Expanded(
-        child: const ListTile(
+      const Expanded(
+        child: ListTile(
           title: Center(
             child: Text(
               "4",

@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: Constants.appName,
-      home: SplashScreen(),
+      home: const SplashScreen(),
       routes: {
         '/home': (context) => const MainScreen(),
       },

@@ -25,9 +25,9 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> pages = [
     const Home(),
-    Timeline(),
+    const Timeline(),
     const Notifications(),
-    Profile(),
+    const Profile(),
   ];
 
   @override

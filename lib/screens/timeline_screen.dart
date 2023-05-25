@@ -8,23 +8,23 @@ class ScheduleScreen extends StatelessWidget {
   final TimeOfDay startTime;
   final TimeOfDay endTime;
 
-  ScheduleScreen({
-    required this.departureDate,
-    required this.returnDate,
-    required this.maxBudget,
-    required this.isTravelingAlone,
-    required this.startTime,
-    required this.endTime,
-  });
+  const ScheduleScreen(
+      {required this.departureDate,
+      required this.returnDate,
+      required this.maxBudget,
+      required this.isTravelingAlone,
+      required this.startTime,
+      required this.endTime,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
     //Algorithm
     return Scaffold(
       appBar: AppBar(
-        title: Text('Generated Schedule'),
+        title: const Text('Generated Schedule'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Sinh schedule here'),
       ),
     );

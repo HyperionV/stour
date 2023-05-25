@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:stour/util/const.dart';
 
 class PostScreen extends StatefulWidget {
+  const PostScreen({super.key});
   @override
-  _PostScreenState createState() => _PostScreenState();
+  State<PostScreen> createState() => _PostScreenState();
 }
 
 class _PostScreenState extends State<PostScreen> {
-  List<int> _images = [1, 2, 3];
+  final List<int> _images = [1, 2, 3];
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +21,14 @@ class _PostScreenState extends State<PostScreen> {
 
   Container buildPost(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Card(
-        margin: EdgeInsets.all(0.0),
+        margin: const EdgeInsets.all(0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -81,7 +82,7 @@ class _PostScreenState extends State<PostScreen> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: const Text(
                 "Bảo tàng có kiến trúc rất độc đáo, nó khiến mình cảm thấy rất bất ngờ về sự hòa hợp giữa màu sắc phương đông và phương tây. Mình đặt biệt rất ấn tượng và thích cầu thang xoắn ốc, những tác phẩm được trưng bài cũng rất nghệ thuật và đậm chất văn hóa từng thời kỳ nữa. Tui chụp được quá trời hình ở đây luôn á :3",
                 style: TextStyle(fontSize: 18),
@@ -103,7 +104,7 @@ class _PostScreenState extends State<PostScreen> {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -114,7 +115,7 @@ class _PostScreenState extends State<PostScreen> {
                         Icon(Icons.favorite_outline,
                             color: Constants.darkPrimary),
                         const SizedBox(width: 5),
-                        Text("123"),
+                        const Text("123"),
                       ],
                     ),
                   ),
@@ -125,7 +126,7 @@ class _PostScreenState extends State<PostScreen> {
                         Icon(Icons.comment_outlined,
                             color: Constants.darkPrimary),
                         const SizedBox(width: 5),
-                        Text("123"),
+                        const Text("123"),
                       ],
                     ),
                   ),
@@ -136,7 +137,7 @@ class _PostScreenState extends State<PostScreen> {
                         Icon(Icons.share_outlined,
                             color: Constants.darkPrimary),
                         const SizedBox(width: 5),
-                        Text("1"),
+                        const Text("1"),
                       ],
                     ),
                   ),

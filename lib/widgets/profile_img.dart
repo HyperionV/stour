@@ -1,6 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-Stack ProfileImage(Size size) {
+Stack profileImage(Size size) {
   return Stack(
     children: [
       Container(
@@ -28,9 +28,9 @@ Stack ProfileImage(Size size) {
         top: 10,
         left: 10,
         child: IconButton(
-          color: Color.fromARGB(255, 0, 0, 0),
+          color: const Color.fromARGB(255, 0, 0, 0),
           onPressed: () {},
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
       ),
 

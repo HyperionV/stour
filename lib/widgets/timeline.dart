@@ -6,8 +6,9 @@ import 'package:stour/screens/timeline_screen.dart';
 import 'package:intl/intl.dart';
 
 class Timeline extends StatefulWidget {
+  const Timeline({super.key});
   @override
-  _TimelineState createState() => _TimelineState();
+  State<Timeline> createState() => _TimelineState();
 }
 
 class _TimelineState extends State<Timeline> {
@@ -15,31 +16,11 @@ class _TimelineState extends State<Timeline> {
   DateTime _returnDate = DateTime.now();
   double _maxBudget = 0;
   bool _isTravelingAlone = true;
-  TimeOfDay _startTime = TimeOfDay(hour: 0, minute: 0);
-  TimeOfDay _endTime = TimeOfDay(hour: 0, minute: 0);
+  TimeOfDay _startTime = const TimeOfDay(hour: 0, minute: 0);
+  TimeOfDay _endTime = const TimeOfDay(hour: 0, minute: 0);
 
   void _generateSchedule() {
-    if (_departureDate == null ||
-        _returnDate == null ||
-        _maxBudget == null ||
-        _startTime == null ||
-        _endTime == null) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Missing Information'),
-            content: Text('Please fill in all the required information.'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-    } else {
+    {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -62,26 +43,26 @@ class _TimelineState extends State<Timeline> {
     _departureDate = DateTime.now();
     _returnDate = DateTime.now();
     _maxBudget = 0;
-    _startTime = TimeOfDay(hour: 0, minute: 0);
-    _endTime = TimeOfDay(hour: 0, minute: 0);
+    _startTime = const TimeOfDay(hour: 0, minute: 0);
+    _endTime = const TimeOfDay(hour: 0, minute: 0);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Travel Preferences'),
+        title: const Text('Travel Preferences'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Departure Date',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             ElevatedButton.icon(
               onPressed: () async {
                 final DateTime? picked = await showDatePicker(
@@ -96,17 +77,17 @@ class _TimelineState extends State<Timeline> {
                   });
                 }
               },
-              icon: Icon(CupertinoIcons.calendar),
+              icon: const Icon(CupertinoIcons.calendar),
               label: Text(
                 DateFormat('dd/MM/yyyy').format(_departureDate),
               ),
             ),
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               'Return Date',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             ElevatedButton.icon(
               onPressed: () async {
                 final DateTime? picked = await showDatePicker(
@@ -121,17 +102,17 @@ class _TimelineState extends State<Timeline> {
                   });
                 }
               },
-              icon: Icon(CupertinoIcons.calendar),
+              icon: const Icon(CupertinoIcons.calendar),
               label: Text(
                 DateFormat('dd/MM/yyyy').format(_returnDate),
               ),
             ),
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               'Max Budget',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             TextFormField(
               keyboardType: TextInputType.number,
               inputFormatters: <TextInputFormatter>[
@@ -142,17 +123,17 @@ class _TimelineState extends State<Timeline> {
                   _maxBudget = double.tryParse(value) ?? 0;
                 });
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Enter Max Budget',
                 prefixIcon: Icon(CupertinoIcons.money_dollar),
               ),
             ),
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               'Traveling Alone',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Row(
               children: [
                 Radio(
@@ -164,8 +145,8 @@ class _TimelineState extends State<Timeline> {
                     });
                   },
                 ),
-                Text('Yes'),
-                SizedBox(width: 16.0),
+                const Text('Yes'),
+                const SizedBox(width: 16.0),
                 Radio(
                   value: false,
                   groupValue: _isTravelingAlone,
@@ -175,15 +156,15 @@ class _TimelineState extends State<Timeline> {
                     });
                   },
                 ),
-                Text('No'),
+                const Text('No'),
               ],
             ),
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               'Start Time',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             ElevatedButton.icon(
               onPressed: () async {
                 final TimeOfDay? picked = await showTimePicker(
@@ -196,17 +177,17 @@ class _TimelineState extends State<Timeline> {
                   });
                 }
               },
-              icon: Icon(CupertinoIcons.clock),
+              icon: const Icon(CupertinoIcons.clock),
               label: Text(
                 _startTime.format(context),
               ),
             ),
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               'End Time',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             ElevatedButton.icon(
               onPressed: () async {
                 final TimeOfDay? picked = await showTimePicker(
@@ -219,15 +200,15 @@ class _TimelineState extends State<Timeline> {
                   });
                 }
               },
-              icon: Icon(CupertinoIcons.clock),
+              icon: const Icon(CupertinoIcons.clock),
               label: Text(
                 _endTime.format(context),
               ),
             ),
-            SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
             ElevatedButton(
               onPressed: _generateSchedule,
-              child: Text('Generate Schedule'),
+              child: const Text('Generate Schedule'),
             ),
           ],
         ),

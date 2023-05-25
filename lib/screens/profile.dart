@@ -16,7 +16,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   int _selectedEvent = 0;
 
-  List<Widget> _pages = [PostScreen()]; //GalleryScreen()
+  final List<Widget> _pages = [const PostScreen()]; //GalleryScreen()
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,10 @@ class _ProfileState extends State<Profile> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ProfileImage(size),
-              ProfileInfo(),
-              ProfileActivity(),
-              ProfileEvents(size),
+              profileImage(size),
+              profileInfo(),
+              profileActivity(),
+              profileEvents(size),
               _pages[_selectedEvent],
             ],
           ),
@@ -38,14 +38,15 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Container ProfileEvents(Size size) {
+  Container profileEvents(Size size) {
     return Container(
+      margin: EdgeInsets.zero,
       child: Row(
         children: [
           Expanded(
             child: Container(
               width: size.width / 1.8,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: MaterialButton(
                 elevation: 0.5,
                 shape: RoundedRectangleBorder(
@@ -54,9 +55,11 @@ class _ProfileState extends State<Profile> {
                 color:
                     _selectedEvent == 1 ? Constants.lightPrimary : Colors.white,
                 onPressed: () {
-                  setState(() {
-                    _selectedEvent = 1;
-                  });
+                  setState(
+                    () {
+                      _selectedEvent = 1;
+                    },
+                  );
                 },
                 child: Text("Let's Review",
                     style: TextStyle(
@@ -73,8 +76,9 @@ class _ProfileState extends State<Profile> {
   }
 }
 
-Container ProfileInfo() {
+Container profileInfo() {
   return Container(
+    padding: EdgeInsets.zero,
     child: ListTile(
       title: const Row(
         children: [
