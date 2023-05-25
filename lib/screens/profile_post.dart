@@ -83,7 +83,7 @@ class _PostScreenState extends State<PostScreen> {
             Container(
               padding: EdgeInsets.all(10),
               child: const Text(
-                "Toi met moi",
+                "Bảo tàng có kiến trúc rất độc đáo, nó khiến mình cảm thấy rất bất ngờ về sự hòa hợp giữa màu sắc phương đông và phương tây. Mình đặt biệt rất ấn tượng và thích cầu thang xoắn ốc, những tác phẩm được trưng bài cũng rất nghệ thuật và đậm chất văn hóa từng thời kỳ nữa. Tui chụp được quá trời hình ở đây luôn á :3",
                 style: TextStyle(fontSize: 18),
               ),
             ),
@@ -96,8 +96,8 @@ class _PostScreenState extends State<PostScreen> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Image.network(
-                  "https://i.pinimg.com/236x/0a/b5/9e/0ab59e7c8e7a1213ff1ee891e98e06ae.jpg?nii=t",
+                child: Image.asset(
+                  "stour/assets/img/BaoTangMyThuat/Bao-tang-My-thuat-TP-HCM-ivivu.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
