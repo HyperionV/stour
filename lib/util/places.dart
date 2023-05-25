@@ -8,7 +8,6 @@ class Place {
   final String time;
   final String img;
   // final String history;
-  // final String culture;
 
   const Place({
     required this.id,
