@@ -1,27 +1,64 @@
 import 'package:flutter/material.dart';
 
-List<Widget> buildProfileOptions(BuildContext context) {
-  return [
-    ListTile(
-      leading: const Icon(Icons.photo_library),
-      title: const Text('Photos'),
-      onTap: () {
-        // Implement the photos page navigation
-      },
-    ),
-    ListTile(
-      leading: const Icon(Icons.favorite),
-      title: const Text('Favorites'),
-      onTap: () {
-        // Implement the favorites page navigation
-      },
-    ),
-    ListTile(
-      leading: const Icon(Icons.settings),
-      title: const Text('Settings'),
-      onTap: () {
-        // Implement the settings page navigation
-      },
-    ),
-  ];
+Row ProfileActivity() {
+  return Row(
+    children: [
+      Expanded(
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              right: BorderSide(color: Colors.grey.shade300),
+            ),
+          ),
+          child: const ListTile(
+            title: Center(
+              child: Text(
+                "3",
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            subtitle: Center(child: Text("Posts")),
+          ),
+        ),
+      ),
+      Expanded(
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              right: BorderSide(color: Colors.grey.shade300),
+            ),
+          ),
+          child: const ListTile(
+            title: Center(
+              child: Text(
+                "12",
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            subtitle: Center(child: Text("Followers")),
+          ),
+        ),
+      ),
+      Expanded(
+        child: const ListTile(
+          title: Center(
+            child: Text(
+              "4",
+              style: TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          subtitle: Center(child: Text("Following")),
+        ),
+      ),
+    ],
+  );
 }

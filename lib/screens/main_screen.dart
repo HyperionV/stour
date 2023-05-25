@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stour/screens/home.dart';
-import 'package:stour/screens/timeline.dart';
+import 'package:stour/widgets/timeline.dart';
 import 'package:stour/screens/profile.dart';
 import 'notifications.dart';
 
@@ -25,9 +25,9 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> pages = [
     const Home(),
-    const Timeline(),
+    Timeline(),
     const Notifications(),
-    const Profile(),
+    Profile(),
   ];
 
   @override
@@ -93,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         color: _page == index
             ? Theme.of(context).colorScheme.secondary
-            : Colors.blue,
+            : Colors.white,
         onPressed: () => _pageController.jumpToPage(index),
       ),
     );
