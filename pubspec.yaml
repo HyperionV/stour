@@ -45,6 +45,7 @@ dependencies:
   google_maps_flutter: ^2.2.8
   google_maps_flutter_web: ^0.4.0+9
   geolocator: ^9.0.2
+  simple_animations: ^4.2.0
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,8 @@ flutter:
     - assets\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg
     - assets\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg
     - assets\R.png
+    - assets\images\star.png
+    - assets\images\pin.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https:\/flutter.dev/assets-and-images/#resolution-aware

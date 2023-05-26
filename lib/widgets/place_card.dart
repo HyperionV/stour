@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:stour/util/const.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/screens/details.dart';
+import 'package:stour/screens/new_details.dart';
 
 class PlaceCard extends StatefulWidget {
   final Place place;
@@ -30,7 +31,7 @@ class _PlaceCardState extends State<PlaceCard> {
               context,
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return DetailScreen(placeToDisplay: widget.place);
+                  return DetailView(place: widget.place);
                 },
               ),
             );
