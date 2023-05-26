@@ -4,13 +4,14 @@ import 'package:stour/widgets/search_card.dart';
 import 'package:stour/widgets/trending_place.dart';
 
 class Trending extends StatelessWidget {
-  const Trending({super.key});
+  final List<Place> source;
+  const Trending({super.key, required this.source});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: const Text("Top picks for you"),
+        title: const Text("Cultural Places"),
         centerTitle: true,
       ),
       body: Padding(
@@ -27,16 +28,9 @@ class Trending extends StatelessWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               // itemCount: places == null ? 0 : places.length,
-              itemCount: places.length,
+              itemCount: source.length,
               itemBuilder: (BuildContext context, int index) {
-                Map place = places[index];
-                return TrendingPlace(
-                  img: place["img"],
-                  title: place["title"],
-                  address: place["address"],
-                  rating: place["rating"],
-                  time: place["time"],
-                );
+                return TrendingPlace(place: source[index]);
               },
             ),
             const SizedBox(height: 10.0),
