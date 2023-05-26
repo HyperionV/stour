@@ -37,13 +37,12 @@ class ScheduleScreen extends StatelessWidget {
 
   List<List<Place>> executeAlgo() {
     double budget = maxBudget;
-    int interval = returnDate.difference(departureDate).inDays;
+    int interval = returnDate.difference(departureDate).inDays + 1;
     double tMinus = (endTime.hour + endTime.minute / 60) -
         (startTime.hour + startTime.minute / 60);
     List<List<Place>> placesList = getData();
     List<List<Place>> res = [];
     double tmpTime = tMinus;
-    print('$budget $interval $tMinus');
     while (interval-- > 0 && placesList.isNotEmpty) {
       List<Place> tmpList = [];
       placesList = placesList.where((placePair) {
@@ -54,14 +53,10 @@ class ScheduleScreen extends StatelessWidget {
           return true;
         } else {
           tmpList.add(placePair[0]);
-          print(placePair[0].name);
           budget -= placePair[0].price;
           tmpTime -= placePair[0].duration;
-          print(budget);
-
           if (_isValid(budget, tmpTime, placePair[1]) == 2) {
             tmpList.add(placePair[1]);
-            print(placePair[1].name);
             budget -= placePair[1].price;
             tmpTime -= placePair[1].duration;
           }
@@ -77,16 +72,17 @@ class ScheduleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<List<Place>> res = executeAlgo();
-    print(res);
-    //Algorithm
     return Scaffold(
       appBar: AppBar(
         title: const Text('Generated Schedule'),
       ),
       body: Center(
         child: ListView.builder(
-            itemCount: res.length,
-            itemBuilder: (ctx, idx) => TimelineDay(res[idx], idx + 1)),
+          itemCount: res.length,
+          itemBuilder: (ctx, idx) {
+            return Expanded(child: TimelineDay(res[idx], idx + 1));
+          },
+        ),
       ),
     );
   }

@@ -5,28 +5,71 @@ import 'package:stour/widgets/search_card.dart';
 import 'package:stour/widgets/place_card.dart';
 import 'package:stour/model/place.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 
 class GoogleMapsController extends StatefulWidget {
-  const GoogleMapsController({super.key});
+  const GoogleMapsController({Key? key}) : super(key: key);
+
   @override
   State<GoogleMapsController> createState() => _GoogleMapsControllerState();
 }
 
 class _GoogleMapsControllerState extends State<GoogleMapsController> {
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  LatLng _center = const LatLng(10.045162, 105.746857);
+  final Set<Marker> _markers = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _determinePosition().then((position) {
+      setState(() {
+        _center = LatLng(position.latitude, position.longitude);
+        _markers.add((Marker(
+          markerId: const MarkerId('user_location'),
+          position: _center,
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+        )));
+      });
+    });
+  }
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+    return await Geolocator.getCurrentPosition();
+  }
+
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     return GoogleMap(
       onMapCreated: _onMapCreated,
       initialCameraPosition: CameraPosition(
         target: _center,
         zoom: 11.0,
       ),
+      myLocationEnabled: true,
+      myLocationButtonEnabled: true,
     );
   }
 }
@@ -64,6 +107,9 @@ class _HomeState extends State<Home> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.w800,
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               const SizedBox(
                   height: 200, width: 300, child: GoogleMapsController()),

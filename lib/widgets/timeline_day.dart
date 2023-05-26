@@ -7,16 +7,18 @@ class TimelineDay extends StatelessWidget {
   const TimelineDay(this.placesToGo, this.dayNum, {super.key});
   @override
   Widget build(context) {
-    return Column(children: [
-      Text('Day $dayNum:'),
-      SizedBox(
-        height: 800,
-        width: 400,
-        child: ListView.builder(
-            itemCount: placesToGo.length,
-            itemBuilder: (ctx, idx) => TimelineItem(placesToGo[idx])),
-      )
-    ]);
+    return Column(
+      children: [
+        Text('Day $dayNum:'),
+        const SizedBox(
+          height: 20,
+        ),
+        Column(
+            children: placesToGo.map((data) {
+          return TimelineItem(data);
+        }).toList()),
+      ],
+    );
   }
 }
 
