@@ -16,8 +16,17 @@ class Home extends StatelessWidget {
         }
       },
       child: Scaffold(
+<<<<<<< Updated upstream
         body: Padding(
           padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+=======
+        backgroundColor: Constants.lightPrimary,
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(90),
+          child: HomeAppBar(),
+        ),
+        body: SafeArea(
+>>>>>>> Stashed changes
           child: ListView(
             children: <Widget>[
               buildSearchBar(context),

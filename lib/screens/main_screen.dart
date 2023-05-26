@@ -81,6 +81,7 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
+<<<<<<< Updated upstream
   buildTabIcon(int index) {
     return Container(
       margin:
@@ -89,6 +90,21 @@ class _MainScreenState extends State<MainScreen> {
         icon: Icon(
           icons[index],
           size: 24.0,
+=======
+class HomeBottomBar extends StatelessWidget {
+  final Function(int) onTap;
+  const HomeBottomBar({required this.onTap, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CurvedNavigationBar(
+      backgroundColor: Constants.lightAccent,
+      index: 2,
+      items: [
+        Icon(
+          icons[0],
+          size: 30,
+>>>>>>> Stashed changes
         ),
         color: _page == index
             ? Theme.of(context).colorScheme.secondary
