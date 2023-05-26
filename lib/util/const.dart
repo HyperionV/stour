@@ -4,13 +4,18 @@ class Constants {
   static String appName = "S:Tour";
 
   //Colors for theme
-  static Color lightPrimary = const Color.fromARGB(255, 1, 210, 142);
-  static Color darkPrimary = const Color.fromARGB(255, 0, 75, 50);
-  static Color lightAccent = const Color.fromARGB(255, 246, 240, 120);
-  static Color darkAccent = const Color.fromARGB(255, 109, 80, 0);
-  static Color lightBG = const Color.fromARGB(251, 255, 255, 255);
+  static Color lightPrimary = const Color.fromARGB(255, 66, 98, 19);
+  static Color text = const Color.fromARGB(255, 35, 52, 10);
+  static Color darkPrimary = const Color(0xFFc3ff68);
+  static Color lightgreen = const Color(0xFFc3ff68);
+  static Color darkgreen = const Color.fromARGB(255, 66, 98, 19);
+  static Color lightAccent = const Color(0xFF848ccf);
+  static Color darkAccent = const Color.fromARGB(255, 183, 189, 240);
+  static Color lightpp = const Color.fromARGB(255, 183, 189, 240);
+  static Color darkpp = const Color(0xFF848ccf);
+  static Color lightBG = const Color.fromARGB(250, 255, 255, 255);
   static Color darkBG = const Color.fromARGB(0, 0, 0, 0);
-  static Color ratingBG = const Color.fromARGB(252, 255, 255, 85);
+  static Color ratingBG = const Color(0xFFfff000);
 
   static ThemeData lightTheme = ThemeData(
     // backgroundColor: lightBG,

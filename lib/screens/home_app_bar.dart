@@ -20,14 +20,15 @@ class HomeAppBar extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 246, 240, 120),
+                color: Constants.lightgreen,
                 boxShadow: [
-                  BoxShadow(color: Colors.black, blurRadius: 6),
+                  BoxShadow(color: Constants.darkpp, blurRadius: 10),
                 ],
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(16),
               ),
               child: const Icon(
                 Icons.sort_rounded,
+                color: Color.fromARGB(255, 35, 52, 10),
                 size: 24,
               ),
             ),
@@ -36,11 +37,12 @@ class HomeAppBar extends StatelessWidget {
             children: [
               Icon(
                 Icons.location_on,
-                color: Color.fromARGB(255, 246, 240, 120),
+                color: Color.fromARGB(255, 35, 52, 10),
               ),
               Text(
                 "Current",
                 style: TextStyle(
+                  color: Color.fromARGB(255, 35, 52, 10),
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
@@ -52,16 +54,16 @@ class HomeAppBar extends StatelessWidget {
               SearchCard();
             },
             child: Container(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 246, 240, 120),
-                boxShadow: const [
+                color: Constants.lightgreen,
+                boxShadow: [
                   BoxShadow(
-                    color: Color.fromARGB(255, 1, 210, 142),
-                    blurRadius: 6,
+                    color: Constants.darkpp,
+                    blurRadius: 10,
                   ),
                 ],
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(16),
               ),
               child: GestureDetector(
                 onTap: () {
@@ -69,6 +71,7 @@ class HomeAppBar extends StatelessWidget {
                 },
                 child: const Icon(
                   Icons.search,
+                  color: Color.fromARGB(255, 35, 52, 10),
                   size: 24,
                 ),
               ),

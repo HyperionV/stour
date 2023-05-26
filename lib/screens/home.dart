@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
         }
       },
       child: Scaffold(
-        backgroundColor: Constants.lightPrimary,
+        backgroundColor: Constants.lightBG,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(90),
           child: HomeAppBar(),
@@ -50,11 +50,6 @@ class _HomeState extends State<Home> {
         //bottomNavigationBar: HomeBottomBar(),
       ),
     );
-    //   ),
-    // );
-    //     ),
-    //   ),
-    // );
   }
 
   Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
@@ -69,7 +64,7 @@ class _HomeState extends State<Home> {
             child: Text(
               place,
               style: const TextStyle(
-                color: Color.fromARGB(255, 0, 75, 50),
+                color: Color.fromARGB(255, 35, 52, 10),
                 fontSize: 20.0,
                 fontWeight: FontWeight.w600,
               ),
@@ -80,7 +75,7 @@ class _HomeState extends State<Home> {
           child: Text(
             "See all (${source.length})",
             style: TextStyle(
-              color: Constants.darkPrimary,
+              color: Constants.text,
             ),
           ),
           onPressed: () {

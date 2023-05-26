@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stour/util/const.dart';
 // import 'package:stour/screens/home.dart';
 import 'package:stour/util/places.dart';
 import 'package:flutter/services.dart';
@@ -40,7 +41,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 Text(
                   'Details',
                   style: GoogleFonts.poppins(
-                      color: const Color.fromARGB(255, 44, 105, 224),
+                      color: Constants.lightPrimary,
                       fontWeight: FontWeight.w600,
                       fontSize: 20),
                 ),
@@ -48,7 +49,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   onPressed: () {
                     return setState(
                       () {
-                        buttonColor = Colors.red;
+                        buttonColor = Color.fromARGB(255, 255, 12, 109);
                         initialFavIcon = const Icon(Icons.favorite, size: 30);
                       },
                     );
