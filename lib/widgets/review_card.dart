@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/reviews.dart';
 
-
 class ReviewWidget extends StatelessWidget {
   final Reviews review;
 
@@ -28,6 +27,7 @@ class ReviewWidget extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 35, 52, 10),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -44,6 +44,7 @@ class ReviewWidget extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 35, 52, 10),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -60,7 +61,8 @@ class ReviewWidget extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   review.content,
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(
+                      fontSize: 16, color: Color.fromARGB(255, 35, 52, 10)),
                 ),
               ],
             ),
