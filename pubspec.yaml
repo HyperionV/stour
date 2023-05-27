@@ -41,6 +41,13 @@ dependencies:
   intl: ^0.17.0
   flutter_screenutil: 5.8.2
   curved_navigation_bar: ^1.0.3
+  permission_handler: ^10.2.0
+  path_provider: ^2.0.15
+  google_maps_flutter: ^2.2.8
+  google_maps_flutter_web: ^0.4.0+9
+  geolocator: ^9.0.2
+  simple_animations: ^4.2.0
+  geocoding: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +81,7 @@ flutter:
     - assets\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg
     - assets\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg
     - assets\R.png
+    - assets\img\logo.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https:\/flutter.dev/assets-and-images/#resolution-aware
