@@ -49,7 +49,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   onPressed: () {
                     return setState(
                       () {
-                        buttonColor = Color.fromARGB(255, 255, 12, 109);
+                        buttonColor = const Color.fromARGB(255, 255, 12, 109);
                         initialFavIcon = const Icon(Icons.favorite, size: 30);
                       },
                     );

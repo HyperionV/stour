@@ -78,7 +78,7 @@ class _MainScreenState extends State<MainScreen> {
 
 class HomeBottomBar extends StatelessWidget {
   final Function(int) onTap;
-  HomeBottomBar({required this.onTap});
+  const HomeBottomBar({required this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) {

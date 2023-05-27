@@ -3,6 +3,7 @@ import "package:stour/util/const.dart";
 import "package:stour/widgets/search_card.dart";
 
 class HomeAppBar extends StatelessWidget {
+  const HomeAppBar({super.key});
   @override
   Widget build(BuildContext context) {
     Widget buildSearchBar(BuildContext context) {
@@ -11,14 +12,14 @@ class HomeAppBar extends StatelessWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
             onTap: () {},
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Constants.lightgreen,
                 boxShadow: [
@@ -54,7 +55,7 @@ class HomeAppBar extends StatelessWidget {
               SearchCard();
             },
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Constants.lightgreen,
                 boxShadow: [

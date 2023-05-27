@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:stour/screens/trending.dart';
 import 'package:stour/util/const.dart';
 import 'package:stour/util/places.dart';
-import 'package:stour/widgets/search_card.dart';
 import 'package:stour/widgets/place_card.dart';
 import 'package:stour/model/place.dart';
 import 'package:stour/screens/home_app_bar.dart';
@@ -27,7 +26,7 @@ class _HomeState extends State<Home> {
       },
       child: Scaffold(
         backgroundColor: Constants.lightBG,
-        appBar: PreferredSize(
+        appBar: const PreferredSize(
           preferredSize: Size.fromHeight(90),
           child: HomeAppBar(),
         ),
@@ -57,7 +56,7 @@ class _HomeState extends State<Home> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               horizontal: 20.0), // Adjust the horizontal padding as needed
           child: Padding(
             padding: const EdgeInsets.only(left: 20.0),
