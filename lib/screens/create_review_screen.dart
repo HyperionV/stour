@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/reviews.dart';
-import 'package:flutter/material.dart';
-import 'package:stour/util/reviews.dart';
 
 class CreateReviewScreen extends StatefulWidget {
+  const CreateReviewScreen({super.key});
   @override
-  _CreateReviewScreenState createState() => _CreateReviewScreenState();
+  State<CreateReviewScreen> createState() => _CreateReviewScreenState();
 }
 
 class _CreateReviewScreenState extends State<CreateReviewScreen> {
@@ -16,18 +15,18 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('THÊM NHẬN XÉT'),
+        title: const Text('THÊM NHẬN XÉT'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Đánh giá địa điểm:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               children: [
                 buildStarButton(1),
@@ -37,33 +36,32 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                 buildStarButton(5),
               ],
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Nhận xét:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             TextField(
               controller: commentController,
               maxLines: 4,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Nhập đánh giá ở đây.',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Discard the review and navigate back to the previous screen
                     Navigator.pop(context);
                   },
-                  child: Text('HỦY'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
                   ),
+                  child: const Text('HỦY'),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -81,7 +79,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     );
                     Navigator.pop(context, newReview);
                   },
-                  child: Text('ĐĂNG BÀI'),
+                  child: const Text('ĐĂNG BÀI'),
                 ),
               ],
             ),

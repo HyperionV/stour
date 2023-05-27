@@ -3,10 +3,13 @@ import 'package:stour/screens/main_screen.dart';
 import 'package:stour/util/const.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash_screen.dart';
+import 'package:stour/model/place.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  getPlaceByID('stourplace1');
+  getPlaceByID('cuisines');
   runApp(const MyApp());
 }
 

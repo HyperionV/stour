@@ -4,10 +4,9 @@ import 'package:stour/widgets/review_card.dart';
 import 'package:stour/screens/create_review_screen.dart';
 
 class ReviewScreen extends StatefulWidget {
-  final List<Reviews> reviews;
-  const ReviewScreen({required this.reviews});
+  const ReviewScreen({super.key});
   @override
-  _ReviewScreenState createState() => _ReviewScreenState<Reviews>();
+  State<ReviewScreen> createState() => _ReviewScreenState<Reviews>();
 }
 
 class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
@@ -26,32 +25,28 @@ class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
         ),
       ),
       body: ListView.builder(
-        itemCount: widget.reviews.length,
+        itemCount: user.length,
         itemBuilder: (context, index) {
-          final review = widget.reviews[index];
+          final review = user[index];
           return ReviewWidget(review: review);
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          // Navigate to the CreateReviewScreen and wait for the result
           final newReview = await Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => CreateReviewScreen(),
+              builder: (context) => const CreateReviewScreen(),
             ),
           );
-
-          // Check if a review was returned from CreateReviewScreen
           if (newReview != null) {
             setState(() {
-              // Add the new review to the list of reviews
-              widget.reviews.add(newReview);
+              user.add(newReview);
             });
           }
         },
-        child: Icon(Icons.add),
         tooltip: "Add Review",
+        child: const Icon(Icons.add),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

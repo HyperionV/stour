@@ -4,7 +4,7 @@ import 'package:stour/screens/trending.dart';
 import 'package:stour/util/const.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/widgets/place_card.dart';
-import 'package:stour/model/place.dart';
+// import 'package:stour/model/place.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
@@ -122,34 +122,37 @@ class _HomeState extends State<Home> {
         backgroundColor: Constants.lightBG,
 
         body: SafeArea(
-          child: ListView(
-            children: <Widget>[
-              const SizedBox(height: 10),
-              buildSearchBar(context),
-              const SizedBox(height: 20.0),
-              // const SizedBox(height: 20.0),
-              const Text(
-                'Current Location: ',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w800,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: ListView(
+              children: <Widget>[
+                const SizedBox(height: 10),
+                buildSearchBar(context),
+                const SizedBox(height: 20.0),
+                // const SizedBox(height: 20.0),
+                const Text(
+                  'Current Location: ',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const SizedBox(
-                  height: 200, width: 300, child: GoogleMapsController()),
-              const SizedBox(height: 20.0),
-              buildPlaceRow('Cultural Places', places, context),
-              const SizedBox(height: 3.0),
-              buildPlaceList(context, places),
-              const SizedBox(height: 5.0),
-              buildPlaceRow('Unique Cuisines', food, context),
-              const SizedBox(height: 3.0),
-              buildPlaceList(context, food),
-              const SizedBox(height: 30),
-            ],
+                const SizedBox(
+                  height: 20,
+                ),
+                const SizedBox(
+                    height: 200, width: 300, child: GoogleMapsController()),
+                const SizedBox(height: 20.0),
+                buildPlaceRow('Cultural Places', places, context),
+                const SizedBox(height: 3.0),
+                buildPlaceList(context, places),
+                const SizedBox(height: 5.0),
+                buildPlaceRow('Unique Cuisines', food, context),
+                const SizedBox(height: 3.0),
+                buildPlaceList(context, food),
+                const SizedBox(height: 30),
+              ],
+            ),
           ),
         ),
         //bottomNavigationBar: HomeBottomBar(),
@@ -159,13 +162,10 @@ class _HomeState extends State<Home> {
 
   //GJi2DqbSkJosKhq6SZf8
 
-  @override
-  void initState() {
-    getPlaceByID('stourplace1');
-    getPlaceByID('cuisines');
-
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
 }
 
 Widget buildPlaceList(BuildContext context, List<Place> source) {

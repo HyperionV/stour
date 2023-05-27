@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/reviews.dart';
-import 'dart:math';
 
 // class ReviewWidget extends StatelessWidget {
 //   final Reviews review;
@@ -58,7 +57,7 @@ import 'dart:math';
 class ReviewWidget extends StatelessWidget {
   final Reviews review;
 
-  const ReviewWidget({required this.review});
+  const ReviewWidget({required this.review, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +103,8 @@ class ReviewWidget extends StatelessWidget {
                       child: LinearProgressIndicator(
                         value: double.parse(review.score) / 5.0,
                         backgroundColor: Colors.grey[300],
-                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.amber),
+                        valueColor:
+                            const AlwaysStoppedAnimation<Color>(Colors.amber),
                       ),
                     ),
                   ],

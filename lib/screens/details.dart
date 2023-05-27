@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:stour/util/const.dart';
 import 'package:stour/util/places.dart';
 import 'package:flutter/services.dart';
+import 'package:stour/screens/review_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key, required this.placeToDisplay});
@@ -101,7 +102,19 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // Navigate to the CreateReviewScreen and wait for the result
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ReviewScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text('open review'),
+                  ),
                 ],
               ),
             ),
