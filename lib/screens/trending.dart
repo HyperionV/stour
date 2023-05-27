@@ -27,7 +27,6 @@ class Trending extends StatelessWidget {
               primary: false,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              // itemCount: places == null ? 0 : places.length,
               itemCount: source.length,
               itemBuilder: (BuildContext context, int index) {
                 return TrendingPlace(place: source[index]);

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:stour/screens/home.dart';
 import 'package:stour/widgets/timeline.dart';
-import 'package:stour/screens/review_screen.dart';
+// import 'package:stour/screens/review_screen.dart';
 import 'package:stour/util/const.dart';
+import 'package:stour/screens/profile.dart';
 
 List icons = [
   Icons.timeline,
@@ -14,8 +15,8 @@ List icons = [
 List<Widget> pages = [
   const Timeline(),
   const Home(),
-  // const Profile(),
-  const ReviewScreen(),
+  const Profile(),
+  // const ReviewScreen(),
 ];
 
 class MainScreen extends StatefulWidget {
@@ -27,7 +28,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  PageController _pageController = PageController();
+  PageController _pageController = PageController(initialPage: 2);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
             child: PageView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
-              onPageChanged: onPageChanged,
+              // onPageChanged: onPageChanged,
               children: List.generate(3, (index) => pages[index]),
             ),
           ),
@@ -66,10 +67,6 @@ class _MainScreenState extends State<MainScreen> {
   void dispose() {
     _pageController.dispose();
     super.dispose();
-  }
-
-  void onPageChanged(int page) {
-    setState(() {});
   }
 }
 

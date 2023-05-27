@@ -24,16 +24,6 @@ Stack profileImage(Size size) {
         ),
       ),
 
-      Positioned(
-        top: 10,
-        left: 10,
-        child: IconButton(
-          color: const Color.fromARGB(255, 0, 0, 0),
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back),
-        ),
-      ),
-
       // * user profile image
       Positioned(
         top: 100,

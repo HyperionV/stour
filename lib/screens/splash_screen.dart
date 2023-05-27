@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,6 @@ class _SplashScreenState extends State<SplashScreen>
       _opacity = 1;
     });
     await Future.delayed(const Duration(seconds: 2));
-    // Navigate to the next screen after the animation is complete
     Navigator.pushReplacementNamed(context, '/home');
   }
 

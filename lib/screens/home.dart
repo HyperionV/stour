@@ -9,6 +9,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:stour/widgets/search_card.dart';
+import 'package:stour/screens/home_app_bar.dart';
+import 'package:flutter/services.dart';
 
 class GoogleMapsController extends StatefulWidget {
   const GoogleMapsController({Key? key}) : super(key: key);
@@ -111,6 +113,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
+
     return GestureDetector(
       onTap: () {
         FocusScopeNode currentFocus = FocusScope.of(context);
@@ -120,14 +124,15 @@ class _HomeState extends State<Home> {
       },
       child: Scaffold(
         backgroundColor: Constants.lightBG,
-
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(90),
+          child: HomeAppBar(),
+        ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: ListView(
               children: <Widget>[
-                const SizedBox(height: 10),
-                buildSearchBar(context),
                 const SizedBox(height: 20.0),
                 // const SizedBox(height: 20.0),
                 const Text(
