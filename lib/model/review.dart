@@ -9,4 +9,37 @@ class ReviewsServices {
         .get();
     return snapshot.docs;
   }
+
+  void createReview(String id, String user, String idLocation, String name,
+      String userImg, String content, String score) {
+    CollectionReference reviewsRef =
+        FirebaseFirestore.instance.collection('reviews');
+    reviewsRef.add({
+      'id': id,
+      'name': name,
+      'user': user,
+      'user_img': userImg,
+      'content': content,
+      'idLocation': idLocation,
+      'score': score,
+      'createdAt': DateTime.now().toUtc().toString(),
+      'updatedAt': DateTime.now().toUtc().toString(),
+    }).then((value) {
+      // Hiển thị modal thành công
+      print('Tạo đánh giá thành công');
+      // Hiển thị modal thông báo thành công ở đây
+    }).catchError((error) {
+      // Hiển thị modal lỗi (nếu có lỗi xảy ra)
+      print('Lỗi khi tạo đánh giá: $error');
+      // Hiển thị modal thông báo lỗi ở đây
+    });
+  }
+
+  void reloadReviews(String locationID) async {
+    ReviewsServices rs = ReviewsServices();
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('reviews')
+        .where('idLocation', isEqualTo: locationID)
+        .get();
+  }
 }

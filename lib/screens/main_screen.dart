@@ -8,6 +8,8 @@ import 'package:stour/screens/profile.dart';
 
 import 'package:stour/model/place.dart';
 
+import 'package:stour/model/place.dart';
+
 List icons = [
   Icons.timeline,
   Icons.home,

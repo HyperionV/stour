@@ -175,8 +175,6 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-
-  //GJi2DqbSkJosKhq6SZf8
 }
 
 Widget buildPlaceList(BuildContext context, List<Place> source) {

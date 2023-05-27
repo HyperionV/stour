@@ -1,9 +1,9 @@
-// ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stour/model/review.dart';
 import 'package:stour/util/reviews.dart';
 import 'package:stour/widgets/review_card.dart';
+
 
 class getUIAllReviewsByItemID extends StatelessWidget {
   final String locationID;
