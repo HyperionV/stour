@@ -126,23 +126,12 @@ class _HomeState extends State<Home> {
               buildSearchBar(context),
               const SizedBox(height: 20.0),
               // const SizedBox(height: 20.0),
-              Row(
-                children: [
-                  const Text(
-                    'Current Location: ',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  Text(
-                    '${currentLocationDetail[0]}, ${currentLocationDetail[1]}, ${currentLocationDetail[2]}',
-                    style: GoogleFonts.poppins(
-                        color: const Color.fromARGB(255, 36, 81, 104),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18),
-                  ),
-                ],
+              const Text(
+                'Current Location: ',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
               const SizedBox(
                 height: 20,
