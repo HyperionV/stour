@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/widgets/timeline_day.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ScheduleScreen extends StatelessWidget {
   final DateTime departureDate;
@@ -32,8 +33,7 @@ class ScheduleScreen extends StatelessWidget {
     for (int i = 0; i < places.length; i++) {
       if (places[i].closeTime < (startTime.hour + startTime.minute / 60) ||
           places[i].openTime > (endTime.hour + endTime.minute / 60) ||
-          places[i].city != currentLocationDetail[1] ||
-          places[i].district != currentLocationDetail[0]) {
+          places[i].city != currentLocationDetail[1]) {
         continue;
       }
       locations.add([places[i], food[i % food.length]]);
@@ -78,6 +78,41 @@ class ScheduleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<List<Place>> res = executeAlgo();
+    if (res.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Lịch Trình Dành Cho Bạn'),
+        ),
+        body: Center(
+            child: Padding(
+          padding: const EdgeInsets.all(40),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Rất Tiếc!',
+                style: GoogleFonts.roboto(
+                    fontSize: 30, fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 30),
+              Text(
+                  'Chúng tôi không thể đưa ra lịch trình phù hợp dựa trên những yêu cầu bạn đưa ra hoặc bạn đang ở địa điểm chưa được hỗ trợ bởi phần mềm!',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.roboto(
+                    fontSize: 16,
+                  )),
+              const SizedBox(height: 20),
+              Text(
+                'Xin hãy thử lại với những điều kiện khác!',
+                style: GoogleFonts.roboto(
+                  fontSize: 16,
+                ),
+              )
+            ],
+          ),
+        )),
+      );
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lịch Trình Dành Cho Bạn'),

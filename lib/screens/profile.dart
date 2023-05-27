@@ -53,18 +53,18 @@ class _ProfileState extends State<Profile> {
               child: MaterialButton(
                 elevation: 0.5,
                 shape: RoundedRectangleBorder(
-                    // borderRadius: BorderRadius.circular(18.0),
+                    borderRadius: BorderRadius.circular(16.0),
                     side: BorderSide(color: Constants.darkPrimary)),
                 color:
                     _selectedEvent == 1 ? Constants.lightPrimary : Colors.white,
                 onPressed: () {
                   setState(
                     () {
-                      _selectedEvent = 1;
+                      _selectedEvent = 0;
                     },
                   );
                 },
-                child: Text("Let's Review",
+                child: Text("THÊM BÀI VIẾT",
                     style: TextStyle(
                       color: _selectedEvent == 1
                           ? Constants.lightPrimary

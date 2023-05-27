@@ -50,7 +50,7 @@ class _TimelineState extends State<Timeline> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mong Muốn Cho Chuyến Đi'),
+        title: const Text('Yêu Cầu Cho Chuyến Đi'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -58,54 +58,80 @@ class _TimelineState extends State<Timeline> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Ngày Khởi Hành',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8.0),
-              ElevatedButton.icon(
-                onPressed: () async {
-                  final DateTime? picked = await showDatePicker(
-                    context: context,
-                    initialDate: _departureDate,
-                    firstDate: DateTime.now(),
-                    lastDate: DateTime(2100),
-                  );
-                  if (picked != null) {
-                    setState(() {
-                      _departureDate = picked;
-                    });
-                  }
-                },
-                icon: const Icon(CupertinoIcons.calendar),
-                label: Text(
-                  DateFormat('dd/MM/yyyy').format(_departureDate),
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              const Text(
-                'Ngày Trở Lại',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8.0),
-              ElevatedButton.icon(
-                onPressed: () async {
-                  final DateTime? picked = await showDatePicker(
-                    context: context,
-                    initialDate: _returnDate,
-                    firstDate: DateTime.now(),
-                    lastDate: DateTime(2100),
-                  );
-                  if (picked != null) {
-                    setState(() {
-                      _returnDate = picked;
-                    });
-                  }
-                },
-                icon: const Icon(CupertinoIcons.calendar),
-                label: Text(
-                  DateFormat('dd/MM/yyyy').format(_returnDate),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      const Text(
+                        'Ngày Khởi Hành',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 8.0),
+                      ElevatedButton.icon(
+                        onPressed: () async {
+                          final DateTime? picked = await showDatePicker(
+                            context: context,
+                            initialDate: _departureDate,
+                            firstDate: DateTime.now(),
+                            lastDate: DateTime(2100),
+                          );
+                          if (picked != null) {
+                            setState(() {
+                              _departureDate = picked;
+                            });
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        icon: const Icon(CupertinoIcons.calendar),
+                        label: Text(
+                          DateFormat('dd/MM/yyyy').format(_departureDate),
+                        ),
+                      ),
+                    ],
+                  ),
+                  // const SizedBox(width: 30),
+                  const Spacer(),
+                  Column(
+                    children: [
+                      const Text(
+                        'Ngày Trở Lại',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 8.0),
+                      ElevatedButton.icon(
+                        onPressed: () async {
+                          final DateTime? picked = await showDatePicker(
+                            context: context,
+                            initialDate: _returnDate,
+                            firstDate: DateTime.now(),
+                            lastDate: DateTime(2100),
+                          );
+                          if (picked != null) {
+                            setState(() {
+                              _returnDate = picked;
+                            });
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        icon: const Icon(CupertinoIcons.calendar),
+                        label: Text(
+                          DateFormat('dd/MM/yyyy').format(_returnDate),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
               const SizedBox(height: 16.0),
               const Text(
@@ -161,55 +187,88 @@ class _TimelineState extends State<Timeline> {
                 ],
               ),
               const SizedBox(height: 16.0),
-              const Text(
-                'Giờ Bắt Đầu',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      const Text(
+                        'Giờ Bắt Đầu',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 8.0),
+                      ElevatedButton.icon(
+                        onPressed: () async {
+                          final TimeOfDay? picked = await showTimePicker(
+                            context: context,
+                            initialTime: _startTime,
+                          );
+                          if (picked != null) {
+                            setState(() {
+                              _startTime = picked;
+                            });
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        icon: const Icon(CupertinoIcons.clock),
+                        label: Text(
+                          _startTime.format(context),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  Column(
+                    children: [
+                      const Text(
+                        'Giờ Về',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 8.0),
+                      ElevatedButton.icon(
+                        onPressed: () async {
+                          final TimeOfDay? picked = await showTimePicker(
+                            context: context,
+                            initialTime: _endTime,
+                          );
+                          if (picked != null) {
+                            setState(() {
+                              _endTime = picked;
+                            });
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        icon: const Icon(CupertinoIcons.clock),
+                        label: Text(
+                          _endTime.format(context),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              const SizedBox(height: 8.0),
-              ElevatedButton.icon(
-                onPressed: () async {
-                  final TimeOfDay? picked = await showTimePicker(
-                    context: context,
-                    initialTime: _startTime,
-                  );
-                  if (picked != null) {
-                    setState(() {
-                      _startTime = picked;
-                    });
-                  }
-                },
-                icon: const Icon(CupertinoIcons.clock),
-                label: Text(
-                  _startTime.format(context),
+              const SizedBox(height: 40.0),
+              Center(
+                child: ElevatedButton(
+                  onPressed: _generateSchedule,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    minimumSize:
+                        const Size(150, 50), // set the size you want here
+                  ),
+                  child: const Text('Gợi Ý Lịch Trình'),
                 ),
-              ),
-              const SizedBox(height: 16.0),
-              const Text(
-                'Giờ Về',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8.0),
-              ElevatedButton.icon(
-                onPressed: () async {
-                  final TimeOfDay? picked = await showTimePicker(
-                    context: context,
-                    initialTime: _endTime,
-                  );
-                  if (picked != null) {
-                    setState(() {
-                      _endTime = picked;
-                    });
-                  }
-                },
-                icon: const Icon(CupertinoIcons.clock),
-                label: Text(
-                  _endTime.format(context),
-                ),
-              ),
-              const SizedBox(height: 24.0),
-              ElevatedButton(
-                onPressed: _generateSchedule,
-                child: const Text('Gợi Ý Lịch Trình'),
               ),
             ],
           ),

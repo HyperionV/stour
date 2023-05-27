@@ -141,7 +141,8 @@ class _DetailScreenState extends State<DetailScreen> {
                             size: 18,
                           ),
                           const SizedBox(width: 5),
-                          Text('${widget.placeToDisplay.duration} Giờ',
+                          Text(
+                              '${widget.placeToDisplay.openTime.toStringAsFixed(0)}h - ${widget.placeToDisplay.closeTime.toStringAsFixed(0)}h',
                               style: const TextStyle(fontSize: 16))
                         ],
                       )
@@ -163,7 +164,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 7),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),

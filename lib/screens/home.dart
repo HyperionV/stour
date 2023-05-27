@@ -150,7 +150,7 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 3.0),
                 buildPlaceList(context, places),
                 const SizedBox(height: 5.0),
-                buildPlaceRow('Đặc Sản Độc Đáo', food, context),
+                buildPlaceRow('Đặc Sản', food, context),
                 const SizedBox(height: 3.0),
                 buildPlaceList(context, food),
                 const SizedBox(height: 30),

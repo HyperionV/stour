@@ -52,7 +52,7 @@ class _PostScreenState extends State<PostScreen> {
                             ),
                           ),
                           Text(
-                            "2 Tháng Trước",
+                            "2 tháng trước",
                             style: TextStyle(
                               color: Color.fromARGB(173, 35, 52, 10),
                             ),

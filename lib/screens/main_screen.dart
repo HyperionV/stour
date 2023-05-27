@@ -27,7 +27,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  PageController _pageController = PageController(initialPage: 2);
+  PageController _pageController = PageController(initialPage: 1);
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class HomeBottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
       backgroundColor: Constants.darkgreen,
-      index: 2,
+      index: 1,
       items: [
         Icon(icons[0], size: 30, color: Constants.lightgreen),
         Icon(icons[1], size: 30, color: Constants.lightgreen),
