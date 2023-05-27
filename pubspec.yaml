@@ -71,6 +71,7 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+<<<<<<< HEAD
   assets:
     - assets\img\BaoTangMyThuat\Bao-tang-My-thuat-TP-HCM-ivivu.jpg
     - assets\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg
@@ -83,6 +84,31 @@ flutter:
     - assets\R.png
     - assets\img\logo.svg
     - assets/img/BaoTangMyThuat/Bao-tang-My-thuat-TP-HCM-ivivu.jpg
+=======
+  # assets:
+  #   - assets\img\BaoTangMyThuat\Bao-tang-My-thuat-TP-HCM-ivivu.jpg
+  #   - assets\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg
+  #   - assets\10-8.jpg
+  #   - assets\cantho6_umpf.jpg
+  #   - assets\20161031072908-cho-noi-cao-rang (10).jpg
+  #   - assets\R.jpg
+  #   - assets\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg
+  #   - assets\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg
+  #   - assets\R.png
+  #   - assets\img\logo.svg
+  # assets:
+  #   - assets\img\BaoTangMyThuat\Bao-tang-My-thuat-TP-HCM-ivivu.jpg
+  #   - assets\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg
+  #   - assets\10-8.jpg
+  #   - assets\cantho6_umpf.jpg
+  #   - assets\20161031072908-cho-noi-cao-rang (10).jpg
+  #   - assets\R.jpg
+  #   - assets\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg
+  #   - assets\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg
+  #   - assets\R.png
+  #   - assets\images\star.png
+  #   - assets\images\pin.png
+>>>>>>> 9e0c4b76e3627cabfb89b50f29b407e7d530ef27
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https:\/flutter.dev/assets-and-images/#resolution-aware

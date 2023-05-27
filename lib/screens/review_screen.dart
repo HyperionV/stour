@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:stour/model/review.dart';
 import 'package:stour/util/reviews.dart';
-import 'package:stour/widgets/review_card.dart';
+// import 'package:stour/widgets/review_card.dart';
 import 'package:stour/screens/create_review_screen.dart';
+import 'package:stour/model/ui_reviews.dart';
 
 class ReviewScreen extends StatefulWidget {
-  const ReviewScreen({super.key});
+  final String locationID;
+  const ReviewScreen({super.key, required this.locationID});
   @override
   State<ReviewScreen> createState() => _ReviewScreenState<Reviews>();
 }
 
 class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
   // Access the reviews list using widget.reviews
+  ReviewsServices rs = ReviewsServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,13 +28,8 @@ class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
           ),
         ),
       ),
-      body: ListView.builder(
-        itemCount: user.length,
-        itemBuilder: (context, index) {
-          final review = user[index];
-          return ReviewWidget(review: review);
-        },
-      ),
+      body:
+          Center(child: GetUIAllReviewsByItemID(locationID: widget.locationID)),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final newReview = await Navigator.push(

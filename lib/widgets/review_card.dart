@@ -1,58 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/reviews.dart';
 
-// class ReviewWidget extends StatelessWidget {
-//   final Reviews review;
-
-//   const ReviewWidget({required this.review});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//         padding: EdgeInsets.all(16.0),
-//         child: Row(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             // CircleAvatar(
-//             //   backgroundImage: NetworkImage(review.userImg),
-//             //   radius: 25,
-//             // ),
-//             const SizedBox(width: 10),
-//             Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text(
-//                   review.name,
-//                   style: const TextStyle(
-//                     fontSize: 20,
-//                     fontWeight: FontWeight.w800,
-//                   ),
-//                   textAlign: TextAlign.left,
-//                 ),
-//                 Row(
-//                   children: List.generate(int.parse(review.score), (index) {
-//                     return Icon(Icons.star, color: Color(0xFFfff000));
-//                   }),
-//                 ),
-//                 const SizedBox(height: 5),
-//                 Wrap(
-//                   children: [
-//                     Text(
-//                       review.content,
-//                       softWrap: true,
-//                     ),
-//                   ],
-//                 ),
-//               ],
-//             ),
-//           ],
-//         ));
-//   }
-// }
-
-// import 'package:flutter/material.dart';
-// import 'package:stour/util/reviews.dart';
-// import 'dart:math';
 
 class ReviewWidget extends StatelessWidget {
   final Reviews review;

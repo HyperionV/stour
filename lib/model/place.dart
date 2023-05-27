@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stour/util/places.dart';
 import 'package:collection/collection.dart';
 
-void getPlaceByID(String collection) {
+void getAllPlaceFood(String collection) {
   CollectionReference place = FirebaseFirestore.instance.collection(collection);
   place.get().then((QuerySnapshot snapshot) {
     snapshot.docs.forEach((DocumentSnapshot documentSnapshot) {
@@ -71,7 +71,7 @@ class SearchByNameWidget extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             var document = snapshot.data!.docs[index];
             var name = document['name'];
-            var image = document['img'];
+            var image = document['image'];
             return ListTile(
               title: Text(name),
               leading: Image.network(image),

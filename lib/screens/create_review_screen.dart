@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stour/util/reviews.dart';
+// import 'package:stour/util/reviews.dart';
+// import 'package:flutter/material.dart';
+// import 'package:stour/util/reviews.dart';
+import 'package:stour/model/review.dart';
 
 class CreateReviewScreen extends StatefulWidget {
   const CreateReviewScreen({super.key});
@@ -10,7 +13,7 @@ class CreateReviewScreen extends StatefulWidget {
 class _CreateReviewScreenState extends State<CreateReviewScreen> {
   int selectedStars = 5;
   TextEditingController commentController = TextEditingController();
-
+  ReviewsServices rs = ReviewsServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +60,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
+
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
@@ -65,19 +69,17 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Post the review and navigate back to the previous screen
-                    Reviews newReview = Reviews(
-                      id: '', // Assign a unique ID
-                      user: '', // Assign the user name
-                      userImg: '', // Assign the user image URL
-                      name: '', // Assign the place name
-                      idLocation: '', // Assign the location ID
-                      content: commentController.text,
-                      score: selectedStars.toString(),
-                      createdAt: '', // Assign the current timestamp
-                      updatedAt: '', // Assign the current timestamp
-                    );
-                    Navigator.pop(context, newReview);
+                    rs.createReview(
+                        'review 2511111',
+                        'abc',
+                        'food1',
+                        'Lê Ngọc Thảo',
+                        'https://i.imgur.com/HASFzRW.jpg',
+                        commentController.text,
+                        selectedStars.toString());
+
+                    Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                   child: const Text('ĐĂNG BÀI'),
                 ),

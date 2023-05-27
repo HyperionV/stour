@@ -115,7 +115,8 @@ class _DetailScreenState extends State<DetailScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ReviewScreen(),
+                        builder: (context) =>
+                            ReviewScreen(locationID: widget.placeToDisplay.id),
                       ),
                     );
                   },

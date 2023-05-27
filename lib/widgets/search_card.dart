@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stour/model/place.dart';
 
 class SearchCard extends StatelessWidget {
   SearchCard({super.key});
@@ -14,6 +15,10 @@ class SearchCard extends StatelessWidget {
         ),
       ),
       child: TextField(
+        onChanged: (text) {
+          // print('First text field: $text');
+          SearchByNameWidget(text);
+        },
         style: const TextStyle(
           fontSize: 15.0,
           color: Colors.black,

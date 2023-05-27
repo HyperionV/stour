@@ -1,13 +1,12 @@
-// ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stour/model/review.dart';
 import 'package:stour/util/reviews.dart';
 import 'package:stour/widgets/review_card.dart';
 
-class getUIAllReviewsByItemID extends StatelessWidget {
+class GetUIAllReviewsByItemID extends StatelessWidget {
   final String locationID;
-  getUIAllReviewsByItemID({super.key, required this.locationID});
+  GetUIAllReviewsByItemID({super.key, required this.locationID});
   final ReviewsServices rs = ReviewsServices();
 
   @override
