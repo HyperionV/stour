@@ -134,7 +134,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 const SizedBox(height: 10),
                 const Text(
-                  'Current Location: ',
+                  'Vị Trí Hiện Tại',
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w800,
@@ -146,11 +146,11 @@ class _HomeState extends State<Home> {
                 const SizedBox(
                     height: 200, width: 300, child: GoogleMapsController()),
                 const SizedBox(height: 20.0),
-                buildPlaceRow('Cultural Places', places, context),
+                buildPlaceRow('Địa Điểm Văn Hóa', places, context),
                 const SizedBox(height: 3.0),
                 buildPlaceList(context, places),
                 const SizedBox(height: 5.0),
-                buildPlaceRow('Unique Cuisines', food, context),
+                buildPlaceRow('Đặc Sản Độc Đáo', food, context),
                 const SizedBox(height: 3.0),
                 buildPlaceList(context, food),
                 const SizedBox(height: 30),
@@ -198,7 +198,7 @@ Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
       ),
       TextButton(
         child: Text(
-          "See all (${source.length})",
+          "Xem tất cả (${source.length})",
           style: TextStyle(
             color: Theme.of(context).colorScheme.secondary,
           ),

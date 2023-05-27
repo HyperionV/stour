@@ -11,7 +11,7 @@ class Trending extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: const Text("Cultural Places"),
+        title: const Text("Địa Điểm Văn Hóa"),
         centerTitle: true,
       ),
       body: Padding(

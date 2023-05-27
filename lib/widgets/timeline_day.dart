@@ -17,7 +17,7 @@ class TimelineDay extends StatelessWidget {
       child: Column(
         children: <Widget>[
           const SizedBox(height: 10),
-          buildPlaceRow('Day $dayNum - ${totalCost.toStringAsFixed(0)}₫',
+          buildPlaceRow('Ngày thứ $dayNum - ${totalCost.toStringAsFixed(0)}₫',
               placesToGo, context),
           const SizedBox(height: 5),
           buildPlaceList(context, placesToGo),

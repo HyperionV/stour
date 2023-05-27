@@ -20,29 +20,36 @@ Row profileActivity() {
                 ),
               ),
             ),
-            subtitle: Center(child: Text("Posts")),
+            subtitle: Center(
+                child: Text(
+              "Bài Đăng",
+              style: TextStyle(fontSize: 13),
+            )),
           ),
         ),
       ),
-      Expanded(
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border(
-              right: BorderSide(color: Colors.grey.shade300),
-            ),
+      Container(
+        width: 130,
+        decoration: BoxDecoration(
+          border: Border(
+            right: BorderSide(color: Colors.grey.shade300),
           ),
-          child: const ListTile(
-            title: Center(
-              child: Text(
-                "12",
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.bold,
-                ),
+        ),
+        child: const ListTile(
+          title: Center(
+            child: Text(
+              "12",
+              style: TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            subtitle: Center(child: Text("Followers")),
           ),
+          subtitle: Center(
+              child: Text(
+            "Người Theo Dõi",
+            style: TextStyle(fontSize: 13),
+          )),
         ),
       ),
       const Expanded(
@@ -56,7 +63,12 @@ Row profileActivity() {
               ),
             ),
           ),
-          subtitle: Center(child: Text("Following")),
+          subtitle: Center(
+            child: Text(
+              "Đang Theo Dõi",
+              style: TextStyle(fontSize: 13),
+            ),
+          ),
         ),
       ),
     ],

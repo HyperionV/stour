@@ -63,7 +63,7 @@ class SearchByNameWidget extends StatelessWidget {
         }
 
         if (snapshot.data == null || snapshot.data!.docs.isEmpty) {
-          return const Text('No results found.');
+          return const Text('Không tìm thấy kết quả');
         }
 
         return ListView.builder(
@@ -75,7 +75,7 @@ class SearchByNameWidget extends StatelessWidget {
             return ListTile(
               title: Text(name),
               leading: Image.network(image),
-              subtitle: const Text('history'),
+              subtitle: const Text('Lịch sử'),
             );
           },
         );

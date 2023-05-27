@@ -52,7 +52,7 @@ class _PostScreenState extends State<PostScreen> {
                             ),
                           ),
                           Text(
-                            "2 months ago",
+                            "2 Tháng Trước",
                             style: TextStyle(
                               color: Color.fromARGB(173, 35, 52, 10),
                             ),
@@ -67,14 +67,14 @@ class _PostScreenState extends State<PostScreen> {
                         const PopupMenuItem(
                           value: "delete",
                           child: Text(
-                            "Delete Post",
+                            "Xóa Bài Viết",
                             selectionColor: Color.fromARGB(255, 35, 52, 10),
                           ),
                         ),
                         const PopupMenuItem(
                           value: "save",
                           child: Text(
-                            "Save Post",
+                            "Lưu Bài Viết",
                             selectionColor: Color.fromARGB(255, 35, 52, 10),
                           ),
                         ),

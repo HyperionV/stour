@@ -80,7 +80,7 @@ class ScheduleScreen extends StatelessWidget {
     List<List<Place>> res = executeAlgo();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Recommended Schedule For You'),
+        title: const Text('Lịch Trình Dành Cho Bạn'),
       ),
       body: Center(
         child: ListView.builder(

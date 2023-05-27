@@ -40,7 +40,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   },
                 ),
                 Text(
-                  'Details',
+                  'CHI TIẾT',
                   style: GoogleFonts.poppins(
                       color: Constants.lightPrimary,
                       fontWeight: FontWeight.w600,
@@ -158,7 +158,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       );
                     },
-                    child: const Text('Review & Rating'),
+                    child: const Text('Đánh giá và nhận xét'),
                   ),
                 ],
               ),

@@ -50,7 +50,7 @@ class _TimelineState extends State<Timeline> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Travel Preferences'),
+        title: const Text('Mong Muốn Cho Chuyến Đi'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -59,7 +59,7 @@ class _TimelineState extends State<Timeline> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Departure Date',
+                'Ngày Khởi Hành',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
@@ -84,7 +84,7 @@ class _TimelineState extends State<Timeline> {
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'Return Date',
+                'Ngày Trở Lại',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
@@ -109,7 +109,7 @@ class _TimelineState extends State<Timeline> {
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'Max Budget (VND)',
+                'Ngân Sách (VND)',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
@@ -125,13 +125,13 @@ class _TimelineState extends State<Timeline> {
                   });
                 },
                 decoration: const InputDecoration(
-                  hintText: 'Enter Max Budget',
+                  hintText: 'Nhập ngân sách tối đa',
                   prefixIcon: Icon(Icons.account_balance_wallet_outlined),
                 ),
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'Traveling Alone',
+                'Bạn Sẽ Đi Du Lịch Một Mình?',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
@@ -146,7 +146,7 @@ class _TimelineState extends State<Timeline> {
                       });
                     },
                   ),
-                  const Text('Yes'),
+                  const Text('Có'),
                   const SizedBox(width: 16.0),
                   Radio(
                     value: false,
@@ -157,12 +157,12 @@ class _TimelineState extends State<Timeline> {
                       });
                     },
                   ),
-                  const Text('No'),
+                  const Text('Không'),
                 ],
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'Start Time',
+                'Giờ Bắt Đầu',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
@@ -185,7 +185,7 @@ class _TimelineState extends State<Timeline> {
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'End Time',
+                'Giờ Về',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
@@ -209,7 +209,7 @@ class _TimelineState extends State<Timeline> {
               const SizedBox(height: 24.0),
               ElevatedButton(
                 onPressed: _generateSchedule,
-                child: const Text('Generate Schedule'),
+                child: const Text('Gợi Ý Lịch Trình'),
               ),
             ],
           ),

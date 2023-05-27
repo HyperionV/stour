@@ -45,7 +45,7 @@ class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
             });
           }
         },
-        tooltip: "Add Review",
+        tooltip: "THÊM ĐÁNH GIÁ",
         child: const Icon(Icons.add),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,

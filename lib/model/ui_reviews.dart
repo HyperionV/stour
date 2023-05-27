@@ -24,7 +24,7 @@ class GetUIAllReviewsByItemID extends StatelessWidget {
         }
 
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Text('No reviews found.');
+          return const Text('Không tìm thấy đánh giá.');
         }
 
         return ListView.builder(
