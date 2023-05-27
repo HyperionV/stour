@@ -8,8 +8,8 @@ import 'package:stour/model/place.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  getPlaceByID('stourplace1');
-  getPlaceByID('cuisines');
+  getAllPlaceFood('stourplace1');
+  getAllPlaceFood('cuisines');
   runApp(const MyApp());
 }
 

@@ -6,6 +6,8 @@ import 'package:stour/widgets/timeline.dart';
 import 'package:stour/util/const.dart';
 import 'package:stour/screens/profile.dart';
 
+import 'package:stour/model/place.dart';
+
 List icons = [
   Icons.timeline,
   Icons.home,
@@ -60,6 +62,8 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     _pageController = PageController();
+    getAllPlaceFood('stourplace1');
+    getAllPlaceFood('cuisines');
     super.initState();
   }
 
