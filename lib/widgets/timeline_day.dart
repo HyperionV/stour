@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/places.dart';
+import 'package:stour/screens/home.dart';
 
 class TimelineDay extends StatelessWidget {
   final List<Place> placesToGo;
@@ -7,26 +8,21 @@ class TimelineDay extends StatelessWidget {
   const TimelineDay(this.placesToGo, this.dayNum, {super.key});
   @override
   Widget build(context) {
-    return Column(
-      children: [
-        Text('Day $dayNum:'),
-        const SizedBox(
-          height: 20,
-        ),
-        Column(
-            children: placesToGo.map((data) {
-          return TimelineItem(data);
-        }).toList()),
-      ],
+    double totalCost = 0;
+    for (int i = 0; i < placesToGo.length; i++) {
+      totalCost += placesToGo[i].price;
+    }
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Column(
+        children: <Widget>[
+          const SizedBox(height: 10),
+          buildPlaceRow('Day $dayNum - \$$totalCost', placesToGo, context),
+          const SizedBox(height: 5),
+          buildPlaceList(context, placesToGo),
+          const SizedBox(height: 10),
+        ],
+      ),
     );
-  }
-}
-
-class TimelineItem extends StatelessWidget {
-  final Place placeToGo;
-  const TimelineItem(this.placeToGo, {super.key});
-  @override
-  Widget build(context) {
-    return Text(placeToGo.name);
   }
 }

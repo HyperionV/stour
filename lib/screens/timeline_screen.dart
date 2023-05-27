@@ -29,7 +29,7 @@ class ScheduleScreen extends StatelessWidget {
 
   List<List<Place>> getData() {
     List<List<Place>> locations = [];
-    for (int i = 0; i < places.length - 1; i++) {
+    for (int i = 0; i < places.length; i++) {
       locations.add([places[i], food[i]]);
     }
     return locations;
@@ -74,7 +74,7 @@ class ScheduleScreen extends StatelessWidget {
     List<List<Place>> res = executeAlgo();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Generated Schedule'),
+        title: const Text('Recommended Schedule For You'),
       ),
       body: Center(
         child: ListView.builder(

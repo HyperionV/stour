@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:stour/util/const.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/screens/details.dart';
-import 'package:stour/screens/new_details.dart';
 
 class PlaceCard extends StatefulWidget {
   final Place place;
@@ -31,7 +30,7 @@ class _PlaceCardState extends State<PlaceCard> {
               context,
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return DetailView(place: widget.place);
+                  return DetailScreen(placeToDisplay: widget.place);
                 },
               ),
             );
@@ -53,7 +52,7 @@ class _PlaceCardState extends State<PlaceCard> {
                           topLeft: Radius.circular(10.0),
                           topRight: Radius.circular(10.0),
                         ),
-                        child: Image.asset(
+                        child: Image.network(
                           widget.place.img,
                           fit: BoxFit.cover,
                         ),
@@ -99,7 +98,7 @@ class _PlaceCardState extends State<PlaceCard> {
                               size: 12,
                             ),
                             Text(
-                              " ${widget.place.time}",
+                              " ${widget.place.openTime.toStringAsFixed(0)}-${widget.place.closeTime.toStringAsFixed(0)}",
                               style: const TextStyle(
                                 fontSize: 12.0,
                                 color: Colors.green,

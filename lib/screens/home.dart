@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stour/screens/trending.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/widgets/search_card.dart';
@@ -6,6 +7,7 @@ import 'package:stour/widgets/place_card.dart';
 import 'package:stour/model/place.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
 
 class GoogleMapsController extends StatefulWidget {
   const GoogleMapsController({Key? key}) : super(key: key);
@@ -23,16 +25,39 @@ class _GoogleMapsControllerState extends State<GoogleMapsController> {
   @override
   void initState() {
     super.initState();
-    _determinePosition().then((position) {
-      setState(() {
-        _center = LatLng(position.latitude, position.longitude);
-        _markers.add((Marker(
-          markerId: const MarkerId('user_location'),
-          position: _center,
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-        )));
-      });
-    });
+    _determinePosition().then(
+      (position) {
+        getUserAddress(position);
+        setState(
+          () {
+            _center = LatLng(position.latitude, position.longitude);
+            _markers.add(
+              (Marker(
+                markerId: const MarkerId('user_location'),
+                position: _center,
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueRed),
+              )),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Future<List<String>> getAddressInfoFromPosition(Position position) async {
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+    // print(placemarks);
+    Placemark placemark = placemarks.first;
+    String country = placemark.country ?? "";
+    String district = (placemark.subAdministrativeArea) ?? "";
+    String city = placemark.administrativeArea ?? "";
+    return [district, city, country];
+  }
+
+  void getUserAddress(Position src) async {
+    currentLocationDetail = await getAddressInfoFromPosition(src);
   }
 
   Future<Position> _determinePosition() async {
@@ -101,12 +126,23 @@ class _HomeState extends State<Home> {
               buildSearchBar(context),
               const SizedBox(height: 20.0),
               // const SizedBox(height: 20.0),
-              const Text(
-                'Your Current Location',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w800,
-                ),
+              Row(
+                children: [
+                  const Text(
+                    'Current Location: ',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  // Text(
+                  //   '${currentLocationDetail[0]}, ${currentLocationDetail[1]}, ${currentLocationDetail[2]}',
+                  //   style: GoogleFonts.poppins(
+                  //       color: const Color.fromARGB(255, 36, 81, 104),
+                  //       fontWeight: FontWeight.w700,
+                  //       fontSize: 18),
+                  // ),
+                ],
               ),
               const SizedBox(
                 height: 20,
@@ -129,70 +165,70 @@ class _HomeState extends State<Home> {
     );
   }
 
-  // Widget buildMap()
-
-  Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Text(
-          place,
-          style: const TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
-        TextButton(
-          child: Text(
-            "See all (${source.length})",
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.secondary,
-            ),
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return Trending(source: places);
-                },
-              ),
-            );
-          },
-        ),
-      ],
-    );
-  }
-
-  Widget buildSearchBar(BuildContext context) {
-    return Container(
-        margin: const EdgeInsets.fromLTRB(10, 5, 10, 0), child: SearchCard());
-  }
+  //GJi2DqbSkJosKhq6SZf8
 
   @override
   void initState() {
-    getPlaceById('GJi2DqbSkJosKhq6SZf8');
+    getPlaceByID('stourplace1');
+    getPlaceByID('cuisines');
     super.initState();
   }
+}
 
-  Widget buildPlaceList(BuildContext context, List<Place> source) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height / 2.4,
-      width: MediaQuery.of(context).size.width,
-      child: ListView.builder(
-        primary: false,
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        // itemCount: places == null ? 0 : places.length,
-        itemCount: source.length,
-        itemBuilder: (BuildContext context, int index) {
-          Place place = source[index];
-          return Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: PlaceCard(place: place),
+Widget buildPlaceList(BuildContext context, List<Place> source) {
+  return SizedBox(
+    height: MediaQuery.of(context).size.height / 2.4,
+    width: MediaQuery.of(context).size.width,
+    child: ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      scrollDirection: Axis.horizontal,
+      itemCount: source.length,
+      itemBuilder: (BuildContext context, int index) {
+        Place place = source[index];
+        return Padding(
+          padding: const EdgeInsets.only(right: 10.0),
+          child: PlaceCard(place: place),
+        );
+      },
+    ),
+  );
+}
+
+Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
+      Text(
+        place,
+        style: const TextStyle(
+          fontSize: 20.0,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
+      TextButton(
+        child: Text(
+          "See all (${source.length})",
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return Trending(source: source);
+              },
+            ),
           );
         },
       ),
-    );
-  }
+    ],
+  );
+}
+
+Widget buildSearchBar(BuildContext context) {
+  return Container(
+      margin: const EdgeInsets.fromLTRB(10, 5, 10, 0), child: SearchCard());
 }

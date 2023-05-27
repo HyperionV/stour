@@ -1,70 +1,43 @@
 import 'package:flutter/material.dart';
-// import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stour/util/places.dart';
 import 'package:collection/collection.dart';
-// import 'package:stour/screens/home.dart';
 
-// class GetPlaceById extends StatelessWidget {
-//   final String documentId;
-//   const GetPlaceById(this.documentId, {super.key});
-//   @override
-//   Widget build(BuildContext context) {
-//     CollectionReference place =
-//         FirebaseFirestore.instance.collection('stourplace1');
-//     return FutureBuilder<DocumentSnapshot>(
-//       future: place.doc(documentId).get(),
-//       builder:
-//           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-//         if (snapshot.hasError) {
-//           return const Text("Something went wrong");
-//         }
-//         if (snapshot.hasData && !snapshot.data!.exists) {
-//           return const Text("Document does not exist");
-//         }
-//         if (snapshot.connectionState == ConnectionState.done) {
-//           Map<String, dynamic> data =
-//               snapshot.data!.data() as Map<String, dynamic>;
-//           Place pld = Place(
-//             id: '',
-//             name: data['name'],
-//             address: data['address'],
-//             time: data['time'],
-//             img: data['image'],
-//             rating: data['rating'],
-//           );
-//           places.add(pld);
-//         }
-//         return const Home();
-//       },
-//     );
-//   }
-// }
-
-bool getPlaceById(String documentId) {
-  CollectionReference place =
-      FirebaseFirestore.instance.collection('stourplace1');
-  place.doc(documentId).get().then((DocumentSnapshot snapshot) {
-    if (snapshot.exists) {
-      Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
-      Place tmpPlace = Place(
-        id: data['id'],
-        name: data['name'],
-        address: data['address'],
-        time: data['time'],
-        rating: data['rating'],
-        img: data['image'],
-        price: 10,
-        history: '',
-        duration: 1,
-      );
-      if (places.firstWhereOrNull((element) => element.id == tmpPlace.id) ==
-          null) {
-        places.add(tmpPlace);
+void getPlaceByID(String collection) {
+  CollectionReference place = FirebaseFirestore.instance.collection(collection);
+  place.get().then((QuerySnapshot snapshot) {
+    snapshot.docs.forEach((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        Map<String, dynamic> data =
+            documentSnapshot.data() as Map<String, dynamic>;
+        Place tmpPlace = Place(
+          id: data['id'],
+          name: data['name'],
+          address: data['address'],
+          rating: data['rating'],
+          img: data['image'],
+          price: data['price'],
+          history: data['history'],
+          duration: data['duration'],
+          city: data['city'],
+          closeTime: data['closetime'],
+          district: data['district'],
+          openTime: data['opentime'],
+        );
+        if (collection == 'stourplace1') {
+          if (places.firstWhereOrNull((element) => element.id == tmpPlace.id) ==
+              null) {
+            places.add(tmpPlace);
+          }
+        } else {
+          if (food.firstWhereOrNull((element) => element.id == tmpPlace.id) ==
+              null) {
+            food.add(tmpPlace);
+          }
+        }
       }
-    }
+    });
   });
-  return true;
 }
 
 class SearchByNameWidget extends StatelessWidget {
