@@ -63,7 +63,7 @@ class ReviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -78,7 +78,7 @@ class ReviewWidget extends StatelessWidget {
               children: [
                 Text(
                   review.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -86,7 +86,7 @@ class ReviewWidget extends StatelessWidget {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.star,
                       color: Color(0xFFFFD700),
                       size: 16,
@@ -94,7 +94,7 @@ class ReviewWidget extends StatelessWidget {
                     const SizedBox(width: 4),
                     Text(
                       review.score,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
@@ -104,7 +104,7 @@ class ReviewWidget extends StatelessWidget {
                       child: LinearProgressIndicator(
                         value: double.parse(review.score) / 5.0,
                         backgroundColor: Colors.grey[300],
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
+                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.amber),
                       ),
                     ),
                   ],
@@ -112,7 +112,7 @@ class ReviewWidget extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   review.content,
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
               ],
             ),

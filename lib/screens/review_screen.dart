@@ -17,7 +17,7 @@ class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Rate & Review',
+          'ĐÁNH GIÁ',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,

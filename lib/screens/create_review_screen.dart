@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/reviews.dart';
-import 'package:stour/screens/review_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:stour/util/reviews.dart';
 
@@ -17,7 +16,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create Review'),
+        title: Text('THÊM NHẬN XÉT'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -25,7 +24,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Rate the Place:',
+              'Đánh giá địa điểm:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
@@ -40,7 +39,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
             ),
             SizedBox(height: 16),
             Text(
-              'Comments:',
+              'Nhận xét:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
@@ -48,7 +47,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
               controller: commentController,
               maxLines: 4,
               decoration: InputDecoration(
-                hintText: 'Enter your comments',
+                hintText: 'Nhập đánh giá ở đây.',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -61,7 +60,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     // Discard the review and navigate back to the previous screen
                     Navigator.pop(context);
                   },
-                  child: Text('Discard'),
+                  child: Text('HỦY'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
                   ),
@@ -82,7 +81,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     );
                     Navigator.pop(context, newReview);
                   },
-                  child: Text('Post Review'),
+                  child: Text('ĐĂNG BÀI'),
                 ),
               ],
             ),
