@@ -6,12 +6,38 @@ import 'package:stour/screens/create_review_screen.dart';
 class ReviewScreen extends StatefulWidget {
   final List<Reviews> reviews;
   const ReviewScreen({required this.reviews});
+
   @override
   _ReviewScreenState createState() => _ReviewScreenState<Reviews>();
 }
 
-class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
-  // Access the reviews list using widget.reviews
+class _ReviewScreenState<Reviews> extends State<ReviewScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,33 +51,39 @@ class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
           ),
         ),
       ),
-      body: ListView.builder(
-        itemCount: widget.reviews.length,
-        itemBuilder: (context, index) {
-          final review = widget.reviews[index];
-          return ReviewWidget(review: review);
-        },
+      body: FadeTransition(
+        opacity: _animation,
+        child: ListView.builder(
+          itemCount: widget.reviews.length,
+          itemBuilder: (context, index) {
+            final review =
+                widget.reviews[index]; // Cast the review to the correct type
+            return ReviewWidget(review: review);
+          },
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          // Navigate to the CreateReviewScreen and wait for the result
-          final newReview = await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CreateReviewScreen(),
-            ),
-          );
+      floatingActionButton: ScaleTransition(
+        scale: _animation,
+        child: FloatingActionButton(
+          onPressed: () async {
+            final newReview = await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CreateReviewScreen(),
+              ),
+            );
 
-          // Check if a review was returned from CreateReviewScreen
-          if (newReview != null) {
-            setState(() {
-              // Add the new review to the list of reviews
-              widget.reviews.add(newReview);
-            });
-          }
-        },
-        child: Icon(Icons.add),
-        tooltip: "Add Review",
+            if (newReview != null) {
+              setState(() {
+                widget.reviews.add(newReview);
+              });
+            }
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Color(0xFFc3ff68),
+          foregroundColor: Colors.black,
+          tooltip: "Add Review",
+        ),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/places.dart';
-import 'package:stour/widgets/timeline_day.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 
 class ScheduleScreen extends StatelessWidget {
   final DateTime departureDate;
@@ -10,14 +10,15 @@ class ScheduleScreen extends StatelessWidget {
   final TimeOfDay startTime;
   final TimeOfDay endTime;
 
-  const ScheduleScreen(
-      {required this.departureDate,
-      required this.returnDate,
-      required this.maxBudget,
-      required this.isTravelingAlone,
-      required this.startTime,
-      required this.endTime,
-      super.key});
+  const ScheduleScreen({
+    required this.departureDate,
+    required this.returnDate,
+    required this.maxBudget,
+    required this.isTravelingAlone,
+    required this.startTime,
+    required this.endTime,
+    Key? key,
+  }) : super(key: key);
 
   int _isValid(double budget, double tmpTime, Place src) {
     bool cond1 = src.price > budget;
@@ -69,20 +70,58 @@ class ScheduleScreen extends StatelessWidget {
     return res;
   }
 
+  Widget _buildTimelineTile(int index) {
+    final List<Place> placesList = executeAlgo()[index];
+    return TimelineTile(
+      alignment: TimelineAlign.center,
+      isFirst: index == 0,
+      isLast: index == executeAlgo().length - 1,
+      lineXY: 0.3,
+      indicatorStyle: const IndicatorStyle(
+        width: 30,
+        color: Colors.blue,
+        padding: EdgeInsets.all(6),
+      ),
+      beforeLineStyle: const LineStyle(color: Colors.grey),
+      afterLineStyle: const LineStyle(color: Colors.grey),
+      endChild: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Day ${index + 1}',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            for (final place in placesList)
+              Row(
+                children: [
+                  //Icon(place.icon),
+                  const SizedBox(width: 8),
+                  Text(place.name),
+                ],
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<List<Place>> res = executeAlgo();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Recommended Schedule For You'),
       ),
-      body: Center(
-        child: ListView.builder(
-          itemCount: res.length,
-          itemBuilder: (ctx, idx) {
-            return Expanded(child: TimelineDay(res[idx], idx + 1));
-          },
-        ),
+      body: ListView.builder(
+        itemCount: executeAlgo().length,
+        itemBuilder: (context, index) {
+          return _buildTimelineTile(index);
+        },
       ),
     );
   }
