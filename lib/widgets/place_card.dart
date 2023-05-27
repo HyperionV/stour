@@ -52,8 +52,7 @@ class _PlaceCardState extends State<PlaceCard> {
                           topLeft: Radius.circular(10.0),
                           topRight: Radius.circular(10.0),
                         ),
-                        child: Image.asset(
-                          scale: 0.6,
+                        child: Image.network(
                           widget.place.img,
                           fit: BoxFit.cover,
                         ),
@@ -99,7 +98,7 @@ class _PlaceCardState extends State<PlaceCard> {
                               size: 20,
                             ),
                             Text(
-                              " ${widget.place.time}",
+                              " ${widget.place.openTime.toStringAsFixed(0)}-${widget.place.closeTime.toStringAsFixed(0)}",
                               style: const TextStyle(
                                 fontSize: 12.0,
                                 color: Colors.green,
@@ -127,7 +126,7 @@ class _PlaceCardState extends State<PlaceCard> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 7),
+                const SizedBox(height: 5),
                 Padding(
                   padding: const EdgeInsets.only(left: 15.0),
                   child: SizedBox(

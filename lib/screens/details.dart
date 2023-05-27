@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stour/util/const.dart';
-// import 'package:stour/screens/home.dart';
 import 'package:stour/util/places.dart';
 import 'package:flutter/services.dart';
 
@@ -49,40 +48,11 @@ class _DetailScreenState extends State<DetailScreen> {
                   onPressed: () {
                     return setState(
                       () {
-                        buttonColor = Color.fromARGB(255, 255, 12, 109);
+                        buttonColor = const Color.fromARGB(255, 255, 12, 109);
                         initialFavIcon = const Icon(Icons.favorite, size: 30);
                       },
                     );
                   },
-                  // showDialog(
-                  //     context: context,
-                  //     builder: (ctx) {
-                  //       return AlertDialog(
-                  //         title: const Text('Feature Testing'),
-                  //         content: const Text(
-                  //             'If you can read this, the test was successful :D'),
-                  //         actions: [
-                  //           ElevatedButton(
-                  //             onPressed: () {
-                  //               Navigator.pop(ctx);
-                  //             },
-                  //             child: const Text('Noice'),
-                  //           ),
-                  //           ElevatedButton(
-                  //             onPressed: () {
-                  //               Navigator.pop(ctx);
-                  //             },
-                  //             child: const Text('Congrats'),
-                  //           ),
-                  //           ElevatedButton(
-                  //             onPressed: () {
-                  //               Navigator.pop(ctx);
-                  //             },
-                  //             child: const Text('Omedetou'),
-                  //           ),
-                  //         ],
-                  //       );
-                  //     });
                   icon: initialFavIcon,
                   color: buttonColor,
                 ),
@@ -91,7 +61,7 @@ class _DetailScreenState extends State<DetailScreen> {
             const SizedBox(height: 15),
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
-              child: Image.asset(
+              child: Image.network(
                 widget.placeToDisplay.img,
                 width: double.maxFinite,
               ),
@@ -142,7 +112,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue nisi vitae suscipit tellus mauris a diam. Non curabitur gravida arcu ac tortor dignissim convallis aenean et. Euismod quis viverra nibh cras pulvinar. Viverra justo nec ultrices dui sapien eget. Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Tristique magna sit amet purus gravida quis blandit turpis cursus. Egestas quis ipsum suspendisse ultrices gravida dictum. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Nibh sed pulvinar proin gravida. Vel orci porta non pulvinar neque. Erat imperdiet sed euismod nisi porta. Commodo elit at imperdiet dui accumsan sit amet nulla facilisi. Tincidunt id aliquet risus feugiat in. Erat pellentesque adipiscing commodo elit at. Quam lacus suspendisse faucibus interdum. Quisque sagittis purus sit amet volutpat consequat. Suscipit adipiscing bibendum est ultricies integer quis.',
+                    widget.placeToDisplay.history,
                     style: GoogleFonts.poppins(fontSize: 18),
                   ),
                 ),
