@@ -135,13 +135,13 @@ class _HomeState extends State<Home> {
                       fontWeight: FontWeight.w800,
                     ),
                   ),
-                  // Text(
-                  //   '${currentLocationDetail[0]}, ${currentLocationDetail[1]}, ${currentLocationDetail[2]}',
-                  //   style: GoogleFonts.poppins(
-                  //       color: const Color.fromARGB(255, 36, 81, 104),
-                  //       fontWeight: FontWeight.w700,
-                  //       fontSize: 18),
-                  // ),
+                  Text(
+                    '${currentLocationDetail[0]}, ${currentLocationDetail[1]}, ${currentLocationDetail[2]}',
+                    style: GoogleFonts.poppins(
+                        color: const Color.fromARGB(255, 36, 81, 104),
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -171,6 +171,7 @@ class _HomeState extends State<Home> {
   void initState() {
     getPlaceByID('stourplace1');
     getPlaceByID('cuisines');
+
     super.initState();
   }
 }
@@ -183,6 +184,7 @@ Widget buildPlaceList(BuildContext context, List<Place> source) {
       primary: false,
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
+      // itemCount: places == null ? 0 : places.length,
       itemCount: source.length,
       itemBuilder: (BuildContext context, int index) {
         Place place = source[index];
