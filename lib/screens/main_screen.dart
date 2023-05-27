@@ -27,7 +27,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   PageController _pageController = PageController();
-  int _page = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,6 @@ class _MainScreenState extends State<MainScreen> {
               children: List.generate(3, (index) => pages[index]),
             ),
           ),
-          //buildTabIcon(),
         ],
       ),
     );
@@ -70,9 +68,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void onPageChanged(int page) {
-    setState(() {
-      _page = page;
-    });
+    setState(() {});
   }
 }
 
