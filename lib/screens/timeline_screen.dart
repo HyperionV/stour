@@ -30,7 +30,7 @@ class ScheduleScreen extends StatelessWidget {
   List<List<Place>> getData() {
     List<List<Place>> locations = [];
     for (int i = 0; i < places.length; i++) {
-      locations.add([places[i], food[i]]);
+      locations.add([places[i], food[i % food.length]]);
     }
     return locations;
   }

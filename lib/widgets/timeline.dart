@@ -109,11 +109,12 @@ class _TimelineState extends State<Timeline> {
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'Max Budget',
+                'Max Budget (VND)',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
               TextFormField(
+                textAlignVertical: TextAlignVertical.bottom,
                 keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.digitsOnly
@@ -125,7 +126,7 @@ class _TimelineState extends State<Timeline> {
                 },
                 decoration: const InputDecoration(
                   hintText: 'Enter Max Budget',
-                  prefixIcon: Icon(CupertinoIcons.money_dollar),
+                  prefixIcon: Icon(Icons.account_balance_wallet_outlined),
                 ),
               ),
               const SizedBox(height: 16.0),

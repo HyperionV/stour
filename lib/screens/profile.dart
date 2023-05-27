@@ -22,16 +22,19 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              profileImage(size),
-              profileInfo(),
-              profileActivity(),
-              profileEvents(size),
-              _pages[_selectedEvent],
-            ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 9.0),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                profileImage(size),
+                profileInfo(),
+                profileActivity(),
+                profileEvents(size),
+                _pages[_selectedEvent],
+              ],
+            ),
           ),
         ),
       ),

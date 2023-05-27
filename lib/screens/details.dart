@@ -61,7 +61,7 @@ class _DetailScreenState extends State<DetailScreen> {
             ),
             const SizedBox(height: 15),
             ClipRRect(
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(15),
               child: Image.network(
                 widget.placeToDisplay.img,
                 width: double.maxFinite,
@@ -103,22 +103,27 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to the CreateReviewScreen and wait for the result
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ReviewScreen(),
-                        ),
-                      );
-                    },
-                    child: const Text('open review'),
-                  ),
                 ],
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 5),
+            Row(
+              children: [
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ReviewScreen(),
+                      ),
+                    );
+                  },
+                  child: const Text('Review & Rating'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 5),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),

@@ -82,6 +82,7 @@ flutter:
     - assets\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg
     - assets\R.png
     - assets\img\logo.svg
+    - assets/img/BaoTangMyThuat/Bao-tang-My-thuat-TP-HCM-ivivu.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https:\/flutter.dev/assets-and-images/#resolution-aware

@@ -106,7 +106,7 @@ class _PostScreenState extends State<PostScreen> {
                 ),
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 child: Image.asset(
-                  "stour/assets/img/BaoTangMyThuat/Bao-tang-My-thuat-TP-HCM-ivivu.jpg",
+                  "assets/img/BaoTangMyThuat/Bao-tang-My-thuat-TP-HCM-ivivu.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
