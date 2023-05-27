@@ -3,6 +3,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:stour/screens/home.dart';
 import 'package:stour/widgets/timeline.dart';
 import 'package:stour/screens/profile.dart';
+import 'package:stour/screens/review_screen.dart';
+import 'package:stour/util/reviews.dart';
 import 'package:stour/util/const.dart';
 
 List icons = [
@@ -14,7 +16,10 @@ List icons = [
 List<Widget> pages = [
   const Timeline(),
   const Home(),
-  const Profile(),
+  // const Profile(),
+  ReviewScreen(
+    reviews: user,
+  ),
 ];
 
 class MainScreen extends StatefulWidget {
