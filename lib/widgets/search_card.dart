@@ -21,7 +21,7 @@ class SearchCard extends StatelessWidget {
         },
         style: const TextStyle(
           fontSize: 15.0,
-          color: Colors.black,
+          color: Color.fromARGB(255, 35, 52, 10),
         ),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(10.0),
@@ -40,15 +40,15 @@ class SearchCard extends StatelessWidget {
           hintText: "Nhập từ khóa để tìm kiếm...",
           prefixIcon: const Icon(
             Icons.search,
-            color: Colors.black,
+            color: Color.fromARGB(255, 35, 52, 10),
           ),
           suffixIcon: const Icon(
             Icons.filter_list,
-            color: Colors.black,
+            color: Color.fromARGB(255, 35, 52, 10),
           ),
           hintStyle: const TextStyle(
             fontSize: 15.0,
-            color: Colors.black,
+            color: Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         maxLines: 1,

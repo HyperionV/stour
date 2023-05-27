@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stour/util/const.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/widgets/timeline_day.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -82,6 +83,7 @@ class ScheduleScreen extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           title: const Text('Lịch Trình Dành Cho Bạn'),
+          backgroundColor: Constants.lightgreen,
         ),
         body: Center(
             child: Padding(
@@ -99,12 +101,14 @@ class ScheduleScreen extends StatelessWidget {
                   'Chúng tôi không thể đưa ra lịch trình phù hợp dựa trên những yêu cầu bạn đưa ra hoặc bạn đang ở địa điểm chưa được hỗ trợ bởi phần mềm!',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.roboto(
+                    color: const Color.fromARGB(255, 35, 52, 10),
                     fontSize: 16,
                   )),
               const SizedBox(height: 20),
               Text(
                 'Xin hãy thử lại với những điều kiện khác!',
                 style: GoogleFonts.roboto(
+                  color: const Color.fromARGB(255, 35, 52, 10),
                   fontSize: 16,
                 ),
               )
@@ -115,7 +119,13 @@ class ScheduleScreen extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lịch Trình Dành Cho Bạn'),
+        backgroundColor: Constants.lightgreen,
+        title: const Text(
+          'Lịch Trình Dành Cho Bạn',
+          style: TextStyle(
+            color: const Color.fromARGB(255, 35, 52, 10),
+          ),
+        ),
       ),
       body: Center(
         child: ListView.builder(

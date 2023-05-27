@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:stour/screens/timeline_screen.dart';
 import 'package:intl/intl.dart';
+import 'package:stour/util/const.dart';
 
 class Timeline extends StatefulWidget {
   const Timeline({super.key});
@@ -50,7 +51,13 @@ class _TimelineState extends State<Timeline> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Yêu Cầu Cho Chuyến Đi'),
+        backgroundColor: Constants.lightgreen,
+        title: const Text(
+          'THIẾT KẾ LỊCH TRÌNH',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 35, 52, 10)),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -66,7 +73,9 @@ class _TimelineState extends State<Timeline> {
                       const Text(
                         'Ngày Khởi Hành',
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 35, 52, 10)),
                       ),
                       const SizedBox(height: 8.0),
                       ElevatedButton.icon(
@@ -84,11 +93,15 @@ class _TimelineState extends State<Timeline> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
+                          backgroundColor: Constants.darkgreen,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        icon: const Icon(CupertinoIcons.calendar),
+                        icon: const Icon(
+                          CupertinoIcons.calendar,
+                          color: Color(0xFFfff000),
+                        ),
                         label: Text(
                           DateFormat('dd/MM/yyyy').format(_departureDate),
                         ),
@@ -99,11 +112,11 @@ class _TimelineState extends State<Timeline> {
                   const Spacer(),
                   Column(
                     children: [
-                      const Text(
-                        'Ngày Trở Lại',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
+                      const Text('Ngày Trở Lại',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 35, 52, 10))),
                       const SizedBox(height: 8.0),
                       ElevatedButton.icon(
                         onPressed: () async {
@@ -120,11 +133,15 @@ class _TimelineState extends State<Timeline> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
+                          backgroundColor: Constants.darkgreen,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        icon: const Icon(CupertinoIcons.calendar),
+                        icon: const Icon(
+                          CupertinoIcons.calendar,
+                          color: Color(0xFFfff000),
+                        ),
                         label: Text(
                           DateFormat('dd/MM/yyyy').format(_returnDate),
                         ),
@@ -136,7 +153,10 @@ class _TimelineState extends State<Timeline> {
               const SizedBox(height: 16.0),
               const Text(
                 'Ngân Sách (VND)',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 35, 52, 10)),
               ),
               const SizedBox(height: 8.0),
               TextFormField(
@@ -152,13 +172,19 @@ class _TimelineState extends State<Timeline> {
                 },
                 decoration: const InputDecoration(
                   hintText: 'Nhập ngân sách tối đa',
-                  prefixIcon: Icon(Icons.account_balance_wallet_outlined),
+                  prefixIcon: Icon(
+                    Icons.account_balance_wallet_outlined,
+                    color: Color(0xFFfff000),
+                  ),
                 ),
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'Bạn Sẽ Đi Du Lịch Một Mình?',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                'Bạn sẽ đi du lịch một mình?',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 35, 52, 10)),
               ),
               const SizedBox(height: 8.0),
               Row(
@@ -172,7 +198,8 @@ class _TimelineState extends State<Timeline> {
                       });
                     },
                   ),
-                  const Text('Có'),
+                  const Text('Có',
+                      style: TextStyle(color: Color.fromARGB(255, 35, 52, 10))),
                   const SizedBox(width: 16.0),
                   Radio(
                     value: false,
@@ -183,7 +210,8 @@ class _TimelineState extends State<Timeline> {
                       });
                     },
                   ),
-                  const Text('Không'),
+                  const Text('Không',
+                      style: TextStyle(color: Color.fromARGB(255, 35, 52, 10))),
                 ],
               ),
               const SizedBox(height: 16.0),
@@ -191,11 +219,11 @@ class _TimelineState extends State<Timeline> {
                 children: [
                   Column(
                     children: [
-                      const Text(
-                        'Giờ Bắt Đầu',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
+                      const Text('Giờ Bắt Đầu',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 35, 52, 10))),
                       const SizedBox(height: 8.0),
                       ElevatedButton.icon(
                         onPressed: () async {
@@ -210,11 +238,15 @@ class _TimelineState extends State<Timeline> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
+                          backgroundColor: Constants.darkgreen,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        icon: const Icon(CupertinoIcons.clock),
+                        icon: const Icon(
+                          CupertinoIcons.clock,
+                          color: Color(0xFFfff000),
+                        ),
                         label: Text(
                           _startTime.format(context),
                         ),
@@ -227,7 +259,9 @@ class _TimelineState extends State<Timeline> {
                       const Text(
                         'Giờ Về',
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 35, 52, 10)),
                       ),
                       const SizedBox(height: 8.0),
                       ElevatedButton.icon(
@@ -243,11 +277,15 @@ class _TimelineState extends State<Timeline> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
+                          backgroundColor: Constants.darkgreen,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        icon: const Icon(CupertinoIcons.clock),
+                        icon: const Icon(
+                          CupertinoIcons.clock,
+                          color: Color(0xFFfff000),
+                        ),
                         label: Text(
                           _endTime.format(context),
                         ),
@@ -261,13 +299,19 @@ class _TimelineState extends State<Timeline> {
                 child: ElevatedButton(
                   onPressed: _generateSchedule,
                   style: ElevatedButton.styleFrom(
+                    backgroundColor: Constants.ratingBG,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
                     minimumSize:
                         const Size(150, 50), // set the size you want here
                   ),
-                  child: const Text('Gợi Ý Lịch Trình'),
+                  child: const Text(
+                    'Xây dựng Lịch Trình',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 35, 52, 10)),
+                  ),
                 ),
               ),
             ],
