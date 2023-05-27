@@ -35,7 +35,8 @@ class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
           final newReview = await Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const CreateReviewScreen(),
+              builder: (context) =>
+                  CreateReviewScreen(locationID: widget.locationID),
             ),
           );
           if (newReview != null) {

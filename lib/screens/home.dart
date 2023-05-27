@@ -127,35 +127,35 @@ class _HomeState extends State<Home> {
           preferredSize: Size.fromHeight(90),
           child: HomeAppBar(),
         ),
-        body: SafeArea(
-          child: ListView(
-            children: <Widget>[
-              const SizedBox(height: 10),
-              buildSearchBar(context),
-              const SizedBox(height: 20.0),
-              // const SizedBox(height: 20.0),
-              const Text(
-                'Current Location: ',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w800,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: SafeArea(
+            child: ListView(
+              children: <Widget>[
+                const SizedBox(height: 10),
+                const Text(
+                  'Current Location: ',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const SizedBox(
-                  height: 200, width: 300, child: GoogleMapsController()),
-              const SizedBox(height: 20.0),
-              buildPlaceRow('Cultural Places', places, context),
-              const SizedBox(height: 3.0),
-              buildPlaceList(context, places),
-              const SizedBox(height: 5.0),
-              buildPlaceRow('Unique Cuisines', food, context),
-              const SizedBox(height: 3.0),
-              buildPlaceList(context, food),
-              const SizedBox(height: 30),
-            ],
+                const SizedBox(
+                  height: 20,
+                ),
+                const SizedBox(
+                    height: 200, width: 300, child: GoogleMapsController()),
+                const SizedBox(height: 20.0),
+                buildPlaceRow('Cultural Places', places, context),
+                const SizedBox(height: 3.0),
+                buildPlaceList(context, places),
+                const SizedBox(height: 5.0),
+                buildPlaceRow('Unique Cuisines', food, context),
+                const SizedBox(height: 3.0),
+                buildPlaceList(context, food),
+                const SizedBox(height: 30),
+              ],
+            ),
           ),
         ),
         //bottomNavigationBar: HomeBottomBar(),

@@ -30,6 +30,12 @@ class ScheduleScreen extends StatelessWidget {
   List<List<Place>> getData() {
     List<List<Place>> locations = [];
     for (int i = 0; i < places.length; i++) {
+      if (places[i].closeTime < (startTime.hour + startTime.minute / 60) ||
+          places[i].openTime > (endTime.hour + endTime.minute / 60) ||
+          places[i].city != currentLocationDetail[1] ||
+          places[i].district != currentLocationDetail[0]) {
+        continue;
+      }
       locations.add([places[i], food[i % food.length]]);
     }
     return locations;

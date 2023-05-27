@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:stour/model/review.dart';
 
 class CreateReviewScreen extends StatefulWidget {
-  const CreateReviewScreen({super.key});
+  final String locationID;
+  const CreateReviewScreen({super.key, required this.locationID});
   @override
   State<CreateReviewScreen> createState() => _CreateReviewScreenState();
 }
@@ -60,7 +61,6 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
-
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
@@ -72,12 +72,11 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     rs.createReview(
                         'review 2511111',
                         'abc',
-                        'food1',
-                        'Lê Ngọc Thảo',
-                        'https://i.imgur.com/HASFzRW.jpg',
+                        widget.locationID,
+                        'Võ Minh Khôi',
+                        'https://i.imgur.com/xZ5946b.jpeg',
                         commentController.text,
                         selectedStars.toString());
-
                     Navigator.pop(context);
                     Navigator.pop(context);
                   },

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:stour/screens/home.dart';
 import 'package:stour/widgets/timeline.dart';
-// import 'package:stour/screens/review_screen.dart';
 import 'package:stour/util/const.dart';
 import 'package:stour/screens/profile.dart';
 
