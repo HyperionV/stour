@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/material.dart';
 // import 'package:stour/util/reviews.dart';
 import 'package:stour/model/review.dart';
+import 'package:stour/util/const.dart';
 
 class CreateReviewScreen extends StatefulWidget {
   final String locationID;
@@ -19,7 +20,21 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('THÊM NHẬN XÉT'),
+        title: const Text(
+          'THÊM NHẬN XÉT',
+          style: TextStyle(
+            color: Color.fromARGB(255, 35, 52, 10),
+          ),
+        ),
+        backgroundColor: Constants.lightgreen,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back,
+              color: Color.fromARGB(255, 35, 52, 10)), // Change the color here
+          onPressed: () {
+            // Handle back button logic
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -80,7 +95,14 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     Navigator.pop(context);
                     Navigator.pop(context);
                   },
-                  child: const Text('ĐĂNG BÀI'),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Constants.lightgreen),
+                  ),
+                  child: const Text(
+                    'ĐĂNG BÀI',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ],
             ),

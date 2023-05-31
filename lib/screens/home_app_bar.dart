@@ -23,7 +23,7 @@ class HomeAppBar extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return CouponScreen();
+                    return const CouponScreen();
                   },
                 ),
               );
@@ -38,7 +38,7 @@ class HomeAppBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: const Icon(
-                Icons.sort_rounded,
+                Icons.discount_outlined,
                 color: Color.fromARGB(255, 35, 52, 10),
                 size: 24,
               ),

@@ -14,21 +14,20 @@ class ReviewsServices {
       String userImg, String content, String score) {
     CollectionReference reviewsRef =
         FirebaseFirestore.instance.collection('reviews');
-    reviewsRef.add({
-      'id': id,
-      'name': name,
-      'user': user,
-      'user_img': userImg,
-      'content': content,
-      'idLocation': idLocation,
-      'score': score,
-      'createdAt': DateTime.now().toUtc().toString(),
-      'updatedAt': DateTime.now().toUtc().toString(),
-    }).then((value) {
-      print('Tạo đánh giá thành công');
-    }).catchError((error) {
-      // print('Lỗi khi tạo đánh giá: $error');
-    });
+    reviewsRef
+        .add({
+          'id': id,
+          'name': name,
+          'user': user,
+          'user_img': userImg,
+          'content': content,
+          'idLocation': idLocation,
+          'score': score,
+          'createdAt': DateTime.now().toUtc().toString(),
+          'updatedAt': DateTime.now().toUtc().toString(),
+        })
+        .then((value) {})
+        .catchError((error) {});
   }
 
   // void reloadReviews(String locationID) async {

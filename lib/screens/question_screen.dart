@@ -178,7 +178,7 @@ class _QuestionResult extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return MainScreen();
+                    return const MainScreen();
                   },
                 ),
               );

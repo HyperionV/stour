@@ -28,7 +28,7 @@ class _GoogleMapsControllerState extends State<GoogleMapsController> {
   @override
   void initState() {
     super.initState();
-    _determinePosition().then(
+    determinePosition().then(
       (position) {
         getUserAddress(position);
         setState(
@@ -48,22 +48,7 @@ class _GoogleMapsControllerState extends State<GoogleMapsController> {
     );
   }
 
-  Future<List<String>> getAddressInfoFromPosition(Position position) async {
-    List<Placemark> placemarks =
-        await placemarkFromCoordinates(position.latitude, position.longitude);
-    // print(placemarks);
-    Placemark placemark = placemarks.first;
-    String country = placemark.country ?? "";
-    String district = (placemark.subAdministrativeArea) ?? "";
-    String city = placemark.administrativeArea ?? "";
-    return [district, city, country];
-  }
-
-  void getUserAddress(Position src) async {
-    currentLocationDetail = await getAddressInfoFromPosition(src);
-  }
-
-  Future<Position> _determinePosition() async {
+  Future<Position> determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
@@ -82,6 +67,20 @@ class _GoogleMapsControllerState extends State<GoogleMapsController> {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
     return await Geolocator.getCurrentPosition();
+  }
+
+  Future<List<String>> getAddressInfoFromPosition(Position position) async {
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+    Placemark placemark = placemarks.first;
+    String country = placemark.country ?? "";
+    String district = (placemark.subAdministrativeArea) ?? "";
+    String city = placemark.administrativeArea ?? "";
+    return [district, city, country];
+  }
+
+  void getUserAddress(Position src) async {
+    currentLocationDetail = await getAddressInfoFromPosition(src);
   }
 
   void _onMapCreated(GoogleMapController controller) {

@@ -3,6 +3,7 @@ import 'package:stour/widgets/coupon_card.dart';
 import 'package:stour/util/coupon.dart';
 
 class CouponScreen extends StatefulWidget {
+  const CouponScreen({super.key});
   @override
   State<CouponScreen> createState() => _CouponScreenState();
 }
