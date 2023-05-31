@@ -25,13 +25,9 @@ class ReviewsServices {
       'createdAt': DateTime.now().toUtc().toString(),
       'updatedAt': DateTime.now().toUtc().toString(),
     }).then((value) {
-      // Hiển thị modal thành công
-      // print('Tạo đánh giá thành công');
-      // Hiển thị modal thông báo thành công ở đây
+      print('Tạo đánh giá thành công');
     }).catchError((error) {
-      // Hiển thị modal lỗi (nếu có lỗi xảy ra)
       // print('Lỗi khi tạo đánh giá: $error');
-      // Hiển thị modal thông báo lỗi ở đây
     });
   }
 
