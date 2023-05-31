@@ -2,7 +2,7 @@ name: stour
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
+  sdk: ">=3.0.1 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,13 +30,25 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
+  flutter_neumorphic: 3.2.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  google_fonts: ^4.0.4
   cloud_firestore: ^4.7.1
-  
+  firebase_core: ^2.13.0
+  collection: ^1.17.1
+  intl: ^0.17.0
+  flutter_screenutil: 5.8.2
+  curved_navigation_bar: ^1.0.3
+  permission_handler: ^10.2.0
+  path_provider: ^2.0.15
+  google_maps_flutter: ^2.2.8
+  google_maps_flutter_web: ^0.4.0+9
+  geolocator: ^9.0.2
+  simple_animations: ^4.2.0
+  geocoding: ^2.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -53,7 +65,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -61,11 +72,32 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+    # - assets\img\BaoTangMyThuat\Bao-tang-My-thuat-TP-HCM-ivivu.jpg
+  #   - assets\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg
+  #   - assets\10-8.jpg
+  #   - assets\cantho6_umpf.jpg
+  #   - assets\20161031072908-cho-noi-cao-rang (10).jpg
+  #   - assets\R.jpg
+  #   - assets\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg
+  #   - assets\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg
+  #   - assets\R.png
+  #   - assets\img\logo.svg
+  # assets:
+  #   - assets\img\BaoTangMyThuat\Bao-tang-My-thuat-TP-HCM-ivivu.jpg
+  #   - assets\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg
+  #   - assets\10-8.jpg
+  #   - assets\cantho6_umpf.jpg
+  #   - assets\20161031072908-cho-noi-cao-rang (10).jpg
+  #   - assets\R.jpg
+  #   - assets\dinh-doc-lap-bieu-tuong-mang-y-nghia-lich-su-sau-dam-cua-dan-toc-ta-avt.jpg
+  #   - assets\Ben-trong-bao-tang-my-thuat-ho-chi-minh-co-gi.jpg
+  #   - assets\R.png
+  #   - assets\images\star.png
+  #   - assets\images\pin.png
+    # - assets\splash_screen.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
+  # https:\/flutter.dev/assets-and-images/#resolution-aware
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages

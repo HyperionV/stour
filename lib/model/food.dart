@@ -13,7 +13,8 @@ class TopFoodService {
   }
 }
 
-class filterByTopFood extends StatelessWidget {
+class FilterByTopFood extends StatelessWidget {
+  FilterByTopFood({super.key});
   final TopFoodService topFoodService = TopFoodService();
 
   @override
@@ -23,7 +24,7 @@ class filterByTopFood extends StatelessWidget {
       builder: (BuildContext context,
           AsyncSnapshot<List<DocumentSnapshot>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
 
         if (snapshot.hasError) {
@@ -31,7 +32,7 @@ class filterByTopFood extends StatelessWidget {
         }
 
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return Text('No top foods found.');
+          return const Text('No top foods found.');
         }
 
         return ListView.builder(
@@ -45,7 +46,7 @@ class filterByTopFood extends StatelessWidget {
             return ListTile(
               title: Text(name),
               leading: Image.network(image),
-              subtitle: Text("Rating: " + rating.toString()),
+              subtitle: Text("Rating: ${rating.toString()}"),
             );
           },
         );

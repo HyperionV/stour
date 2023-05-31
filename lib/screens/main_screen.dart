@@ -1,61 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:stour/screens/home.dart';
-import 'package:stour/screens/timeline.dart';
+import 'package:stour/widgets/timeline.dart';
+import 'package:stour/util/const.dart';
 import 'package:stour/screens/profile.dart';
 
-import 'notifications.dart';
+List icons = [
+  Icons.timeline,
+  Icons.home,
+  Icons.person,
+];
+
+List<Widget> pages = [
+  const Timeline(),
+  const Home(),
+  const Profile(),
+  // const ReviewScreen(),
+];
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<MainScreen> createState() {
+    return _MainScreenState();
+  }
 }
 
 class _MainScreenState extends State<MainScreen> {
-  PageController _pageController = PageController();
-  int _page = 0;
-
-  List icons = [
-    Icons.home,
-    Icons.label,
-    Icons.notifications,
-    Icons.person,
-  ];
-
-  List pages = [
-    const Home(),
-    const Timeline(),
-    const Notifications(),
-    const Profile(),
-  ];
+  PageController _pageController = PageController(initialPage: 1);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: _pageController,
-        onPageChanged: onPageChanged,
-        children: List.generate(4, (index) => pages[index]),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Theme.of(context).primaryColor,
-        shape: const CircularNotchedRectangle(),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            // SizedBox(width: 7),
-            buildTabIcon(0),
-            buildTabIcon(1),
-            buildTabIcon(2),
-            buildTabIcon(3),
-            // SizedBox(width: 7),
-          ],
-        ),
+      bottomNavigationBar: HomeBottomBar(
+        onTap: navigationTapped,
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: PageView(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: _pageController,
+              // onPageChanged: onPageChanged,
+              children: List.generate(3, (index) => pages[index]),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -65,36 +58,32 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
+    _pageController = PageController(initialPage: 1);
     super.initState();
-    _pageController = PageController();
   }
 
   @override
   void dispose() {
-    super.dispose();
     _pageController.dispose();
+    super.dispose();
   }
+}
 
-  void onPageChanged(int page) {
-    setState(() {
-      _page = page;
-    });
-  }
+class HomeBottomBar extends StatelessWidget {
+  final Function(int) onTap;
+  const HomeBottomBar({required this.onTap, super.key});
 
-  buildTabIcon(int index) {
-    return Container(
-      margin:
-          EdgeInsets.fromLTRB(index == 3 ? 30 : 0, 0, index == 1 ? 30 : 0, 0),
-      child: IconButton(
-        icon: Icon(
-          icons[index],
-          size: 24.0,
-        ),
-        color: _page == index
-            ? Theme.of(context).colorScheme.secondary
-            : Colors.blue,
-        onPressed: () => _pageController.jumpToPage(index),
-      ),
+  @override
+  Widget build(BuildContext context) {
+    return CurvedNavigationBar(
+      backgroundColor: Constants.darkgreen,
+      index: 1,
+      items: [
+        Icon(icons[0], size: 30, color: Constants.lightgreen),
+        Icon(icons[1], size: 30, color: Constants.lightgreen),
+        Icon(icons[2], size: 30, color: Constants.lightgreen),
+      ],
+      onTap: onTap,
     );
   }
 }
