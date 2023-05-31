@@ -141,7 +141,7 @@ class _QuestionResult extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Ket qua',
+          'Kết quả',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,

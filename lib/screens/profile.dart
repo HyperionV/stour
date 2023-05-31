@@ -4,7 +4,6 @@ import 'package:stour/widgets/profile_option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:stour/screens/profile_post.dart';
-import 'package:stour/screens/coupon_screen.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -74,27 +73,6 @@ class _ProfileState extends State<Profile> {
               ),
             ),
           ),
-          Expanded(
-            child: TextButton(
-              child: const Text(
-                'Săn voucher Stour',
-                style: const TextStyle(fontSize: 16),
-              ),
-              style: const ButtonStyle(
-                  foregroundColor:
-                      MaterialStatePropertyAll(Colors.orangeAccent)),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return CouponScreen();
-                    },
-                  ),
-                );
-              },
-            ),
-          )
         ],
       ),
     );
