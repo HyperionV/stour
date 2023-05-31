@@ -303,8 +303,7 @@ class _TimelineState extends State<Timeline> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    minimumSize:
-                        const Size(150, 50), // set the size you want here
+                    minimumSize: const Size(150, 50),
                   ),
                   child: const Text(
                     'Xây dựng Lịch Trình',

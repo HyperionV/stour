@@ -1,5 +1,5 @@
 class Place {
-  final String id;
+  String id;
   final String name;
   final String address;
   final String rating;
@@ -12,7 +12,7 @@ class Place {
   final String district;
   final String city;
 
-  const Place({
+  Place({
     required this.id,
     required this.name,
     required this.address,
@@ -28,7 +28,19 @@ class Place {
   });
 }
 
+class SavedTourClass {
+  final List<List<Place>> addedPlaces;
+  String name;
+  final DateTime timeSaved;
+  SavedTourClass({
+    required this.addedPlaces,
+    required this.name,
+    required this.timeSaved,
+  });
+}
+
 List<String> currentLocationDetail = [];
 
 List<Place> places = [];
 List<Place> food = [];
+List<SavedTourClass> savedTour = [];

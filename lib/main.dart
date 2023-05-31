@@ -4,12 +4,14 @@ import 'package:stour/util/const.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash_screen.dart';
 import 'package:stour/model/place.dart';
+import 'package:stour/screens/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   getAllPlaceFood('stourplace1');
   getAllPlaceFood('cuisines');
+  const GoogleMapsController();
   runApp(const MyApp());
 }
 
