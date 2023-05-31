@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stour/screens/main_screen.dart';
+import 'package:stour/util/const.dart';
 import 'package:stour/util/question.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionScreen extends StatefulWidget {
   final List<Question> listquestion;
@@ -44,13 +46,19 @@ class _QuestionScreenState extends State<QuestionScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Câu hỏi số: ${count.toString()} ${widget.listquestion.length.toString()}',
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.5,
+          'Câu hỏi số: ${count.toString()}/${widget.listquestion.length.toString()}',
+          style: GoogleFonts.roboto(
+            color: const Color.fromARGB(255, 35, 52, 10),
           ),
         ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back,
+              color: Color.fromARGB(255, 35, 52, 10)), // Change the color here
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: Constants.lightgreen,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

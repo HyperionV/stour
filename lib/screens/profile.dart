@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:stour/screens/profile_post.dart';
 import 'package:stour/screens/saved_tour.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -59,12 +60,14 @@ class _ProfileState extends State<Profile> {
                 color:
                     _selectedEvent == 1 ? Constants.lightPrimary : Colors.white,
                 onPressed: () {},
-                child: Text("THÊM BÀI VIẾT",
-                    style: TextStyle(
-                      color: _selectedEvent == 1
-                          ? Constants.lightPrimary
-                          : const Color.fromARGB(255, 0, 0, 0),
-                    )),
+                child: Text(
+                  "THÊM BÀI VIẾT",
+                  style: GoogleFonts.roboto(
+                    color: _selectedEvent == 1
+                        ? Constants.lightPrimary
+                        : const Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ),
               ),
             ),
           ),
@@ -89,12 +92,14 @@ class _ProfileState extends State<Profile> {
                     ),
                   );
                 },
-                child: Text("LỊCH TRÌNH ĐÃ LƯU",
-                    style: TextStyle(
-                      color: _selectedEvent == 1
-                          ? Constants.lightPrimary
-                          : const Color.fromARGB(255, 0, 0, 0),
-                    )),
+                child: Text(
+                  "LỊCH TRÌNH ĐÃ LƯU",
+                  style: GoogleFonts.roboto(
+                    color: _selectedEvent == 1
+                        ? Constants.lightPrimary
+                        : const Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ),
               ),
             ),
           ),
@@ -108,16 +113,16 @@ Container profileInfo() {
   return Container(
     padding: EdgeInsets.zero,
     child: ListTile(
-      title: const Row(
+      title: Row(
         children: [
           Text(
             "Hato",
-            style: TextStyle(
+            style: GoogleFonts.roboto(
                 color: Colors.black87,
                 fontWeight: FontWeight.bold,
                 fontSize: 22),
           ),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
         ],
@@ -132,9 +137,9 @@ Container profileInfo() {
                   Icons.home,
                   color: Constants.darkPrimary,
                 ),
-                const Text(
+                Text(
                   "Can Tho",
-                  style: TextStyle(fontSize: 12),
+                  style: GoogleFonts.roboto(fontSize: 12),
                 ),
               ],
             ),
@@ -147,9 +152,9 @@ Container profileInfo() {
                   Icons.person,
                   color: Constants.darkPrimary,
                 ),
-                const Text(
+                Text(
                   "Bio",
-                  style: TextStyle(fontSize: 12),
+                  style: GoogleFonts.roboto(fontSize: 12),
                 ),
               ],
             ),

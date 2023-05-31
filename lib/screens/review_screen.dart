@@ -5,6 +5,7 @@ import 'package:stour/util/reviews.dart';
 // import 'package:stour/widgets/review_card.dart';
 import 'package:stour/screens/create_review_screen.dart';
 import 'package:stour/model/ui_reviews.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ReviewScreen extends StatefulWidget {
   final String locationID;
@@ -19,10 +20,10 @@ class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'ĐÁNH GIÁ',
-          style: TextStyle(
-            color: Color.fromARGB(255, 35, 52, 10),
+          style: GoogleFonts.roboto(
+            color: const Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         leading: IconButton(

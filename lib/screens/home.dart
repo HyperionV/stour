@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:stour/screens/trending.dart';
 import 'package:stour/util/const.dart';
@@ -132,9 +133,9 @@ class _HomeState extends State<Home> {
             child: ListView(
               children: <Widget>[
                 const SizedBox(height: 10),
-                const Text(
+                Text(
                   'Vị Trí Hiện Tại',
-                  style: TextStyle(
+                  style: GoogleFonts.roboto(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w800,
                   ),
@@ -191,7 +192,7 @@ Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
     children: <Widget>[
       Text(
         place,
-        style: const TextStyle(
+        style: GoogleFonts.roboto(
           fontSize: 20.0,
           fontWeight: FontWeight.w800,
         ),
@@ -199,7 +200,7 @@ Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
       TextButton(
         child: Text(
           "Xem tất cả (${source.length})",
-          style: TextStyle(
+          style: GoogleFonts.roboto(
             color: Theme.of(context).colorScheme.secondary,
           ),
         ),

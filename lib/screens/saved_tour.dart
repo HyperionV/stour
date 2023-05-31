@@ -21,21 +21,30 @@ class _SavedTourState extends State<SavedTour> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Đổi tên'),
+          title: Text(
+            'Đổi tên',
+            style: GoogleFonts.roboto(color: Constants.text),
+          ),
           content: TextField(
             controller: _tourNameController,
             decoration: const InputDecoration(hintText: 'Tên mới'),
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Hủy'),
+              child: Text(
+                'Hủy',
+                style: GoogleFonts.roboto(color: Constants.text),
+              ),
               onPressed: () {
                 _tourNameController.clear();
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('Lưu'),
+              child: Text(
+                'Lưu',
+                style: GoogleFonts.roboto(color: Constants.text),
+              ),
               onPressed: () {
                 setState(
                   () {
@@ -60,7 +69,10 @@ class _SavedTourState extends State<SavedTour> {
             children: [
               ListTile(
                 leading: const Icon(Icons.edit),
-                title: const Text('Đổi tên'),
+                title: Text(
+                  'Đổi tên',
+                  style: GoogleFonts.roboto(color: Constants.text),
+                ),
                 onTap: () {
                   Navigator.of(ctx).pop();
                   _showRenameDialog(context, index);
@@ -68,7 +80,10 @@ class _SavedTourState extends State<SavedTour> {
               ),
               ListTile(
                 leading: const Icon(Icons.delete),
-                title: const Text('Xóa lịch trình'),
+                title: Text(
+                  'Xóa lịch trình',
+                  style: GoogleFonts.roboto(color: Constants.text),
+                ),
                 onTap: () {
                   Navigator.of(ctx).pop();
                   setState(() {
@@ -86,10 +101,10 @@ class _SavedTourState extends State<SavedTour> {
     if (savedTour.isEmpty) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text(
+          title: Text(
             'LỊCH TRÌNH ĐÃ LƯU',
-            style: TextStyle(
-              color: Color.fromARGB(255, 35, 52, 10),
+            style: GoogleFonts.roboto(
+              color: const Color.fromARGB(255, 35, 52, 10),
             ),
           ),
           backgroundColor: Constants.lightgreen,
@@ -138,10 +153,10 @@ class _SavedTourState extends State<SavedTour> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'LỊCH TRÌNH ĐÃ LƯU',
-          style: TextStyle(
-            color: Color.fromARGB(255, 35, 52, 10),
+          style: GoogleFonts.roboto(
+            color: const Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         backgroundColor: Constants.lightgreen,
@@ -162,7 +177,9 @@ class _SavedTourState extends State<SavedTour> {
             title: Text(tour.name,
                 style: const TextStyle(fontWeight: FontWeight.w500)),
             subtitle: Text(
-                'Được tạo vào: ${DateFormat.yMd().format(tour.timeSaved)}'),
+              'Được tạo vào: ${DateFormat.yMd().format(tour.timeSaved)}',
+              style: GoogleFonts.roboto(color: Constants.text),
+            ),
             onTap: () {
               Navigator.push(
                 context,

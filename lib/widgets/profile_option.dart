@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Row profileActivity() {
   return Row(
@@ -10,21 +11,22 @@ Row profileActivity() {
               right: BorderSide(color: Colors.grey.shade300),
             ),
           ),
-          child: const ListTile(
+          child: ListTile(
             title: Center(
               child: Text(
                 "3",
-                style: TextStyle(
+                style: GoogleFonts.roboto(
                   color: Colors.black87,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             subtitle: Center(
-                child: Text(
-              "Bài Đăng",
-              style: TextStyle(fontSize: 13),
-            )),
+              child: Text(
+                "Bài Đăng",
+                style: GoogleFonts.roboto(fontSize: 13),
+              ),
+            ),
           ),
         ),
       ),
@@ -35,29 +37,30 @@ Row profileActivity() {
             right: BorderSide(color: Colors.grey.shade300),
           ),
         ),
-        child: const ListTile(
+        child: ListTile(
           title: Center(
             child: Text(
               "12",
-              style: TextStyle(
+              style: GoogleFonts.roboto(
                 color: Colors.black87,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           subtitle: Center(
-              child: Text(
-            "Người Theo Dõi",
-            style: TextStyle(fontSize: 13),
-          )),
+            child: Text(
+              "Người Theo Dõi",
+              style: GoogleFonts.roboto(fontSize: 13),
+            ),
+          ),
         ),
       ),
-      const Expanded(
+      Expanded(
         child: ListTile(
           title: Center(
             child: Text(
               "4",
-              style: TextStyle(
+              style: GoogleFonts.roboto(
                 color: Colors.black87,
                 fontWeight: FontWeight.bold,
               ),
@@ -66,7 +69,7 @@ Row profileActivity() {
           subtitle: Center(
             child: Text(
               "Đang Theo Dõi",
-              style: TextStyle(fontSize: 13),
+              style: GoogleFonts.roboto(fontSize: 13),
             ),
           ),
         ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/screens/home.dart';
 import 'package:stour/widgets/modify_timeline.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TimelineDay extends StatefulWidget {
   List<Place> placesToGo;
@@ -40,7 +41,7 @@ class _TimelineDayState extends State<TimelineDay> {
             children: <Widget>[
               Text(
                 'Ngày thứ ${widget.dayNum} - ${totalCost.toStringAsFixed(0)}₫',
-                style: const TextStyle(
+                style: GoogleFonts.roboto(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w800,
                 ),
@@ -48,7 +49,7 @@ class _TimelineDayState extends State<TimelineDay> {
               TextButton(
                 child: Text(
                   "Chỉnh sửa",
-                  style: TextStyle(
+                  style: GoogleFonts.roboto(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
                 ),
