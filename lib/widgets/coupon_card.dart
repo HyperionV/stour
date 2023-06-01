@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stour/screens/question_screen.dart';
 import 'package:stour/util/coupon.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CouponCard extends StatefulWidget {
   final Coupon coupon;
@@ -48,9 +47,9 @@ class _CouponCardState extends State<CouponCard> {
                     child: Text(
                       widget.coupon.name,
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.roboto(
+                      style: const TextStyle(
                           fontSize: 24,
-                          color: const Color.fromARGB(255, 255, 255, 255),
+                          color: Color.fromARGB(255, 255, 255, 255),
                           fontWeight: FontWeight.bold),
                     ),
                   )),

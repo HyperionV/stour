@@ -41,7 +41,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
                 Text(
                   'CHI TIẾT',
-                  style: GoogleFonts.roboto(
+                  style: GoogleFonts.poppins(
                       color: Constants.lightPrimary,
                       fontWeight: FontWeight.w600,
                       fontSize: 20),
@@ -79,7 +79,7 @@ class _DetailScreenState extends State<DetailScreen> {
               alignment: Alignment.centerLeft,
               child: Text(
                 widget.placeToDisplay.name,
-                style: GoogleFonts.roboto(
+                style: GoogleFonts.poppins(
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
                 ),
@@ -102,7 +102,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       scrollDirection: Axis.horizontal,
                       child: Text(
                         widget.placeToDisplay.address,
-                        style: GoogleFonts.roboto(
+                        style: GoogleFonts.poppins(
                           fontSize: 18,
                           color: const Color.fromARGB(255, 44, 105, 224),
                         ),
@@ -130,7 +130,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           const SizedBox(width: 5),
                           Text(
                               '${widget.placeToDisplay.price.toStringAsFixed(0)}₫',
-                              style: GoogleFonts.roboto(fontSize: 16))
+                              style: const TextStyle(fontSize: 16))
                         ],
                       ),
                       const SizedBox(height: 5),
@@ -143,7 +143,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           const SizedBox(width: 5),
                           Text(
                               '${widget.placeToDisplay.openTime.toStringAsFixed(0)}h - ${widget.placeToDisplay.closeTime.toStringAsFixed(0)}h',
-                              style: GoogleFonts.roboto(fontSize: 16))
+                              style: const TextStyle(fontSize: 16))
                         ],
                       )
                     ],
@@ -159,12 +159,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       );
                     },
-                    child: Text(
-                      'Đánh giá và nhận xét',
-                      style: GoogleFonts.roboto(
-                          // color: Constants.text,
-                          ),
-                    ),
+                    child: const Text('Đánh giá và nhận xét'),
                   ),
                 ],
               ),
@@ -177,7 +172,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   scrollDirection: Axis.vertical,
                   child: Text(
                     widget.placeToDisplay.history,
-                    style: GoogleFonts.roboto(fontSize: 18),
+                    style: GoogleFonts.poppins(fontSize: 18),
                   ),
                 ),
               ),

@@ -27,10 +27,10 @@ class _AddLocationState extends State<AddLocation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'THÊM ĐỊA ĐIỂM',
-          style: GoogleFonts.roboto(
-            color: const Color.fromARGB(255, 35, 52, 10),
+          style: TextStyle(
+            color: Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         leading: IconButton(
@@ -49,7 +49,7 @@ class _AddLocationState extends State<AddLocation> {
             height: 75,
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.all(10),
               child: Center(
                 child: Text(
                   'Thêm hoặc bỏ địa điểm ra khỏi lịch trình bằng danh sách bên dưới: ',
@@ -63,29 +63,24 @@ class _AddLocationState extends State<AddLocation> {
               itemCount: places.length,
               itemBuilder: (context, index) {
                 return CheckboxListTile(
-                  title: Text(
-                    places[index].name,
-                    style: GoogleFonts.roboto(),
-                  ),
+                  title: Text(places[index].name),
                   value: widget.newList.contains(places[index]),
                   onChanged: (value) {
-                    setState(
-                      () {
-                        if (value!) {
-                          if (!widget.newList.contains(places[index])) {
-                            widget.newList.add(places[index]);
-                            widget.updateNewList(widget.newList);
-                            widget.updateOriginalList(widget.newList);
-                            widget.updateResultList(widget.newList, widget.idx);
-                          }
-                        } else {
-                          widget.newList.remove(places[index]);
+                    setState(() {
+                      if (value!) {
+                        if (!widget.newList.contains(places[index])) {
+                          widget.newList.add(places[index]);
                           widget.updateNewList(widget.newList);
                           widget.updateOriginalList(widget.newList);
                           widget.updateResultList(widget.newList, widget.idx);
                         }
-                      },
-                    );
+                      } else {
+                        widget.newList.remove(places[index]);
+                        widget.updateNewList(widget.newList);
+                        widget.updateOriginalList(widget.newList);
+                        widget.updateResultList(widget.newList, widget.idx);
+                      }
+                    });
                   },
                 );
               },

@@ -110,10 +110,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     if (res.isEmpty) {
       return Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Lịch Trình Dành Cho Bạn',
-            style: GoogleFonts.roboto(
-              color: const Color.fromARGB(255, 35, 52, 10),
+            style: TextStyle(
+              color: Color.fromARGB(255, 35, 52, 10),
             ),
           ),
           backgroundColor: Constants.lightgreen,
@@ -163,10 +163,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Constants.lightgreen,
-        title: Text(
+        title: const Text(
           'Lịch Trình Dành Cho Bạn',
-          style: GoogleFonts.roboto(
-            color: const Color.fromARGB(255, 35, 52, 10),
+          style: TextStyle(
+            color: Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         leading: IconButton(
@@ -227,11 +227,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: Text(
-                                    'Nhập tên cho lịch trình này',
-                                    style: GoogleFonts.roboto(
-                                        color: Constants.text),
-                                  ),
+                                  title:
+                                      const Text('Nhập tên cho lịch trình này'),
                                   content: TextField(
                                     controller: tourNameController,
                                     decoration: const InputDecoration(
@@ -239,24 +236,14 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                                   ),
                                   actions: <Widget>[
                                     TextButton(
-                                      child: Text(
-                                        'Hủy',
-                                        style: GoogleFonts.roboto(
-                                          color: Constants.text,
-                                        ),
-                                      ),
+                                      child: const Text('Hủy'),
                                       onPressed: () {
                                         tourNameController.clear();
                                         Navigator.of(context).pop();
                                       },
                                     ),
                                     TextButton(
-                                      child: Text(
-                                        'Lưu',
-                                        style: GoogleFonts.roboto(
-                                          color: Constants.text,
-                                        ),
-                                      ),
+                                      child: const Text('Lưu'),
                                       onPressed: () {
                                         setState(() {
                                           savedTour.add(
@@ -276,11 +263,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                               },
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Lưu lịch trình này',
-                            style: GoogleFonts.roboto(
-                                // color: Constants.text,
-                                ),
                             textAlign: TextAlign.center,
                           ),
                         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/reviews.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ReviewWidget extends StatelessWidget {
   final Reviews review;
@@ -25,10 +24,10 @@ class ReviewWidget extends StatelessWidget {
               children: [
                 Text(
                   review.name,
-                  style: GoogleFonts.roboto(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 35, 52, 10),
+                    color: Color.fromARGB(255, 35, 52, 10),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -42,10 +41,10 @@ class ReviewWidget extends StatelessWidget {
                     const SizedBox(width: 4),
                     Text(
                       review.score,
-                      style: GoogleFonts.roboto(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 35, 52, 10),
+                        color: Color.fromARGB(255, 35, 52, 10),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -62,9 +61,8 @@ class ReviewWidget extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   review.content,
-                  style: GoogleFonts.roboto(
-                      fontSize: 16,
-                      color: const Color.fromARGB(255, 35, 52, 10)),
+                  style: const TextStyle(
+                      fontSize: 16, color: Color.fromARGB(255, 35, 52, 10)),
                 ),
               ],
             ),

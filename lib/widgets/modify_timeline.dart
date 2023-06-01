@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/widgets/add_location.dart';
 import 'package:stour/util/const.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ModifyTimeline extends StatefulWidget {
   List<Place> placeList;
@@ -25,27 +24,26 @@ class ModifyTimeline extends StatefulWidget {
 
 class _ModifyTimelineState extends State<ModifyTimeline> {
   void updateNewList(List<Place> newList) {
-    setState(
-      () {
-        widget.placeList = newList;
-      },
-    );
+    setState(() {
+      widget.placeList = newList;
+    });
   }
 
   @override
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'CHỈNH SỬA LỊCH TRÌNH',
-          style: GoogleFonts.roboto(
-            color: const Color.fromARGB(255, 35, 52, 10),
+          style: TextStyle(
+            color: Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back,
-              color: Color.fromARGB(255, 35, 52, 10)),
+              color: Color.fromARGB(255, 35, 52, 10)), // Change the color here
           onPressed: () {
+            // Handle back button logic
             Navigator.pop(context);
           },
         ),
@@ -81,7 +79,7 @@ class _ModifyTimelineState extends State<ModifyTimeline> {
                 margin: const EdgeInsets.symmetric(vertical: 4.0),
                 child: ListTile(
                   title: Text('Thêm Hoặc Bỏ Chọn Địa Điểm',
-                      style: GoogleFonts.roboto(color: Constants.text)),
+                      style: TextStyle(color: Constants.text)),
                   leading: const Icon(Icons.add_circle_outline_outlined),
                 ),
               ),
@@ -102,10 +100,7 @@ class _ModifyTimelineState extends State<ModifyTimeline> {
                     ),
                     margin: const EdgeInsets.symmetric(vertical: 4.0),
                     child: ListTile(
-                      title: Text(
-                        item.name,
-                        style: GoogleFonts.roboto(),
-                      ),
+                      title: Text(item.name),
                       leading: const Icon(Icons.drag_handle),
                     ),
                   );

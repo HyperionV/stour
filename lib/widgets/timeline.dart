@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:stour/screens/timeline_screen.dart';
 import 'package:intl/intl.dart';
 import 'package:stour/util/const.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Timeline extends StatefulWidget {
   const Timeline({super.key});
@@ -53,11 +52,11 @@ class _TimelineState extends State<Timeline> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Constants.lightgreen,
-        title: Text(
+        title: const Text(
           'THIẾT KẾ LỊCH TRÌNH',
-          style: GoogleFonts.roboto(
+          style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: const Color.fromARGB(255, 35, 52, 10)),
+              color: Color.fromARGB(255, 35, 52, 10)),
         ),
       ),
       body: Padding(
@@ -71,12 +70,12 @@ class _TimelineState extends State<Timeline> {
                 children: [
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'Ngày Khởi Hành',
-                        style: GoogleFonts.roboto(
+                        style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: const Color.fromARGB(255, 35, 52, 10)),
+                            color: Color.fromARGB(255, 35, 52, 10)),
                       ),
                       const SizedBox(height: 8.0),
                       ElevatedButton.icon(
@@ -105,9 +104,6 @@ class _TimelineState extends State<Timeline> {
                         ),
                         label: Text(
                           DateFormat('dd/MM/yyyy').format(_departureDate),
-                          style: GoogleFonts.roboto(
-                              // color: Constants.text,
-                              ),
                         ),
                       ),
                     ],
@@ -116,11 +112,11 @@ class _TimelineState extends State<Timeline> {
                   const Spacer(),
                   Column(
                     children: [
-                      Text('Ngày Trở Lại',
-                          style: GoogleFonts.roboto(
+                      const Text('Ngày Trở Lại',
+                          style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: const Color.fromARGB(255, 35, 52, 10))),
+                              color: Color.fromARGB(255, 35, 52, 10))),
                       const SizedBox(height: 8.0),
                       ElevatedButton.icon(
                         onPressed: () async {
@@ -148,9 +144,6 @@ class _TimelineState extends State<Timeline> {
                         ),
                         label: Text(
                           DateFormat('dd/MM/yyyy').format(_returnDate),
-                          style: GoogleFonts.roboto(
-                              // color: Constants.text,
-                              ),
                         ),
                       ),
                     ],
@@ -158,12 +151,12 @@ class _TimelineState extends State<Timeline> {
                 ],
               ),
               const SizedBox(height: 16.0),
-              Text(
+              const Text(
                 'Ngân Sách (VND)',
-                style: GoogleFonts.roboto(
+                style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 35, 52, 10)),
+                    color: Color.fromARGB(255, 35, 52, 10)),
               ),
               const SizedBox(height: 8.0),
               TextFormField(
@@ -173,11 +166,9 @@ class _TimelineState extends State<Timeline> {
                   FilteringTextInputFormatter.digitsOnly
                 ],
                 onChanged: (value) {
-                  setState(
-                    () {
-                      _maxBudget = double.tryParse(value) ?? 0;
-                    },
-                  );
+                  setState(() {
+                    _maxBudget = double.tryParse(value) ?? 0;
+                  });
                 },
                 decoration: const InputDecoration(
                   hintText: 'Nhập ngân sách tối đa',
@@ -188,12 +179,12 @@ class _TimelineState extends State<Timeline> {
                 ),
               ),
               const SizedBox(height: 16.0),
-              Text(
+              const Text(
                 'Bạn sẽ đi du lịch một mình?',
-                style: GoogleFonts.roboto(
+                style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 35, 52, 10)),
+                    color: Color.fromARGB(255, 35, 52, 10)),
               ),
               const SizedBox(height: 8.0),
               Row(
@@ -207,9 +198,8 @@ class _TimelineState extends State<Timeline> {
                       });
                     },
                   ),
-                  Text('Có',
-                      style: GoogleFonts.roboto(
-                          color: const Color.fromARGB(255, 35, 52, 10))),
+                  const Text('Có',
+                      style: TextStyle(color: Color.fromARGB(255, 35, 52, 10))),
                   const SizedBox(width: 16.0),
                   Radio(
                     value: false,
@@ -220,9 +210,8 @@ class _TimelineState extends State<Timeline> {
                       });
                     },
                   ),
-                  Text('Không',
-                      style: GoogleFonts.roboto(
-                          color: const Color.fromARGB(255, 35, 52, 10))),
+                  const Text('Không',
+                      style: TextStyle(color: Color.fromARGB(255, 35, 52, 10))),
                 ],
               ),
               const SizedBox(height: 16.0),
@@ -230,14 +219,11 @@ class _TimelineState extends State<Timeline> {
                 children: [
                   Column(
                     children: [
-                      Text(
-                        'Giờ Bắt Đầu',
-                        style: GoogleFonts.roboto(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: const Color.fromARGB(255, 35, 52, 10),
-                        ),
-                      ),
+                      const Text('Giờ Bắt Đầu',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 35, 52, 10))),
                       const SizedBox(height: 8.0),
                       ElevatedButton.icon(
                         onPressed: () async {
@@ -246,11 +232,9 @@ class _TimelineState extends State<Timeline> {
                             initialTime: _startTime,
                           );
                           if (picked != null) {
-                            setState(
-                              () {
-                                _startTime = picked;
-                              },
-                            );
+                            setState(() {
+                              _startTime = picked;
+                            });
                           }
                         },
                         style: ElevatedButton.styleFrom(
@@ -272,12 +256,12 @@ class _TimelineState extends State<Timeline> {
                   const Spacer(),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'Giờ Về',
-                        style: GoogleFonts.roboto(
+                        style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: const Color.fromARGB(255, 35, 52, 10)),
+                            color: Color.fromARGB(255, 35, 52, 10)),
                       ),
                       const SizedBox(height: 8.0),
                       ElevatedButton.icon(
@@ -321,11 +305,11 @@ class _TimelineState extends State<Timeline> {
                     ),
                     minimumSize: const Size(150, 50),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Xây dựng Lịch Trình',
-                    style: GoogleFonts.roboto(
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 35, 52, 10)),
+                        color: Color.fromARGB(255, 35, 52, 10)),
                   ),
                 ),
               ),
