@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stour/widgets/coupon_card.dart';
 import 'package:stour/util/coupon.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:stour/util/const.dart';
+import 'package:stour/screens/question_screen.dart';
 
 class CouponScreen extends StatefulWidget {
   const CouponScreen({super.key});
@@ -13,19 +15,49 @@ class _CouponScreenState extends State<CouponScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Lụm Mã giảm giá',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.5,
+        title: Text(
+          'LẤY MÃ GIẢM GIÁ',
+          style: GoogleFonts.roboto(
+            color: const Color.fromARGB(255, 35, 52, 10),
           ),
         ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back,
+              color: Color.fromARGB(255, 35, 52, 10)), // Change the color here
+          onPressed: () {
+            // Handle back button logic
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: Constants.lightgreen,
       ),
       body: ListView.builder(
         itemCount: listCoupon.length,
         itemBuilder: (context, index) {
-          return CouponCard(coupon: listCoupon[index]);
+          return ListTile(
+            hoverColor: const Color.fromARGB(255, 153, 152, 152),
+            title: Text(
+              listCoupon[index].name,
+              style: GoogleFonts.roboto(
+                color: Constants.text,
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            subtitle:
+                Text('Áp dụng cho mọi địa điểm', style: GoogleFonts.roboto()),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return QuestionScreen(
+                        listquestion: listCoupon[index].listQuestion);
+                  },
+                ),
+              );
+            },
+          );
         },
       ),
     );

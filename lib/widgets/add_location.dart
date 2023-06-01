@@ -27,10 +27,10 @@ class _AddLocationState extends State<AddLocation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'THÊM ĐỊA ĐIỂM',
-          style: TextStyle(
-            color: Color.fromARGB(255, 35, 52, 10),
+          style: GoogleFonts.roboto(
+            color: const Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         leading: IconButton(
