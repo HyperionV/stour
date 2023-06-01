@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/material.dart';
 // import 'package:stour/util/reviews.dart';
 import 'package:stour/model/review.dart';
+import 'package:stour/util/const.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CreateReviewScreen extends StatefulWidget {
   final String locationID;
@@ -19,16 +21,31 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('THÊM NHẬN XÉT'),
+        title: Text(
+          'THÊM NHẬN XÉT',
+          style: GoogleFonts.roboto(
+            color: const Color.fromARGB(255, 35, 52, 10),
+          ),
+        ),
+        backgroundColor: Constants.lightgreen,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back,
+              color: Color.fromARGB(255, 35, 52, 10)), // Change the color here
+          onPressed: () {
+            // Handle back button logic
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Đánh giá địa điểm:',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style:
+                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Row(
@@ -41,9 +58,10 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
               ],
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               'Nhận xét:',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style:
+                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             TextField(
@@ -65,7 +83,12 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
                   ),
-                  child: const Text('HỦY'),
+                  child: Text(
+                    'HỦY',
+                    style: GoogleFonts.roboto(
+                      color: Constants.text,
+                    ),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -80,7 +103,14 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     Navigator.pop(context);
                     Navigator.pop(context);
                   },
-                  child: const Text('ĐĂNG BÀI'),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Constants.lightgreen),
+                  ),
+                  child: Text(
+                    'ĐĂNG BÀI',
+                    style: GoogleFonts.roboto(color: Colors.black),
+                  ),
                 ),
               ],
             ),

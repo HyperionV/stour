@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/widgets/search_card.dart';
 import 'package:stour/widgets/trending_place.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:stour/util/const.dart';
 
 class Trending extends StatelessWidget {
   final List<Place> source;
@@ -11,7 +13,12 @@ class Trending extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: const Text("Địa Điểm Văn Hóa"),
+        title: Text(
+          "Địa Điểm Văn Hóa",
+          style: GoogleFonts.roboto(
+            color: Constants.text,
+          ),
+        ),
         centerTitle: true,
       ),
       body: Padding(

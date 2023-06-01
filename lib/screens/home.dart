@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:stour/screens/trending.dart';
 import 'package:stour/util/const.dart';
@@ -28,7 +29,7 @@ class _GoogleMapsControllerState extends State<GoogleMapsController> {
   @override
   void initState() {
     super.initState();
-    _determinePosition().then(
+    determinePosition().then(
       (position) {
         getUserAddress(position);
         setState(
@@ -48,22 +49,7 @@ class _GoogleMapsControllerState extends State<GoogleMapsController> {
     );
   }
 
-  Future<List<String>> getAddressInfoFromPosition(Position position) async {
-    List<Placemark> placemarks =
-        await placemarkFromCoordinates(position.latitude, position.longitude);
-    // print(placemarks);
-    Placemark placemark = placemarks.first;
-    String country = placemark.country ?? "";
-    String district = (placemark.subAdministrativeArea) ?? "";
-    String city = placemark.administrativeArea ?? "";
-    return [district, city, country];
-  }
-
-  void getUserAddress(Position src) async {
-    currentLocationDetail = await getAddressInfoFromPosition(src);
-  }
-
-  Future<Position> _determinePosition() async {
+  Future<Position> determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
@@ -82,6 +68,20 @@ class _GoogleMapsControllerState extends State<GoogleMapsController> {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
     return await Geolocator.getCurrentPosition();
+  }
+
+  Future<List<String>> getAddressInfoFromPosition(Position position) async {
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+    Placemark placemark = placemarks.first;
+    String country = placemark.country ?? "";
+    String district = (placemark.subAdministrativeArea) ?? "";
+    String city = placemark.administrativeArea ?? "";
+    return [district, city, country];
+  }
+
+  void getUserAddress(Position src) async {
+    currentLocationDetail = await getAddressInfoFromPosition(src);
   }
 
   void _onMapCreated(GoogleMapController controller) {
@@ -133,9 +133,9 @@ class _HomeState extends State<Home> {
             child: ListView(
               children: <Widget>[
                 const SizedBox(height: 10),
-                const Text(
+                Text(
                   'Vị Trí Hiện Tại',
-                  style: TextStyle(
+                  style: GoogleFonts.roboto(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w800,
                   ),
@@ -153,6 +153,7 @@ class _HomeState extends State<Home> {
                 buildPlaceRow('Đặc Sản', food, context),
                 const SizedBox(height: 3.0),
                 buildPlaceList(context, food),
+                const SizedBox(height: 30),
                 const SizedBox(height: 30),
               ],
             ),
@@ -191,7 +192,7 @@ Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
     children: <Widget>[
       Text(
         place,
-        style: const TextStyle(
+        style: GoogleFonts.roboto(
           fontSize: 20.0,
           fontWeight: FontWeight.w800,
         ),
@@ -199,7 +200,7 @@ Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
       TextButton(
         child: Text(
           "Xem tất cả (${source.length})",
-          style: TextStyle(
+          style: GoogleFonts.roboto(
             color: Theme.of(context).colorScheme.secondary,
           ),
         ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:stour/model/review.dart';
+import 'package:stour/util/const.dart';
 import 'package:stour/util/reviews.dart';
 // import 'package:stour/widgets/review_card.dart';
 import 'package:stour/screens/create_review_screen.dart';
 import 'package:stour/model/ui_reviews.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ReviewScreen extends StatefulWidget {
   final String locationID;
@@ -13,20 +15,26 @@ class ReviewScreen extends StatefulWidget {
 }
 
 class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
-  // Access the reviews list using widget.reviews
   ReviewsServices rs = ReviewsServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'ĐÁNH GIÁ',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.5,
+          style: GoogleFonts.roboto(
+            color: const Color.fromARGB(255, 35, 52, 10),
           ),
         ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back,
+              color: Color.fromARGB(255, 35, 52, 10)), // Change the color here
+          onPressed: () {
+            // Handle back button logic
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: Constants.lightgreen,
       ),
       body:
           Center(child: GetUIAllReviewsByItemID(locationID: widget.locationID)),
@@ -45,8 +53,9 @@ class _ReviewScreenState<Reviews> extends State<ReviewScreen> {
             });
           }
         },
+        backgroundColor: Constants.lightgreen,
         tooltip: "THÊM ĐÁNH GIÁ",
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add, color: Colors.black),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

@@ -4,6 +4,8 @@ import 'package:stour/widgets/profile_option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:stour/screens/profile_post.dart';
+import 'package:stour/screens/saved_tour.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -14,7 +16,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  int _selectedEvent = 0;
+  final int _selectedEvent = 0;
 
   final List<Widget> _pages = [const PostScreen()]; //GalleryScreen()
 
@@ -48,7 +50,30 @@ class _ProfileState extends State<Profile> {
         children: [
           Expanded(
             child: Container(
-              width: size.width / 1.8,
+              width: size.width / 3.6,
+              padding: const EdgeInsets.all(8),
+              child: MaterialButton(
+                elevation: 0.5,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                    side: BorderSide(color: Constants.darkPrimary)),
+                color:
+                    _selectedEvent == 1 ? Constants.lightPrimary : Colors.white,
+                onPressed: () {},
+                child: Text(
+                  "THÊM BÀI VIẾT",
+                  style: GoogleFonts.roboto(
+                    color: _selectedEvent == 1
+                        ? Constants.lightPrimary
+                        : const Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              width: size.width / 3.6,
               padding: const EdgeInsets.all(8),
               child: MaterialButton(
                 elevation: 0.5,
@@ -58,18 +83,23 @@ class _ProfileState extends State<Profile> {
                 color:
                     _selectedEvent == 1 ? Constants.lightPrimary : Colors.white,
                 onPressed: () {
-                  setState(
-                    () {
-                      _selectedEvent = 0;
-                    },
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const SavedTour();
+                      },
+                    ),
                   );
                 },
-                child: Text("THÊM BÀI VIẾT",
-                    style: TextStyle(
-                      color: _selectedEvent == 1
-                          ? Constants.lightPrimary
-                          : const Color.fromARGB(255, 0, 0, 0),
-                    )),
+                child: Text(
+                  "LỊCH TRÌNH ĐÃ LƯU",
+                  style: GoogleFonts.roboto(
+                    color: _selectedEvent == 1
+                        ? Constants.lightPrimary
+                        : const Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ),
               ),
             ),
           ),
@@ -83,16 +113,16 @@ Container profileInfo() {
   return Container(
     padding: EdgeInsets.zero,
     child: ListTile(
-      title: const Row(
+      title: Row(
         children: [
           Text(
             "Hato",
-            style: TextStyle(
+            style: GoogleFonts.roboto(
                 color: Colors.black87,
                 fontWeight: FontWeight.bold,
                 fontSize: 22),
           ),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
         ],
@@ -107,9 +137,9 @@ Container profileInfo() {
                   Icons.home,
                   color: Constants.darkPrimary,
                 ),
-                const Text(
+                Text(
                   "Can Tho",
-                  style: TextStyle(fontSize: 12),
+                  style: GoogleFonts.roboto(fontSize: 12),
                 ),
               ],
             ),
@@ -122,9 +152,9 @@ Container profileInfo() {
                   Icons.person,
                   color: Constants.darkPrimary,
                 ),
-                const Text(
+                Text(
                   "Bio",
-                  style: TextStyle(fontSize: 12),
+                  style: GoogleFonts.roboto(fontSize: 12),
                 ),
               ],
             ),

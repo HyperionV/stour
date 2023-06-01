@@ -48,7 +48,11 @@ android {
         applicationId "com.example.stour"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+<<<<<<< HEAD
+        minSdkVersion 21
+=======
         minSdkVersion 20
+>>>>>>> 92706188760bccdef4c8d1c6de497b487abf21f1
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

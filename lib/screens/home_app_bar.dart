@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:stour/util/const.dart";
 import "package:stour/widgets/search_card.dart";
+import 'package:stour/screens/coupon_screen.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -17,7 +18,16 @@ class HomeAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const CouponScreen();
+                  },
+                ),
+              );
+            },
             child: Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -28,7 +38,7 @@ class HomeAppBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: const Icon(
-                Icons.sort_rounded,
+                Icons.discount_outlined,
                 color: Color.fromARGB(255, 35, 52, 10),
                 size: 24,
               ),

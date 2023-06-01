@@ -48,6 +48,10 @@ dependencies:
   geolocator: ^9.0.2
   simple_animations: ^4.2.0
   geocoding: ^2.1.0
+  timeline_tile: ^2.0.0
+  flutter_rounded_date_picker: ^3.0.3
+  drag_and_drop_lists: ^0.3.3
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:
@@ -71,8 +75,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets\img\BaoTangMyThuat\Bao-tang-My-thuat-TP-HCM-ivivu.jpg
+  # assets:
+    # - assets\img\BaoTangMyThuat\Bao-tang-My-thuat-TP-HCM-ivivu.jpg
   #   - assets\ky-tuc-xa-truong-dai-hoc-quoc-gia-tphcm.jpg
   #   - assets\10-8.jpg
   #   - assets\cantho6_umpf.jpg
@@ -94,7 +98,7 @@ flutter:
   #   - assets\R.png
   #   - assets\images\star.png
   #   - assets\images\pin.png
-    - assets\splash_screen.png
+    # - assets\splash_screen.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https:\/flutter.dev/assets-and-images/#resolution-aware
