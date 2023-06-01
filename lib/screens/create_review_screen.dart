@@ -43,7 +43,10 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
           children: [
             const Text(
               'Đánh giá địa điểm:',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Color.fromARGB(255, 35, 52, 10),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Row(
@@ -58,7 +61,10 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
             const SizedBox(height: 16),
             const Text(
               'Nhận xét:',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Color.fromARGB(255, 35, 52, 10),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             TextField(
@@ -78,9 +84,15 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey,
+                    backgroundColor: Constants.lightgreen,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
                   ),
-                  child: const Text('HỦY'),
+                  child: const Text(
+                    'HỦY',
+                    style: TextStyle(color: Color.fromARGB(255, 35, 52, 10)),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -95,9 +107,11 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     Navigator.pop(context);
                     Navigator.pop(context);
                   },
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Constants.lightgreen),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Constants.lightgreen,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
                   ),
                   child: const Text(
                     'ĐĂNG BÀI',

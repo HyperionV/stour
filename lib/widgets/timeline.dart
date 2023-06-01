@@ -174,7 +174,7 @@ class _TimelineState extends State<Timeline> {
                   hintText: 'Nhập ngân sách tối đa',
                   prefixIcon: Icon(
                     Icons.account_balance_wallet_outlined,
-                    color: Color(0xFFfff000),
+                    color: Color.fromARGB(255, 35, 52, 10),
                   ),
                 ),
               ),
@@ -191,6 +191,7 @@ class _TimelineState extends State<Timeline> {
                 children: [
                   Radio(
                     value: true,
+                    activeColor: const Color(0xFFfff000),
                     groupValue: _isTravelingAlone,
                     onChanged: (value) {
                       setState(() {
@@ -199,10 +200,13 @@ class _TimelineState extends State<Timeline> {
                     },
                   ),
                   const Text('Có',
-                      style: TextStyle(color: Color.fromARGB(255, 35, 52, 10))),
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 35, 52, 10),
+                          fontWeight: FontWeight.w800)),
                   const SizedBox(width: 16.0),
                   Radio(
                     value: false,
+                    activeColor: const Color(0xFFfff000),
                     groupValue: _isTravelingAlone,
                     onChanged: (value) {
                       setState(() {
@@ -211,7 +215,10 @@ class _TimelineState extends State<Timeline> {
                     },
                   ),
                   const Text('Không',
-                      style: TextStyle(color: Color.fromARGB(255, 35, 52, 10))),
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 35, 52, 10),
+                        fontWeight: FontWeight.w800,
+                      )),
                 ],
               ),
               const SizedBox(height: 16.0),
@@ -299,7 +306,7 @@ class _TimelineState extends State<Timeline> {
                 child: ElevatedButton(
                   onPressed: _generateSchedule,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Constants.ratingBG,
+                    backgroundColor: const Color.fromARGB(255, 183, 189, 240),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),

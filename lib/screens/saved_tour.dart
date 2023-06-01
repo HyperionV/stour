@@ -28,14 +28,22 @@ class _SavedTourState extends State<SavedTour> {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Hủy'),
+              child: const Text(
+                'Hủy',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 35, 52, 10),
+                ),
+              ),
               onPressed: () {
                 _tourNameController.clear();
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('Lưu'),
+              child: const Text('Lưu',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 35, 52, 10),
+                  )),
               onPressed: () {
                 setState(
                   () {
@@ -60,7 +68,12 @@ class _SavedTourState extends State<SavedTour> {
             children: [
               ListTile(
                 leading: const Icon(Icons.edit),
-                title: const Text('Đổi tên'),
+                title: const Text(
+                  'Đổi tên',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 35, 52, 10),
+                  ),
+                ),
                 onTap: () {
                   Navigator.of(ctx).pop();
                   _showRenameDialog(context, index);
@@ -68,7 +81,12 @@ class _SavedTourState extends State<SavedTour> {
               ),
               ListTile(
                 leading: const Icon(Icons.delete),
-                title: const Text('Xóa lịch trình'),
+                title: const Text(
+                  'Xóa lịch trình',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 35, 52, 10),
+                  ),
+                ),
                 onTap: () {
                   Navigator.of(ctx).pop();
                   setState(() {

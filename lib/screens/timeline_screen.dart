@@ -136,7 +136,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 Text(
                   'Rất Tiếc!',
                   style: GoogleFonts.roboto(
-                      fontSize: 30, fontWeight: FontWeight.w700),
+                      color: const Color.fromARGB(255, 35, 52, 10),
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 30),
                 Text(
@@ -201,18 +203,22 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                           Text(
                             'Tổng Quan',
                             style: GoogleFonts.roboto(
-                                fontSize: 22, fontWeight: FontWeight.bold),
+                                color: const Color.fromARGB(255, 35, 52, 10),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 5),
                           Text(
                             'Số ngày: ${res.length}',
                             style: GoogleFonts.roboto(
                               fontSize: 14,
+                              color: const Color.fromARGB(255, 35, 52, 10),
                             ),
                           ),
                           Text(
                             'Số tiền ước tính: ${totalMoney.toStringAsFixed(0)}₫',
                             style: GoogleFonts.roboto(
+                              color: const Color.fromARGB(255, 35, 52, 10),
                               fontSize: 14,
                             ),
                           )
@@ -227,8 +233,12 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title:
-                                      const Text('Nhập tên cho lịch trình này'),
+                                  title: const Text(
+                                    'Nhập tên cho lịch trình này',
+                                    style: TextStyle(
+                                      color: Color.fromARGB(255, 35, 52, 10),
+                                    ),
+                                  ),
                                   content: TextField(
                                     controller: tourNameController,
                                     decoration: const InputDecoration(
@@ -236,14 +246,26 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                                   ),
                                   actions: <Widget>[
                                     TextButton(
-                                      child: const Text('Hủy'),
+                                      child: const Text(
+                                        'Hủy',
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 35, 52, 10),
+                                        ),
+                                      ),
                                       onPressed: () {
                                         tourNameController.clear();
                                         Navigator.of(context).pop();
                                       },
                                     ),
                                     TextButton(
-                                      child: const Text('Lưu'),
+                                      child: const Text(
+                                        'Lưu',
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 35, 52, 10),
+                                        ),
+                                      ),
                                       onPressed: () {
                                         setState(() {
                                           savedTour.add(
@@ -265,6 +287,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                           },
                           child: const Text(
                             'Lưu lịch trình này',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 35, 52, 10),
+                            ),
                             textAlign: TextAlign.center,
                           ),
                         ),

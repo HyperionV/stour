@@ -6,9 +6,9 @@ import 'package:stour/util/const.dart';
 import 'package:stour/screens/profile.dart';
 
 List icons = [
-  Icons.timeline,
-  Icons.home,
-  Icons.person,
+  Icons.timeline_outlined,
+  Icons.home_outlined,
+  Icons.person_outline,
 ];
 
 List<Widget> pages = [
@@ -76,7 +76,8 @@ class HomeBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
-      backgroundColor: Constants.darkgreen,
+      backgroundColor: Constants.ratingBG,
+      buttonBackgroundColor: Constants.darkgreen,
       index: 1,
       items: [
         Icon(icons[0], size: 30, color: Constants.lightgreen),

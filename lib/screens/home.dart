@@ -135,6 +135,7 @@ class _HomeState extends State<Home> {
                 const Text(
                   'Vị Trí Hiện Tại',
                   style: TextStyle(
+                    color: Color.fromARGB(255, 35, 52, 10),
                     fontSize: 20.0,
                     fontWeight: FontWeight.w800,
                   ),
@@ -200,7 +201,7 @@ Widget buildPlaceRow(String place, List<Place> source, BuildContext context) {
         child: Text(
           "Xem tất cả (${source.length})",
           style: TextStyle(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Constants.text,
           ),
         ),
         onPressed: () {

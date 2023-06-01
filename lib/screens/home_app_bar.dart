@@ -33,7 +33,7 @@ class HomeAppBar extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Constants.lightgreen,
                 boxShadow: [
-                  BoxShadow(color: Constants.darkpp, blurRadius: 10),
+                  BoxShadow(color: Constants.ratingBG, blurRadius: 10),
                 ],
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -55,7 +55,7 @@ class HomeAppBar extends StatelessWidget {
                 color: Constants.lightgreen,
                 boxShadow: [
                   BoxShadow(
-                    color: Constants.darkpp,
+                    color: Constants.ratingBG,
                     blurRadius: 10,
                   ),
                 ],

@@ -11,7 +11,13 @@ class Trending extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: const Text("Địa Điểm Văn Hóa"),
+        backgroundColor: const Color(0xFFc3ff68),
+        title: const Text(
+          "Địa Điểm Văn Hóa",
+          style: TextStyle(
+            color: Color.fromARGB(255, 35, 52, 10),
+          ),
+        ),
         centerTitle: true,
       ),
       body: Padding(

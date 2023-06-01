@@ -35,7 +35,7 @@ class _CouponScreenState extends State<CouponScreen> {
         itemCount: listCoupon.length,
         itemBuilder: (context, index) {
           return ListTile(
-            hoverColor: const Color.fromARGB(255, 153, 152, 152),
+            hoverColor: Constants.lightpp,
             title: Text(
               listCoupon[index].name,
               style: GoogleFonts.roboto(

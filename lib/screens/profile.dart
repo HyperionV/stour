@@ -113,7 +113,7 @@ Container profileInfo() {
           Text(
             "Hato",
             style: TextStyle(
-                color: Colors.black87,
+                color: Color.fromARGB(255, 35, 52, 10),
                 fontWeight: FontWeight.bold,
                 fontSize: 22),
           ),
@@ -126,30 +126,32 @@ Container profileInfo() {
         children: [
           Container(
             alignment: Alignment.centerLeft,
-            child: Row(
+            child: const Row(
               children: [
                 Icon(
                   Icons.home,
-                  color: Constants.darkPrimary,
+                  color: Color.fromARGB(255, 35, 52, 10),
                 ),
-                const Text(
+                Text(
                   "Can Tho",
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 35, 52, 10), fontSize: 12),
                 ),
               ],
             ),
           ),
           Container(
             alignment: Alignment.centerLeft,
-            child: Row(
+            child: const Row(
               children: [
                 Icon(
                   Icons.person,
-                  color: Constants.darkPrimary,
+                  color: Color.fromARGB(255, 35, 52, 10),
                 ),
-                const Text(
+                Text(
                   "Bio",
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 35, 52, 10), fontSize: 12),
                 ),
               ],
             ),
