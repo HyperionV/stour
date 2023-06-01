@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // import 'package:stour/util/reviews.dart';
 import 'package:stour/model/review.dart';
 import 'package:stour/util/const.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CreateReviewScreen extends StatefulWidget {
   final String locationID;
@@ -21,10 +20,10 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'THÊM NHẬN XÉT',
-          style: GoogleFonts.roboto(
-            color: const Color.fromARGB(255, 35, 52, 10),
+          style: TextStyle(
+            color: Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         backgroundColor: Constants.lightgreen,
@@ -42,10 +41,9 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Đánh giá địa điểm:',
-              style:
-                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Row(
@@ -58,10 +56,9 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
               ],
             ),
             const SizedBox(height: 16),
-            Text(
+            const Text(
               'Nhận xét:',
-              style:
-                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             TextField(
@@ -83,12 +80,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
                   ),
-                  child: Text(
-                    'HỦY',
-                    style: GoogleFonts.roboto(
-                      color: Constants.text,
-                    ),
-                  ),
+                  child: const Text('HỦY'),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -107,9 +99,9 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Constants.lightgreen),
                   ),
-                  child: Text(
+                  child: const Text(
                     'ĐĂNG BÀI',
-                    style: GoogleFonts.roboto(color: Colors.black),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
               ],

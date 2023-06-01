@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stour/util/const.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -33,29 +32,29 @@ class _PostScreenState extends State<PostScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
+                  const Row(
                     children: [
-                      const CircleAvatar(
+                      CircleAvatar(
                         backgroundColor: Colors.transparent,
                         backgroundImage: NetworkImage(
                             "https://i.pinimg.com/236x/0a/b5/9e/0ab59e7c8e7a1213ff1ee891e98e06ae.jpg?nii=t"),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Hato",
-                            style: GoogleFonts.roboto(
-                              color: const Color.fromARGB(255, 35, 52, 10),
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 35, 52, 10),
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
                           ),
                           Text(
                             "2 tháng trước",
-                            style: GoogleFonts.roboto(
-                              color: const Color.fromARGB(173, 35, 52, 10),
+                            style: TextStyle(
+                              color: Color.fromARGB(173, 35, 52, 10),
                             ),
                           ),
                         ],
@@ -65,26 +64,18 @@ class _PostScreenState extends State<PostScreen> {
                   PopupMenuButton(
                     itemBuilder: (BuildContext context) {
                       return [
-                        PopupMenuItem(
+                        const PopupMenuItem(
                           value: "delete",
                           child: Text(
                             "Xóa Bài Viết",
-                            style: GoogleFonts.roboto(
-                              color: Constants.text,
-                            ),
-                            selectionColor:
-                                const Color.fromARGB(255, 35, 52, 10),
+                            selectionColor: Color.fromARGB(255, 35, 52, 10),
                           ),
                         ),
-                        PopupMenuItem(
+                        const PopupMenuItem(
                           value: "save",
                           child: Text(
                             "Lưu Bài Viết",
-                            style: GoogleFonts.roboto(
-                              color: Constants.text,
-                            ),
-                            selectionColor:
-                                const Color.fromARGB(255, 35, 52, 10),
+                            selectionColor: Color.fromARGB(255, 35, 52, 10),
                           ),
                         ),
                       ];
@@ -99,10 +90,10 @@ class _PostScreenState extends State<PostScreen> {
             ),
             Container(
               padding: const EdgeInsets.all(10),
-              child: Text(
+              child: const Text(
                 "Bảo tàng có kiến trúc rất độc đáo, nó khiến mình cảm thấy rất bất ngờ về sự hòa hợp giữa màu sắc phương đông và phương tây. Mình đặt biệt rất ấn tượng và thích cầu thang xoắn ốc, những tác phẩm được trưng bài cũng rất nghệ thuật và đậm chất văn hóa từng thời kỳ nữa. Tui chụp được quá trời hình ở đây luôn á :3",
-                style: GoogleFonts.roboto(
-                    fontSize: 18, color: const Color.fromARGB(255, 35, 52, 10)),
+                style: TextStyle(
+                    fontSize: 18, color: Color.fromARGB(255, 35, 52, 10)),
               ),
             ),
             SizedBox(
@@ -127,17 +118,12 @@ class _PostScreenState extends State<PostScreen> {
                 children: [
                   InkWell(
                     onTap: () {},
-                    child: Row(
+                    child: const Row(
                       children: [
-                        const Icon(Icons.favorite_outline,
+                        Icon(Icons.favorite_outline,
                             color: Color.fromARGB(255, 255, 12, 109)),
-                        const SizedBox(width: 5),
-                        Text(
-                          "123",
-                          style: GoogleFonts.roboto(
-                            color: Constants.text,
-                          ),
-                        ),
+                        SizedBox(width: 5),
+                        Text("123"),
                       ],
                     ),
                   ),
@@ -148,12 +134,7 @@ class _PostScreenState extends State<PostScreen> {
                         Icon(Icons.comment_outlined,
                             color: Constants.darkgreen),
                         const SizedBox(width: 5),
-                        Text(
-                          "123",
-                          style: GoogleFonts.roboto(
-                            color: Constants.text,
-                          ),
-                        ),
+                        const Text("123"),
                       ],
                     ),
                   ),
@@ -163,12 +144,7 @@ class _PostScreenState extends State<PostScreen> {
                       children: [
                         Icon(Icons.share_outlined, color: Constants.darkpp),
                         const SizedBox(width: 5),
-                        Text(
-                          "1",
-                          style: GoogleFonts.roboto(
-                            color: Constants.text,
-                          ),
-                        ),
+                        const Text("1"),
                       ],
                     ),
                   ),

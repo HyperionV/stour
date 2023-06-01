@@ -33,8 +33,8 @@ class _ViewSavedTourState extends State<ViewSavedTour> {
         backgroundColor: Constants.lightgreen,
         title: Text(
           widget.savedTour.name,
-          style: GoogleFonts.roboto(
-            color: const Color.fromARGB(255, 35, 52, 10),
+          style: const TextStyle(
+            color: Color.fromARGB(255, 35, 52, 10),
           ),
         ),
         leading: IconButton(

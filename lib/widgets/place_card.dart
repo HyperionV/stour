@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:stour/util/const.dart';
 import 'package:stour/util/places.dart';
 import 'package:stour/screens/details.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PlaceCard extends StatefulWidget {
   final Place place;
@@ -76,7 +75,7 @@ class _PlaceCardState extends State<PlaceCard> {
                               ),
                               Text(
                                 " ${widget.place.rating} ",
-                                style: GoogleFonts.roboto(
+                                style: const TextStyle(
                                   fontSize: 12.0,
                                 ),
                               ),
@@ -100,7 +99,7 @@ class _PlaceCardState extends State<PlaceCard> {
                             ),
                             Text(
                               " ${widget.place.openTime.toStringAsFixed(0)}-${widget.place.closeTime.toStringAsFixed(0)}",
-                              style: GoogleFonts.roboto(
+                              style: const TextStyle(
                                 fontSize: 12.0,
                                 color: Colors.green,
                                 fontWeight: FontWeight.bold,
@@ -119,7 +118,7 @@ class _PlaceCardState extends State<PlaceCard> {
                     width: MediaQuery.of(context).size.width,
                     child: Text(
                       widget.place.name,
-                      style: GoogleFonts.roboto(
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w800,
                       ),
@@ -134,7 +133,7 @@ class _PlaceCardState extends State<PlaceCard> {
                     width: MediaQuery.of(context).size.width,
                     child: Text(
                       widget.place.address,
-                      style: GoogleFonts.roboto(
+                      style: const TextStyle(
                         fontSize: 12.0,
                         fontWeight: FontWeight.w300,
                       ),
