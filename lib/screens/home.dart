@@ -22,7 +22,7 @@ class GoogleMapsController extends StatefulWidget {
 class _GoogleMapsControllerState extends State<GoogleMapsController> {
   late GoogleMapController mapController;
 
-  LatLng _center = const LatLng(10.045162, 105.746857);
+  LatLng _center = const LatLng(10.870051045334415, 106.80301118465547);
   final Set<Marker> _markers = {};
 
   @override
